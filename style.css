@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box !important;
+}
+
+html {
+    font-family: monospace;
+    font-size: 14px;
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(0, 200, 0);
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+h3 {
+    color: white;
+}
+
+body {
+    background-color: black;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+.screen {
+    background-color: rgba(0, 60, 0, .3);
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    margin-top: 25px;
+    border: 2px solid rgb(0, 200, 0);
+    border-radius: 3px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.content {
+    padding: 50px;
+}
+
+button {
+    background-color: black;
+    border: 1px solid rgb(0, 200, 0);
+    padding: 5px 20px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(0, 50, 0);
+}
+button[disabled] {
+    opacity: .3;
+}
+button[disabled]:hover {
+    background-color: black;
+    cursor: default;
+}
+
+.drugs {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 100px;
+    width: 200px;
+    border-right: 1px solid rgb(0, 200, 0);
+    padding: 5px;
+    text-align: initial;
+    background-color: black;
+    overflow-y: scroll;
+}
+
+.inverse-img {
+    transform: rotateY(180deg);
+}
+
+.info {
+    position: absolute;
+    left: 0px;
+    top: 497px;
+    bottom: 0px;
+    width: 200px;
+    border-right: 1px solid rgb(0, 200, 0);
+    border-top: 1px solid rgb(0, 200, 0);
+    text-align: initial;
+    background-color: black;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.drug {
+    padding: 5px;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 1px;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-bottom: 4px;
+}
+
+select {
+    margin-bottom: 5px;
+    width: 100%;
+    background-color: black;
+    border: 1px solid rgb(0, 200, 0);
+    padding: 5px 5px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.drug p {
+    margin: 0px;
+}
+
+.drug img {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 10px;
+}
+
+.drug:hover {
+    background-color: rgb(0, 50, 0);
+    cursor: pointer;
+}
+
+.game-content {
+    padding: 10px;
+    padding-left: 210px;
+    width: 100%;
+    height: 100%;
+    text-align: initial;
+}
+
+.progress-bar {
+    border: 1px solid rgb(0, 50, 0);
+    width: 100%;
+    height: 20px;
+    background-color: black;
+}
+
+.progress {
+    background-color: blueviolet;
+    height: 20px;
+}
+
+table {
+    background-color: black;
+    width: 100%;
+    padding: 5px;
+}
+
+.equipament {
+    width: 70px;
+    height: 90px;
+    border: 1px solid rgb(100, 100, 100);
+    margin-right: 5px;
+}
+.equipament:hover {
+    border-color: white;
+    cursor: pointer;
+}
+
+.points {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.actions {
+    width: 100%;
+    border-bottom: 1px solid rgb(0, 200, 0);
+    padding: 5px;
+}
+
+.simulation-img {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 796px;
+    height: 556px;
+}
+
+.simulation-anim {
+    animation: drugAnimation 2s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.simulation-anim2 {
+    animation: drugAnimation 5s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+.hallucinogic {
+    animation: alternateOpacity 13s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 32s;
+}
+.hallucinogic2 {
+    animation: alternateOpacityLight 8s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 10s;
+}
+@keyframes alternateOpacity {
+    from { opacity: 0 }
+    to { opacity: .7 }
+}
+@keyframes alternateOpacityLight {
+    from { opacity: 0 }
+    to { opacity: .6 }
+}
+@keyframes drunk1 {
+    from { margin-left: -2px }
+    to { margin-left: 2px }
+}
+@keyframes drunk2 {
+    from { margin-left: -4px }
+    to { margin-left: 4px }
+}
+@keyframes drunk3 {
+    from { margin-left: -8px }
+    to { margin-left: 8px }
+}
+@keyframes drunk4 {
+    from { margin-left: -16px }
+    to { margin-left: 16px }
+}
+@keyframes drunk5 {
+    from { margin-left: -100px }
+    to { margin-left: 100px }
+}
+@keyframes animm2 {
+    from {
+        filter: hue-rotate(0deg) contrast(100%) saturate(200)  contrast(100%)
+    }
+    to {
+        filter: hue-rotate(360deg) contrast(100%) saturate(200)  contrast(100%)
+    }
+}
+
+.l0 { color: gray }
+.l1 { color: cyan }
+.l2 { color: orange }
+.l3 { color: yellow }
+.l4 { color: brown }
+.l5 { color: red }
+
+.l0b { background-color: gray }
+.l1b { background-color: cyan }
+.l2b { background-color: orange }
+.l3b { background-color: yellow }
+.l4b { background-color: brown }
+.l5b { background-color: red }
+.l6b { background-color: rgb(0, 255, 0) }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+background: rgb(20, 20, 20); 
+}
+::-webkit-scrollbar-thumb {
+background: rgb(0, 50, 0); 
+}
+::-webkit-scrollbar-thumb:hover {
+background: rgb(0, 75, 0); 
+}

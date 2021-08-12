@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Drugmix game is a game to use your creativity to mix drugs and create new ones!">
+    <meta name="keywords" content="Drug, mix, game, simulation, web">
+    <meta name="author" content="vinibiavatti1">
+    <title>Drugmix Game</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./jquery.js"></script>
+    <style id="drugAnimation"></style>
+</head>
+<body>
+    <div class="screen">
+
+        <!-- Intro -->
+        <div id="intro" class="content">
+            <h1>Drugmix</h1>
+            <hr>
+            <p>A Chemical and Philosophical Game - (v0.0.1) Alpha</p>
+            <br>
+            <br>
+            <h3>Instructions</h3>
+            <p>1. Select the drugs you want to mix;</p>
+            <p>2. Try the new drug you created;</p>
+            <p>3. Do not kill yourself!</p>
+            <br>
+            <p style="color: red"><b>Do not use drugs!</b></p>
+            <p>The purpose of this game is to provide information and entertainment content. The game does not encourage the use of drugs in any way. Do not use drugs!</p>
+            <br>
+            Are you of legal age?
+            <select id="age" onchange="onChangeAgeSelect()" style="margin: 10px 0px;">
+                <option value="0">No, I'm underage in my country</option>
+                <option value="1">Yes, I'm of legal age in my country</option>
+            </select>
+            <button id="start-btn" onclick="onClickStartBtn()">Start!</button> <!-- TODO -->
+        </div>
+
+        <!-- Game -->
+        <div id="game" style="display: none;">
+            <div id="drugs" class="drugs">
+                <div class="drug" data-info="Water helps you to avoid get addicted to some drugs">
+                    <img src="./images/water.png" width="50" height="50">
+                    <p>Water</p>
+                </div>
+                <div class="drug" data-info="Cannabis sativa is a more hallucinogic cannabis">
+                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
+                    <p>Cannabis Sativa</p>
+                </div>
+                <div class="drug">
+                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
+                    <p>Cannabis Indica</p>
+                </div>
+                <div class="drug">
+                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
+                    <p>Cannabis Indica</p>
+                </div>
+                <div class="drug">
+                    <img src="./images/lsd.png" width="50" height="50">
+                    <p>LSD</p>
+                </div>
+                <div class="drug">
+                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
+                    <p>Cannabis Indica</p>
+                </div>
+                <div class="drug">
+                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
+                    <p>Cannabis Indica</p>
+                </div>
+                <div class="drug">
+                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
+                    <p>Cannabis Indica</p>
+                </div>
+                <div class="drug">
+                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
+                    <p>Cannabis Indica</p>
+                </div>
+                <div class="drug">
+                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
+                    <p>Cannabis Indica</p>
+                </div>
+                <div class="drug">
+                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
+                    <p>Cannabis Indica</p>
+                </div>
+            </div>
+            <div id="info" class="info">
+                ...
+            </div>
+            <div id="points" class="points">
+                0/500 points
+            </div>
+            <div class="game-content">
+                <h1 style="margin-top: 0px;">Drugmix</h1>
+                <h3>Amount (<span id="amount-val">0</span>/20)</h3>
+                <div class="progress-bar">
+                    <div id="amount-progress" class="progress" style="width: 0%;"></div>
+                </div>
+                <h3>Stats</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th align="left">Property</th>
+                            <th align="left">Value (0/5)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Stimulant</td>
+                            <td><span id="stimulant-level">0</span> <span id="stimulant-name" class="">(Threshold)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sedative</td>
+                            <td><span id="sedative-level">0</span> <span id="sedative-name" class="">(Light)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Hallucinogic</td>
+                            <td><span id="hallucinogic-level">0</span> <span id="hallucinogic-name" class="">(Strong)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Delirant</td>
+                            <td><span id="delirant-level">0</span> <span id="delirant-name" class="">(Heavy)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dissociative</td>
+                            <td><span id="dissociative-level">0</span> <span id="dissociative-name" class="">(None)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Depressant</td>
+                            <td><span id="depressant-level">0</span> <span id="depressant-name" class="">(None)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Drug Power <span id="drug-power-name">(None)</span></h4>
+                <div class="progress-bar">
+                    <div id="power-progress" class="progress l6b" style="width: 0%;"></div>
+                </div>
+                <h4>Addicted level</h4>
+                <div class="progress-bar">
+                    <div class="progress l5b" style="width: 30%;"></div>
+                </div>
+                <h4>Place</h4>
+                <select id="landscape">
+                    <option value="Lake (Açores - PT)">Lake (Açores - PT)</option>
+                </select>
+                <h4>Equipament (Choose to start!)</h4>
+                <table class="" style="padding: 2px;">
+                    <tbody>
+                        <tr>
+                            <td id="equipament-list"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Simulation -->
+        <div id="simulation" class="simulation" style="display: none;">
+            <div class="actions" style="text-align: left;">
+                <button onclick="changeScreen('game'); reset()">&#60; Back</button>
+                <button onclick="onClickWalk()">Walk</button>
+            </div>
+            <div class="">
+                <img id="simulation-img" class="simulation-img" src="./images/forest_1.png">
+                <img id="simulation-img-2" style="opacity: .5; " class="simulation-anim simulation-img" src="./images/forest_1.png">
+                <img id="simulation-img-3" style="opacity: .5; " class="simulation-anim2 simulation-img" src="./images/forest_1.png">
+                <img id="deep-dream" style="opacity: 0.0; display: none;" class="hallucinogic simulation-img" src="./images/deep.jpg">
+                <img id="mirror-effect" style="opacity: 0.0; display: none;" class="hallucinogic2 inverse-img simulation-img" src="./images/forest_1.png">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./game_data.js"></script>
+<script src="./game.js"></script>
+</html>
