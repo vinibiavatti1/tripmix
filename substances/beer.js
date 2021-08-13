@@ -2,7 +2,7 @@ substances['Beer'] = {
     img: 'beer.png',
     info: 'Beer is one of the oldest and most widely consumed alcoholic drinks in the world.',
     addictionLevel: 2,
-    drugPower: 2,
+    power: 2,
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['drink'], 
@@ -56,4 +56,7 @@ substances['Beer'] = {
     },
     mirrorEffect: false,
     mirrorEffectActiveInPower: 0,
+    highDelirantEffectActiveInPower: 0,
+    whiteNoise: false,
+    whiteNoiseEffectActiveInPower: 0,
 }

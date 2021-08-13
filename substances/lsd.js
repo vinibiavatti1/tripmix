@@ -2,7 +2,7 @@ substances['LSD'] = {
     img: 'lsd.png',
     info: 'LSD is considered to be the best known, most researched, and culturally influential psychedelic substance.',
     addictionLevel: 1,
-    drugPower: 2,
+    power: 2,
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['eat', 'drink'],
@@ -56,4 +56,7 @@ substances['LSD'] = {
     },
     mirrorEffect: true,
     mirrorEffectActiveInPower: 4,
+    highDelirantEffectActiveInPower: 0,
+    whiteNoise: false,
+    whiteNoiseEffectActiveInPower: 0,
 }

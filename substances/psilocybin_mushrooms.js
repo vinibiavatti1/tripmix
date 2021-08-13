@@ -2,7 +2,7 @@ substances['Psilocybin Mushrooms'] = {
     img: 'psilocybin_mushrooms.png',
     info: 'Psilocybin Mushrooms are a family of psychoactive mushrooms that contain psilocybin, a psychedelic substance.',
     addictionLevel: 0,
-    drugPower: 1,
+    power: 1,
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['eat', 'drink', 'smoke'],
@@ -56,4 +56,7 @@ substances['Psilocybin Mushrooms'] = {
     },
     mirrorEffect: true,
     mirrorEffectActiveInPower: 3,
+    highDelirantEffectActiveInPower: 0,
+    whiteNoise: false,
+    whiteNoiseEffectActiveInPower: 0,
 }

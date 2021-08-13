@@ -2,7 +2,7 @@ substances['Tobacco'] = {
     img: 'tobacco.png',
     info: 'Tobacco contains nicotine that is a stimulant substance. It is highly addictive. Subjective effects include stimulation, anxiety suppression and mild euphoria.',
     addictionLevel: 4,
-    drugPower: 1,
+    power: 1,
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['smoke'],
@@ -56,4 +56,7 @@ substances['Tobacco'] = {
     },
     mirrorEffect: false,
     mirrorEffectActiveInPower: 0,
+    highDelirantEffectActiveInPower: 0,
+    whiteNoise: false,
+    whiteNoiseEffectActiveInPower: 0,
 }

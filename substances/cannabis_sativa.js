@@ -2,7 +2,7 @@ substances['Cannabis Sativa'] = {
     img: 'cannabis_sativa.png',
     info: 'Cannabis produces psychoactive effects when consumed. Cannabis sativa has lower levels of THC to CBD.',
     addictionLevel: 1,
-    drugPower: 1,
+    power: 1,
     unlockPoints: 0,
     walkDelay: true,
     worksOnMethod: ['eat', 'smoke'],
@@ -56,4 +56,7 @@ substances['Cannabis Sativa'] = {
     },
     mirrorEffect: false,
     mirrorEffectActiveInPower: 0,
+    highDelirantEffectActiveInPower: 0,
+    whiteNoise: false,
+    whiteNoiseEffectActiveInPower: 0,
 }

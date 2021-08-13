@@ -174,7 +174,19 @@ footer {
     text-align: center;
 }
 a {
-    color: white;
+    color: rgb(220, 220, 220);
+}
+a:hover {
+    color: rgb(255, 255, 255);
+}
+.a-reset {
+    font-size: 13px; 
+    text-decoration: none; 
+    color: orange;
+    font-weight: 300;
+}
+.a-reset:hover {
+    color:orangered;
 }
 
 .progress-bar {
@@ -265,6 +277,7 @@ table {
     width: 797px;
     height: 558px;
     user-select: none;
+    overflow: hidden;
 }
 
 @keyframes alternateOpacity {
@@ -310,4 +323,106 @@ background: rgb(0, 50, 0);
 }
 ::-webkit-scrollbar-thumb:hover {
 background: rgb(0, 75, 0); 
+}
+
+.delirant-ants {
+    animation: delirant-ants-animation 8s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 20s;
+    filter: blur(3px);
+}
+.delirant-spider {
+    animation: delirant-spider-animation 40s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 37s;
+    filter: contrast(500%) blur(5px);
+}
+.delirant-eyes {
+    animation: delirant-eyes-animation 28s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 4s;
+    filter: blur(20px);
+}
+.delirant-horror {
+    animation: horrorAnimation 65s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 35s;
+    opacity: .4;
+    filter: contrast(200%);
+}
+@keyframes delirant-spider-animation {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.3;
+    }
+    10% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes delirant-ants-animation {
+    0% {
+        opacity: 0;
+        filter: blur(3px);
+    }
+    40% {
+        opacity: 0.2;
+        filter: blur(2px);
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 0.0;
+    }
+}
+@keyframes delirant-eyes-animation {
+    0% {
+        opacity: 0;
+        filter: blur(20px);
+    }
+    20% {
+        opacity: 0.3;
+        filter: blur(3px);
+    }
+    25% {
+        opacity: 0.1;
+        filter: blur(20px);
+    }
+    100% {
+        opacity: 0.0;
+    }
+}
+@keyframes horrorAnimation {
+    0% { 
+        opacity: 0;
+        filter: blur(10px);
+    }
+    20% { 
+        opacity: .3;
+        filter: blur(1px);
+    }
+    25% { 
+        opacity: 0;
+        filter: blur(5px);
+    }
+    100% { 
+        opacity: 0 
+    }
+}
+
+.white-noise {
+    animation: alternateOpacityLight 20s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 6s;
+    filter: contrast(70%);
 }

@@ -15,9 +15,9 @@ Effects
 /* Player Data */
 let initialPoints = 0;
 let points = initialPoints;
-let selectedDrugs = {}
+let selectedSubstances = {}
 let maxAmount = 20;
-let maxDrugPower = 50;
+let maxSubstancePower = 50;
 let selectedAmount = 0;
 let currentLandscape = 0;
 let currentDeepDreamPower = 0;
@@ -29,7 +29,7 @@ let walkDelay = 0;
  */
 $(document).ready(() => {
     renderMethods();
-    renderDrugs();
+    renderSubstances();
     addInfoHandle('.substance')
     addInfoHandle('.method')
     
@@ -78,20 +78,32 @@ $(document).ready(() => {
  * @param {*} name 
  * @returns 
  */
- function onClickDrug(name) {
+ function onClickSubstance(name) {
     if(selectedAmount >= maxAmount) {
         return;
     }
     selectedAmount++;
-    if(selectedDrugs[name]) {
-        selectedDrugs[name] += 1
+    if(selectedSubstances[name]) {
+        selectedSubstances[name] += 1
     } else {
-        selectedDrugs[name] = 1
+        selectedSubstances[name] = 1
     }
     renderStats();
-    renderDrugPower();
+    renderSubstancePower();
     $("#amount-progress").css('width', (selectedAmount * 100 / maxAmount) + '%');
     $("#amount-val").html(selectedAmount);
+}
+
+/**
+ * Reset selected substances
+ */
+function onClickResetAmount() {
+    selectedSubstances = {}
+    selectedAmount = 0;
+    renderStats();
+    renderSubstancePower();
+    $("#amount-progress").css('width', '0%');
+    $("#amount-val").html('0');
 }
 
 /**
@@ -156,7 +168,7 @@ function renderMethods() {
 /**
  * Render substance in list
  */
- function renderDrugs() {
+ function renderSubstances() {
     $('#substances').empty();
     for(key in substances) {
         let substance = substances[key];
@@ -164,7 +176,7 @@ function renderMethods() {
         div.attr('data-info', substance.info);
         div.attr('data-name', key);
         div.attr('class', 'substance');
-        div.attr('onclick', `onClickDrug('${key}')`)
+        div.attr('onclick', `onClickSubstance('${key}')`)
         let img = $('<img/>');
         img.attr('src', './images/' + substance.img);
         img.attr('width', 50);
@@ -187,21 +199,21 @@ function renderStats() {
     let delirant = 0;
     let dissociative = 0;
     let depressant = 0;
-    for(substance in selectedDrugs) {
-        let drugAmount = selectedDrugs[substance];
-        power = Math.floor(drugAmount / 2);
-        let drugConfig = substances[substance];
+    for(substance in selectedSubstances) {
+        let substanceAmount = selectedSubstances[substance];
+        power = Math.floor(substanceAmount / 2);
+        let substanceConfig = substances[substance];
         if(!power) {
             power = 1;
         } else if(power > 5) {
             power = 5;
         }
-        stimulant += drugConfig.stats.stimulant * power;
-        sedative += drugConfig.stats.sedative * power;
-        hallucinogic += drugConfig.stats.hallucinogic * power;
-        delirant += drugConfig.stats.delirant * power;
-        dissociative += drugConfig.stats.dissociative * power;
-        depressant += drugConfig.stats.depressant * power;
+        stimulant += substanceConfig.stats.stimulant * power;
+        sedative += substanceConfig.stats.sedative * power;
+        hallucinogic += substanceConfig.stats.hallucinogic * power;
+        delirant += substanceConfig.stats.delirant * power;
+        dissociative += substanceConfig.stats.dissociative * power;
+        depressant += substanceConfig.stats.depressant * power;
     }
     if(stimulant > 5) stimulant = 5;
     if(sedative > 5) sedative = 5;
@@ -239,14 +251,14 @@ function renderStat(statName, value, name, className) {
 /**
  * Render substance power
  */
-function renderDrugPower() {
+function renderSubstancePower() {
     powerSum = 0;
-    for(substance in selectedDrugs) {
-        let drugAmount = selectedDrugs[substance];
-        power = Math.floor(drugAmount / 2);
-        let drugConfig = substances[substance];
-        drugPower = drugConfig.drugPower;
-        powerSum += drugPower * power;
+    for(substance in selectedSubstances) {
+        let substanceAmount = selectedSubstances[substance];
+        power = parseInt(Math.floor(substanceAmount / 2));
+        let substanceConfig = substances[substance];
+        substancePower = substanceConfig.power;
+        powerSum += substancePower * power;
     }
     powerConfig = null;
     if(powerSum == 0) {
@@ -262,7 +274,10 @@ function renderDrugPower() {
     } else if(powerSum <= 50) {
         powerConfig = powerLevels[5];
     }
-    $("#power-progress").css('width', (powerSum * 100 / maxDrugPower) + '%');
+    if(powerSum > 50) {
+        powerSum = 50;
+    }
+    $("#power-progress").css('width', parseInt(powerSum * 100 / maxSubstancePower) + '%');
     $("#substance-power-name").html("(" + powerConfig.name + ")");
     $("#power-progress").attr("class", "progress " + powerConfig.class);
 }
@@ -277,7 +292,7 @@ function renderDrugPower() {
  * Reset simulation
  */
 function reset() {
-    selectedDrugs = {};
+    selectedSubstances = {};
     selectedAmount = 0;
     $("#amount-progress").css('width', '0%');
     $("#amount-val").html('0');
@@ -293,6 +308,11 @@ function reset() {
     $("#substance-power-name").html("(None)");
     $("#simulation-screen").removeClass('fadeOut');
     $("#simulation-screen").removeClass('fadeIn');
+    $('#delirant-ants').hide();
+    $('#delirant-spider').hide();
+    $('#delirant-eyes').hide();
+    $('#delirant-horror').hide();
+    $('#white-noise').hide();
     currentDeepDreamPower = null;
     randomWalk = false;
     walkDelay = false;
@@ -319,54 +339,66 @@ function startSimulation(method) {
     let cssEffectsTo = '';
     let cssFilterEffectsFrom = '';
     let cssFilterEffectsTo = '';
+    let highDelirantEffects = false;
+    let lowDelirantEffects = false;
+    let whiteNoise = false;
 
     // CSS Effects
-    for(let key in selectedDrugs) {
-        drugAmount = selectedDrugs[key];
-        power = Math.floor(drugAmount / 2);
+    for(let key in selectedSubstances) {
+        substanceAmount = selectedSubstances[key];
+        power = Math.floor(substanceAmount / 2);
         if(!power) {
             power = 1;
         } else if (power > 5) {
             power = 5;
         }
-        drugConfig = substances[key];
+        substanceConfig = substances[key];
 
         // method
-        if(method != 'all' && !drugConfig.worksOnMethod.includes(method)) {
+        if(method != 'all' && !substanceConfig.worksOnMethod.includes(method)) {
             continue;
         }
 
         // Add CSS effects
-        cssEffectsFrom += drugConfig.cssEffects.from[power] + ' ';
-        cssEffectsTo += drugConfig.cssEffects.to[power] + ' ';
-        cssFilterEffectsFrom += drugConfig.cssFilterEffects.from[power] + ' ';
-        cssFilterEffectsTo += drugConfig.cssFilterEffects.to[power] + ' ';
+        cssEffectsFrom += substanceConfig.cssEffects.from[power] + ' ';
+        cssEffectsTo += substanceConfig.cssEffects.to[power] + ' ';
+        cssFilterEffectsFrom += substanceConfig.cssFilterEffects.from[power] + ' ';
+        cssFilterEffectsTo += substanceConfig.cssFilterEffects.to[power] + ' ';
 
         // DeepDream
-        if(drugConfig.deepDreamEffect) {
-            let deepDreamEffectLevel = drugConfig.deepDreamEffectConfig[power];
+        if(substanceConfig.deepDreamEffect) {
+            let deepDreamEffectLevel = substanceConfig.deepDreamEffectConfig[power];
             if(deepDreamEffectLevel > generalDeepDreamEffectLevel) {
                 generalDeepDreamEffectLevel = deepDreamEffectLevel;
             }
         }
 
         // Mirror Effect
-        if(drugConfig.mirrorEffect && power >= drugConfig.mirrorEffectActiveInPower) {
+        if(substanceConfig.mirrorEffect && power >= substanceConfig.mirrorEffectActiveInPower) {
             generalMirrorEffect = true;
         }
 
         // Delirant
-        if(drugConfig.stats.delirant) {
+        if(substanceConfig.stats.delirant) {
             randomWalk = true;
+            lowDelirantEffects = true;
+            if(power >= substanceConfig.highDelirantEffectActiveInPower) {
+                highDelirantEffects = true;
+            }
+        }
+
+        // White Noise
+        if(substanceConfig.whiteNoise && power >= substanceConfig.whiteNoiseEffectActiveInPower) {
+            whiteNoise = true;
         }
 
         // Walk delay
-        if(drugConfig.walkDelay) {
+        if(substanceConfig.walkDelay) {
             walkDelay = true;
         }
     }
     let animationCss = createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, cssFilterEffectsTo);
-    startDrugEffects(animationCss, generalDeepDreamEffectLevel, generalMirrorEffect);
+    startSubstanceEffects(animationCss, generalDeepDreamEffectLevel, generalMirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise);
 }
 
 /**
@@ -397,7 +429,7 @@ function createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, 
  * @param {*} deepDreamEffectLevel 
  * @param {*} mirrorEffect 
  */
-function startDrugEffects(animation, deepDreamEffectLevel, mirrorEffect) {
+function startSubstanceEffects(animation, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise) {
     console.log('Animation: ' + animation);
     console.log('Deep dream effect: ' + deepDreamEffectLevel);
     console.log('Mirror effect: ' + mirrorEffect);
@@ -410,6 +442,17 @@ function startDrugEffects(animation, deepDreamEffectLevel, mirrorEffect) {
     if(mirrorEffect) {
         $('#mirror-effect').show();
     }
+    if(lowDelirantEffects) {
+        $('#delirant-ants').show();
+        $('#delirant-spider').show();
+    }
+    if(highDelirantEffects) {
+        $('#delirant-eyes').show();
+        $('#delirant-horror').show();
+    }
+    if(whiteNoise) {
+        $('#white-noise').show();
+    }
 }
 
 /**
@@ -420,7 +463,7 @@ function walk() {
     if(randomWalk) {
         do {
             img = randomInt(0, landscapeConfig.imgs.length);
-        } while(img != currentLandscapeImg);
+        } while(img == currentLandscapeImg);
         currentLandscapeImg = img;
         updateLandscape();
     } else {
