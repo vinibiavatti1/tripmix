@@ -65,7 +65,7 @@ button[disabled]:hover {
 .drugs {
     position: absolute;
     left: 0px;
-    top: 0px;
+    top: 30px;
     bottom: 100px;
     width: 200px;
     border-right: 1px solid rgb(0, 200, 0);
@@ -73,6 +73,28 @@ button[disabled]:hover {
     text-align: initial;
     background-color: black;
     overflow-y: scroll;
+}
+
+.search {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 30px;
+    border-right: 1px solid rgb(0, 200, 0);
+    border-bottom: 1px solid rgb(0, 200, 0);
+    background-color: black;
+}
+
+.search-input {
+    width: 100%;
+    background-color: black;
+    font-style: italic;
+    outline: none;
+    height: 100%;
+    border: none;
+    padding: 4px;
+    color: white;
 }
 
 .inverse-img {
@@ -102,6 +124,7 @@ button[disabled]:hover {
     overflow: hidden;
     vertical-align: middle;
     margin-bottom: 4px;
+    user-select: none;
 }
 
 select {

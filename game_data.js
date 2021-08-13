@@ -73,9 +73,8 @@ let landscapes = {
         dissociativeImgHigh: '',
     },
 }
-let drugs = [
-    {
-        name: 'Beer',
+let drugs = {
+    'Beer': {
         img: 'beer.png',
         info: 'Beer is one of the oldest and most widely consumed alcoholic drinks in the world.',
         addictionLevel: 2,
@@ -132,10 +131,9 @@ let drugs = [
         mirrorEffect: false,
         mirrorEffectActiveInPower: 0,
     },
-    {
-        name: 'Psylocibin Cubensis',
+    'Psylocybe Cubensis': {
         img: 'psilocybe_cubensis.png',
-        info: 'Psilocybe cubensis is a species of psychedelic mushroom whose principal active compounds are psilocybin and psilocin.',
+        info: 'Psilocybe Cubensis is a species of psychedelic mushroom whose principal active compounds are psilocybin and psilocin.',
         addictionLevel: 0,
         drugPower: 1,
         unlockPoints: 0,
@@ -190,8 +188,7 @@ let drugs = [
         mirrorEffect: true,
         mirrorEffectActiveInPower: 3,
     },
-    {
-        name: 'Vodka',
+    'Vodka': {
         img: 'vodka.png',
         info: 'Vodka is composed mainly of water and ethanol. Usually, vodkas contain 40% alcohol.',
         addictionLevel: 2,
@@ -248,128 +245,236 @@ let drugs = [
         mirrorEffect: false,
         mirrorEffectActiveInPower: 0,
     },
-    /*{
-        name: 'Beer',
-        img: 'beer.png',
-        info: 'Beer is one of the oldest and most widely consumed alcoholic drinks in the world.',
-        addictionLevel: 2,
-        unlockPoints: 0,
-        filterEffects: false,
-        hallucinogic: false,
-        hallucinogicMinLevel: 0,
-        hallucinogicMaxLevel: 0,
-        fromEffects: {
-            1: 'margin-left: -2px',
-            2: 'margin-left: -4px',
-            3: 'margin-left: -8px',
-            4: 'margin-left: -12px',
-            5: 'margin-left: -20px',
-        },
-        toEffects: {
-            1: 'margin-left: 2px',
-            2: 'margin-left: 4px',
-            3: 'margin-left: 8px',
-            4: 'margin-left: 12px',
-            5: 'margin-left: 20px',
-        }
-    },
-    {
-        name: 'Vodka',
-        img: 'vodka.png',
-        info: 'Vodka is composed mainly of water and ethanol. Usually, vodkas contain 40% alcohol.',
-        addictionLevel: 2,
-        unlockPoints: 0,
-        filterEffects: false,
-        hallucinogic: false,
-        hallucinogicMinLevel: 0,
-        hallucinogicMaxLevel: 0,
-        fromEffects: {
-            1: 'margin-left: -2px',
-            2: 'margin-left: -8px',
-            3: 'margin-left: -12px',
-            4: 'margin-left: -20px',
-            5: 'margin-left: -80px',
-        },
-        toEffects: {
-            1: 'margin-left: 2px',
-            2: 'margin-left: 8px',
-            3: 'margin-left: 12px',
-            4: 'margin-left: 20px',
-            5: 'margin-left: 80px',
-        }
-    },
-    {
-        name: 'Cannabis Sativa',
+    'Cannabis Sativa': {
         img: 'cannabis_sativa.png',
         info: 'Cannabis produces psychoactive effects when consumed. Cannabis sativa has lower levels of THC to CBD.',
         addictionLevel: 1,
+        drugPower: 1,
         unlockPoints: 0,
-        filterEffects: true,
-        hallucinogic: true,
-        hallucinogicMinLevel: 1,
-        hallucinogicMaxLevel: 1,
-        fromEffects: {
-            1: 'saturate(2) contrast(150%)',
-            2: 'saturate(3) contrast(150%)',
-            3: 'saturate(4) contrast(150%)',
-            4: 'saturate(5) contrast(150%)',
-            5: 'saturate(6) contrast(150%)',
+        stats: {
+            stimulant: false,
+            sedative: true,	
+            hallucinogic: true,
+            delirant: false,	
+            dissociative: false,
+            depressant: false,
         },
-        toEffects: {
-            1: 'saturate(1) contrast(150%)',
-            2: 'saturate(1) contrast(150%)',
-            3: 'saturate(1) contrast(150%)',
-            4: 'saturate(1) contrast(150%)',
-            5: 'saturate(1) contrast(150%)',
-        }
+        cssEffects: {
+            from: {
+                1: 'margin-left: -1px;',
+                2: 'margin-left: -1px;',
+                3: 'margin-left: -1px;',
+                4: 'margin-left: -2px;',
+                5: 'margin-left: -2px;',
+            },
+            to: {
+                1: 'margin-left: 1px;',
+                2: 'margin-left: 1px;',
+                3: 'margin-left: 1px;',
+                4: 'margin-left: 2px;',
+                5: 'margin-left: 2px;',
+            }
+        },
+        cssFilterEffects: {
+            from: {
+                1: 'saturate(2) contrast(150%)',
+                2: 'saturate(3) contrast(150%)',
+                3: 'saturate(4) contrast(150%)',
+                4: 'saturate(5) contrast(150%)',
+                5: 'saturate(6) contrast(150%)',
+            },
+            to: {
+                1: 'saturate(1) contrast(150%)',
+                2: 'saturate(1) contrast(150%)',
+                3: 'saturate(1) contrast(150%)',
+                4: 'saturate(1) contrast(150%)',
+                5: 'saturate(1) contrast(150%)',
+            }
+        },
+        deepDreamEffect: true,
+        deepDreamEffectConfig: {
+            1: deepDreamPower.none,
+            2: deepDreamPower.none,
+            3: deepDreamPower.none,
+            4: deepDreamPower.none,
+            5: deepDreamPower.low,
+        },
+        mirrorEffect: false,
+        mirrorEffectActiveInPower: 0,
     },
-    {
-        name: 'Psylocibin Cubensis',
-        img: 'psilocybe_cubensis.png',
-        info: 'Psilocybe cubensis is a species of psychedelic mushroom whose principal active compounds are psilocybin and psilocin.',
-        addictionLevel: 0,
+    'Cannabis Indica': {
+        img: 'cannabis_indica.png',
+        info: 'Cannabis produces psychoactive effects when consumed. Cannabis indica has higher levels of THC compared to CBD.',
+        addictionLevel: 1,
+        drugPower: 1,
         unlockPoints: 0,
-        filterEffects: true,
-        hallucinogic: true,
-        hallucinogicMinLevel: 2,
-        hallucinogicMaxLevel: 5,
-        fromEffects: {
-            1: 'saturate(2) contrast(150%)',
-            2: 'saturate(3) contrast(150%)',
-            3: 'saturate(4) contrast(150%)',
-            4: 'saturate(5) hue-rotate(0deg) contrast(150%)',
-            5: 'saturate(6) hue-rotate(0deg) contrast(150%)',
+        stats: {
+            stimulant: false,
+            sedative: true,	
+            hallucinogic: true,
+            delirant: false,	
+            dissociative: false,
+            depressant: false,
         },
-        toEffects: {
-            1: 'saturate(1) contrast(150%)',
-            2: 'saturate(1) contrast(150%)',
-            3: 'saturate(1) contrast(150%)',
-            4: 'saturate(1) hue-rotate(360deg) contrast(150%)',
-            5: 'saturate(1) hue-rotate(360deg) contrast(150%)',
-        }
+        cssEffects: {
+            from: {
+                1: 'margin-left: -1px;',
+                2: 'margin-left: -1px;',
+                3: 'margin-left: -1px;',
+                4: 'margin-left: -2px;',
+                5: 'margin-left: -3px;',
+            },
+            to: {
+                1: 'margin-left: 1px;',
+                2: 'margin-left: 1px;',
+                3: 'margin-left: 1px;',
+                4: 'margin-left: 2px;',
+                5: 'margin-left: 3px;',
+            }
+        },
+        cssFilterEffects: {
+            from: {
+                1: 'saturate(3) contrast(150%)',
+                2: 'saturate(3) contrast(150%)',
+                3: 'saturate(4) contrast(150%)',
+                4: 'saturate(6) contrast(150%)',
+                5: 'saturate(6) contrast(150%)',
+            },
+            to: {
+                1: 'saturate(1) contrast(150%)',
+                2: 'saturate(1) contrast(150%)',
+                3: 'saturate(1) contrast(160%)',
+                4: 'saturate(1) contrast(160%)',
+                5: 'saturate(1) contrast(160%)',
+            }
+        },
+        deepDreamEffect: true,
+        deepDreamEffectConfig: {
+            1: deepDreamPower.none,
+            2: deepDreamPower.none,
+            3: deepDreamPower.none,
+            4: deepDreamPower.low,
+            5: deepDreamPower.low,
+        },
+        mirrorEffect: false,
+        mirrorEffectActiveInPower: 0,
     },
-    {
-        name: 'Caffeine',
+    'Caffeine': {
         img: 'caffeine.png',
         info: 'Caffeine is a stimulant substance. Notable effects include stimulation, wakefulness, enhanced focus and motivation.',
-        addictionLevel: 1,
+        addictionLevel: 2,
+        drugPower: 1,
         unlockPoints: 0,
-        animationTime: '2s',
-        from_effects: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: '',
+        stats: {
+            stimulant: true,
+            sedative: false,	
+            hallucinogic: false,
+            delirant: false,	
+            dissociative: false,
+            depressant: false,
         },
-        to_effects: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: '',
-        }
+        cssEffects: {
+            from: {
+                1: '',
+                2: '',
+                3: '',
+                4: 'margin-left: -1px;',
+                5: 'margin-left: -2px;',
+            },
+            to: {
+                1: '',
+                2: '',
+                3: '',
+                4: 'margin-left: 1px;',
+                5: 'margin-left: 2px;',
+            }
+        },
+        cssFilterEffects: {
+            from: {
+                1: 'contrast(100%) brightness(100%)',
+                2: 'contrast(100%) brightness(100%)',
+                3: 'contrast(100%) brightness(100%)',
+                4: 'contrast(100%) brightness(100%)',
+                5: 'contrast(100%) brightness(100%)',
+            },
+            to: {
+                1: 'contrast(150%) brightness(110%)',
+                2: 'contrast(150%) brightness(120%)',
+                3: 'contrast(150%) brightness(130%)',
+                4: 'contrast(150%) brightness(140%)',
+                5: 'contrast(150%) brightness(150%)',
+            }
+        },
+        deepDreamEffect: false,
+        deepDreamEffectConfig: {
+            1: deepDreamPower.none,
+            2: deepDreamPower.none,
+            3: deepDreamPower.none,
+            4: deepDreamPower.none,
+            5: deepDreamPower.none,
+        },
+        mirrorEffect: false,
+        mirrorEffectActiveInPower: 0,
     },
+    'Nicotine': {
+        name: 'Nicotine',
+        img: 'nicotine.png',
+        info: 'Nicotine is stimulant substance. It is highly addictive. Subjective effects include stimulation, anxiety suppression and mild euphoria.',
+        addictionLevel: 4,
+        drugPower: 1,
+        unlockPoints: 0,
+        stats: {
+            stimulant: true,
+            sedative: false,	
+            hallucinogic: false,
+            delirant: false,	
+            dissociative: false,
+            depressant: false,
+        },
+        cssEffects: {
+            from: {
+                1: '',
+                2: '',
+                3: '',
+                4: 'margin-left: -2px;',
+                5: 'margin-left: -2px;',
+            },
+            to: {
+                1: '',
+                2: '',
+                3: '',
+                4: 'margin-left: 2px;',
+                5: 'margin-left: 2px;',
+            }
+        },
+        cssFilterEffects: {
+            from: {
+                1: 'contrast(100%) sepia(0%)',
+                2: 'contrast(100%) sepia(0%)',
+                3: 'contrast(100%) sepia(0%)',
+                4: 'contrast(100%) sepia(0%)',
+                5: 'contrast(100%) sepia(0%)',
+            },
+            to: {
+                1: 'contrast(175%) sepia(40%)',
+                2: 'contrast(175%) sepia(40%)',
+                3: 'contrast(175%) sepia(40%)',
+                4: 'contrast(175%) sepia(40%)',
+                5: 'contrast(175%) sepia(40%)',
+            }
+        },
+        deepDreamEffect: false,
+        deepDreamEffectConfig: {
+            1: deepDreamPower.none,
+            2: deepDreamPower.none,
+            3: deepDreamPower.none,
+            4: deepDreamPower.none,
+            5: deepDreamPower.none,
+        },
+        mirrorEffect: false,
+        mirrorEffectActiveInPower: 0,
+    },
+    /*
     {
         name: 'Nicotine',
         img: 'nicotine.png',
@@ -413,4 +518,4 @@ let drugs = [
         }
     },*/
     
-]
+}

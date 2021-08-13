@@ -104,6 +104,23 @@ function onClickWalk() {
     updateLandscape();
 }
 
+/**
+ * On key up search event
+ */
+function onKeyupSearch() {
+    let search = $("#search-input").val();
+    $(".drug").each(function() {
+        let name = $(this).attr('data-name');
+        if(name) {
+            if(!name.toLowerCase().includes(search.toLowerCase())) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        }
+    });
+}
+
 ////////////////////////////////////////////////////////////////////////
 // Renders
 ////////////////////////////////////////////////////////////////////////
@@ -129,21 +146,23 @@ function renderEquipaments() {
  */
  function renderDrugs() {
     $('#drugs').empty();
-    drugs.forEach((drug) => {
+    for(key in drugs) {
+        let drug = drugs[key];
         let div = $('<div></div>');
         div.attr('data-info', drug.info);
+        div.attr('data-name', key);
         div.attr('class', 'drug');
-        div.attr('onclick', `onClickDrug('${drug.name}')`)
+        div.attr('onclick', `onClickDrug('${key}')`)
         let img = $('<img/>');
         img.attr('src', './images/' + drug.img);
         img.attr('width', 50);
         img.attr('height', 50);
         let p = $('<p></p>');
-        p.html(drug.name);
+        p.html(key);
         div.append(img)
         div.append(p)
         $('#drugs').append(div);
-    });
+    }
 }
 
 /**
@@ -159,7 +178,7 @@ function renderStats() {
     for(drug in selectedDrugs) {
         let drugAmount = selectedDrugs[drug];
         power = Math.floor(drugAmount / 2);
-        let drugConfig = findDrugByName(drug);
+        let drugConfig = drugs[drug];
         if(power > 5) {
             power = 5;
         }
@@ -170,6 +189,12 @@ function renderStats() {
         dissociative += drugConfig.stats.dissociative * power;
         depressant += drugConfig.stats.depressant * power;
     }
+    if(stimulant > 5) stimulant = 5;
+    if(sedative > 5) sedative = 5;
+    if(hallucinogic > 5) hallucinogic = 5;
+    if(delirant > 5) delirant = 5;
+    if(dissociative > 5) dissociative = 5;
+    if(depressant > 5) depressant = 5;
     stimulantData = statsLevels[stimulant];
     sedativeData = statsLevels[sedative];
     hallucinogicData = statsLevels[hallucinogic];
@@ -205,7 +230,7 @@ function renderDrugPower() {
     for(drug in selectedDrugs) {
         let drugAmount = selectedDrugs[drug];
         power = Math.floor(drugAmount / 2);
-        let drugConfig = findDrugByName(drug);
+        let drugConfig = drugs[drug];
         drugPower = drugConfig.drugPower;
         powerSum += drugPower * power;
     }
@@ -286,7 +311,7 @@ function startSimulation() {
         } else if (power > 5) {
             power = 5;
         }
-        drugConfig = findDrugByName(key);
+        drugConfig = drugs[key];
 
         cssEffectsFrom += drugConfig.cssEffects.from[power] + ' ';
         cssEffectsTo += drugConfig.cssEffects.to[power] + ' ';
@@ -396,19 +421,4 @@ function updateLandscape() {
             $('#info').html("")
         }
     });
-}
-
-/**
- * Find drug by name
- * @param {*} name 
- * @returns 
- */
- function findDrugByName(name) {
-    drug = null;
-    drugs.forEach(d => {
-        if(d.name == name) {
-            drug = d;
-        }
-    })
-    return drug;
 }
