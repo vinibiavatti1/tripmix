@@ -21,6 +21,8 @@ let maxDrugPower = 50;
 let selectedAmount = 0;
 let currentLandscape = 0;
 let currentDeepDreamPower = 0;
+let randomWalk = false;
+let walkDelay = 0;
 
 /**
  * Init
@@ -96,13 +98,22 @@ $(document).ready(() => {
  * On click walk event
  */
 function onClickWalk() {
-    let landscapeConfig = landscapes[currentLandscape];
-    currentLandscapeImg++;
-    if(landscapeConfig.imgs.length == currentLandscapeImg) {
-        currentLandscapeImg = 0;
+    if(walkDelay) {
+        $("#walk-btn").attr('disabled', 'true');
+        $("#simulation-screen").addClass('fadeOut');
+        $("#simulation-screen").removeClass('fadeIn');
+        setTimeout(function() {
+            walk();
+            $("#walk-btn").removeAttr('disabled');
+            $("#simulation-screen").removeClass('fadeOut');
+            $("#simulation-screen").addClass('fadeIn');
+        }, 1000);
+    } else {
+        walk();
     }
-    updateLandscape();
 }
+
+
 
 /**
  * On key up search event
@@ -277,7 +288,11 @@ function reset() {
     renderStat('depressant', 0, 'None', 'l0');
     $("#power-progress").css('width', '0%');
     $("#drug-power-name").html("(None)");
+    $("#simulation-screen").removeClass('fadeOut');
+    $("#simulation-screen").removeClass('fadeIn');
     currentDeepDreamPower = null;
+    randomWalk = false;
+    walkDelay = false;
 }
 
 /**
@@ -330,6 +345,16 @@ function startSimulation() {
         if(drugConfig.mirrorEffect && power >= drugConfig.mirrorEffectActiveInPower) {
             generalMirrorEffect = true;
         }
+
+        // Delirant
+        if(drugConfig.stats.delirant) {
+            randomWalk = true;
+        }
+
+        // Walk delay
+        if(drugConfig.walkDelay) {
+            walkDelay = true;
+        }
     }
     let animationCss = createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, cssFilterEffectsTo);
     startDrugEffects(animationCss, generalDeepDreamEffectLevel, generalMirrorEffect);
@@ -370,15 +395,31 @@ function startDrugEffects(animation, deepDreamEffectLevel, mirrorEffect) {
     $('#drugAnimation').empty();
     $('#drugAnimation').html(animation);
     if(deepDreamEffectLevel) {
-        // TODO get the current landscape deepdream
-        $("#deep-dream").attr('src', './images/deep.jpg');
         $('#deep-dream').show();
         currentDeepDreamPower = deepDreamEffectLevel;
     }
     if(mirrorEffect) {
-        // TODO update to current landscape
-        $("#mirror-effect").attr('src', './images/forest_1.png');
         $('#mirror-effect').show();
+    }
+}
+
+/**
+ * Walk
+ */
+function walk() {
+    let landscapeConfig = landscapes[currentLandscape];
+    if(randomWalk) {
+        do {
+            img = randomInt(0, landscapeConfig.imgs.length);
+        } while(img != currentLandscapeImg);
+        currentLandscapeImg = img;
+        updateLandscape();
+    } else {
+        currentLandscapeImg++;
+        if(landscapeConfig.imgs.length == currentLandscapeImg) {
+            currentLandscapeImg = 0;
+        }
+        updateLandscape();
     }
 }
 
@@ -422,3 +463,15 @@ function updateLandscape() {
         }
     });
 }
+
+/**
+ * Random int
+ * @param {*} min 
+ * @param {*} max 
+ * @returns 
+ */
+function randomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }

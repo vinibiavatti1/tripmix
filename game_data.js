@@ -80,6 +80,7 @@ let drugs = {
         addictionLevel: 2,
         drugPower: 2,
         unlockPoints: 0,
+        walkDelay: false,
         stats: {
             stimulant: true,
             sedative: false,	
@@ -137,6 +138,7 @@ let drugs = {
         addictionLevel: 0,
         drugPower: 1,
         unlockPoints: 0,
+        walkDelay: false,
         stats: {
             stimulant: false,
             sedative: true,	
@@ -194,6 +196,7 @@ let drugs = {
         addictionLevel: 2,
         drugPower: 4,
         unlockPoints: 0,
+        walkDelay: false,
         stats: {
             stimulant: true,
             sedative: false,	
@@ -251,6 +254,7 @@ let drugs = {
         addictionLevel: 1,
         drugPower: 1,
         unlockPoints: 0,
+        walkDelay: true,
         stats: {
             stimulant: false,
             sedative: true,	
@@ -308,6 +312,7 @@ let drugs = {
         addictionLevel: 1,
         drugPower: 1,
         unlockPoints: 0,
+        walkDelay: true,
         stats: {
             stimulant: false,
             sedative: true,	
@@ -378,15 +383,15 @@ let drugs = {
                 1: '',
                 2: '',
                 3: '',
-                4: 'margin-left: -1px;',
-                5: 'margin-left: -2px;',
+                4: 'margin-top: -1px;',
+                5: 'margin-top: -2px;',
             },
             to: {
                 1: '',
                 2: '',
                 3: '',
-                4: 'margin-left: 1px;',
-                5: 'margin-left: 2px;',
+                4: 'margin-top: 1px;',
+                5: 'margin-top: 2px;',
             }
         },
         cssFilterEffects: {

@@ -235,6 +235,21 @@ table {
     animation-direction: alternate;
     animation-delay: 10s;
 }
+.fadeOut {
+    animation: fadeOut 1s ease-in-out;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+}
+.fadeIn {
+    animation: fadeIn .5s ease-in-out;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+}
+.simulation-screen {
+    background-color: black;
+    width: 797px;
+    height: 558px;
+}
 @keyframes alternateOpacity {
     from { opacity: 0 }
     to { opacity: .7 }
@@ -243,33 +258,13 @@ table {
     from { opacity: 0 }
     to { opacity: .6 }
 }
-@keyframes drunk1 {
-    from { margin-left: -2px }
-    to { margin-left: 2px }
+@keyframes fadeOut {
+    from { opacity: 1 }
+    to { opacity: 0 }
 }
-@keyframes drunk2 {
-    from { margin-left: -4px }
-    to { margin-left: 4px }
-}
-@keyframes drunk3 {
-    from { margin-left: -8px }
-    to { margin-left: 8px }
-}
-@keyframes drunk4 {
-    from { margin-left: -16px }
-    to { margin-left: 16px }
-}
-@keyframes drunk5 {
-    from { margin-left: -100px }
-    to { margin-left: 100px }
-}
-@keyframes animm2 {
-    from {
-        filter: hue-rotate(0deg) contrast(100%) saturate(200)  contrast(100%)
-    }
-    to {
-        filter: hue-rotate(360deg) contrast(100%) saturate(200)  contrast(100%)
-    }
+@keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
 }
 
 .l0 { color: gray }

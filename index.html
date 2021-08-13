@@ -164,9 +164,9 @@
         <div id="simulation" class="simulation" style="display: none;">
             <div class="actions" style="text-align: left;">
                 <button onclick="changeScreen('game'); reset()">&#60; Back</button>
-                <button onclick="onClickWalk()">Walk</button>
+                <button id="walk-btn" onclick="onClickWalk()">Walk</button>
             </div>
-            <div class="">
+            <div id="simulation-screen" class="simulation-screen">
                 <img id="simulation-img" class="simulation-img" src="./images/forest_1.png">
                 <img id="simulation-img-2" style="opacity: .5; " class="simulation-anim simulation-img" src="./images/forest_1.png">
                 <img id="simulation-img-3" style="opacity: .5; " class="simulation-anim2 simulation-img" src="./images/forest_1.png">
