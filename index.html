@@ -3,37 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Drugmix game is a game to use your creativity to mix drugs and create new ones!">
-    <meta name="keywords" content="Drug, mix, game, simulation, web">
+    <meta name="description" content="Tripmix is a game that encourages the use of imagination and innovation, enabling the mixing of substances and simulating their effects">
+    <meta name="keywords" content="trip, substance, drug, dose, mix, recreational, substance, game, simulation, web">
     <meta name="author" content="vinibiavatti1">
-    <title>Drugmix Game</title>
+    <title>Tripmix Game</title>
     <link rel="stylesheet" href="./style.css" />
     <script src="./jquery.js"></script>
-    <style id="drugAnimation"></style>
+    <style id="cssAnimation"></style>
 </head>
 <body>
     <div class="screen">
 
         <!-- Intro -->
         <div id="intro" class="content">
-            <h1>Drugmix</h1>
+            <h1>Tripmix</h1>
             <hr>
-            <p>A Chemical and Philosophical Game - (v0.0.1) Alpha</p>
+            <p>A Playground Where You Can Imagine And Discover - (TM v0.0.1) Alpha</p>
             <br>
             <br>
             <h3>Instructions</h3>
-            <p>1. Select the drugs you want to mix;</p>
-            <p>2. Try the new drug you created;</p>
+            <p>1. Select the substances you want to mix;</p>
+            <p>2. Try the new substance you created;</p>
             <p>3. Do not kill yourself!</p>
             <br>
-            <p style="color: red"><b>Do not use drugs!</b></p>
+            <p style="color: red"><span style="font-size: 20px">☠</span><br><b>Do not use drugs!</b></p>
             <p>The purpose of this game is to provide information and entertainment content. The game does not encourage the use of drugs in any way. Do not use drugs!</p>
             <br>
             Are you of legal age?
-            <select id="age" onchange="onChangeAgeSelect()" style="margin: 10px 0px;">
+            <br>
+            <select id="age" onchange="onChangeAgeSelect()" style="margin: 10px 0px; width: 250px;">
                 <option value="0">No, I'm underage in my country</option>
                 <option value="1">Yes, I'm of legal age in my country</option>
             </select>
+            <br>
             <button id="start-btn" onclick="onClickStartBtn()">Start!</button> <!-- TODO -->
         </div>
 
@@ -42,53 +44,7 @@
             <div class="search">
                 <input type="text" placeholder="Search" id="search-input" class="search-input" onkeyup="onKeyupSearch()">
             </div>
-            <div id="drugs" class="drugs">
-                <!--
-                <div class="drug" data-info="Water helps you to avoid get addicted to some drugs">
-                    <img src="./images/water.png" width="50" height="50">
-                    <p>Water</p>
-                </div>
-                <div class="drug" data-info="Cannabis sativa is a more hallucinogic cannabis">
-                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
-                    <p>Cannabis Sativa</p>
-                </div>
-                <div class="drug">
-                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
-                    <p>Cannabis Indica</p>
-                </div>
-                <div class="drug">
-                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
-                    <p>Cannabis Indica</p>
-                </div>
-                <div class="drug">
-                    <img src="./images/lsd.png" width="50" height="50">
-                    <p>LSD</p>
-                </div>
-                <div class="drug">
-                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
-                    <p>Cannabis Indica</p>
-                </div>
-                <div class="drug">
-                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
-                    <p>Cannabis Indica</p>
-                </div>
-                <div class="drug">
-                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
-                    <p>Cannabis Indica</p>
-                </div>
-                <div class="drug">
-                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
-                    <p>Cannabis Indica</p>
-                </div>
-                <div class="drug">
-                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
-                    <p>Cannabis Indica</p>
-                </div>
-                <div class="drug">
-                    <img src="https://idoser.net/img/doses/marijuana.jpg" width="50" height="50">
-                    <p>Cannabis Indica</p>
-                </div>
-                -->
+            <div id="substances" class="substances">
             </div>
             <div id="info" class="info">
                 ...
@@ -97,7 +53,7 @@
                 0/500 points
             </div>
             <div class="game-content">
-                <h1 style="margin-top: 0px;">Drugmix</h1>
+                <h1 style="margin-top: 0px;">Tripmix</h1>
                 <h3>Amount (<span id="amount-val">0</span>/20)</h3>
                 <div class="progress-bar">
                     <div id="amount-progress" class="progress" style="width: 0%;"></div>
@@ -137,7 +93,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <h4>Drug Power <span id="drug-power-name">(None)</span></h4>
+                <h4>Substance Power <span id="drug-power-name">(None)</span></h4>
                 <div class="progress-bar">
                     <div id="power-progress" class="progress l6b" style="width: 0%;"></div>
                 </div>
@@ -149,14 +105,9 @@
                 <select id="landscape">
                     <option value="Lake (Açores - PT)">Lake (Açores - PT)</option>
                 </select>
-                <h4>Equipament (Choose to start!)</h4>
-                <table class="" style="padding: 2px;">
-                    <tbody>
-                        <tr>
-                            <td id="equipament-list"></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h4>Method (Choose to start!)</h4>
+                <div id="method-list" class="">
+                </div>
             </div>
         </div>
 
@@ -175,7 +126,18 @@
             </div>
         </div>
     </div>
+    <footer>
+        <a href="https://github.com/vinibiavatti1/drugmix">Github Repository</a> <!--TODO-->
+    </footer>
 </body>
 <script src="./game_data.js"></script>
+<script src="./substances/beer.js"></script>
+<script src="./substances/coffee.js"></script>
+<script src="./substances/tobacco.js"></script>
+<script src="./substances/vodka.js"></script>
+<script src="./substances/cannabis_sativa.js"></script>
+<script src="./substances/cannabis_indica.js"></script>
+<script src="./substances/psilocybin_mushrooms.js"></script>
+<script src="./substances/lsd.js"></script>
 <script src="./game.js"></script>
 </html>

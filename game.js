@@ -28,10 +28,10 @@ let walkDelay = 0;
  * Init
  */
 $(document).ready(() => {
-    renderEquipaments();
+    renderMethods();
     renderDrugs();
-    addInfoHandle('.drug')
-    addInfoHandle('.equipament')
+    addInfoHandle('.substance')
+    addInfoHandle('.method')
     
 });
 
@@ -62,11 +62,11 @@ $(document).ready(() => {
 }
 
 /**
- * Select equipament
- * @param {*} equipament 
+ * Select the method to usage
+ * @param {*} method 
  */
- function onClickEquipament(equipament) {
-    startSimulation();
+ function onClickMethod(type) {
+    startSimulation(type);
     currentLandscape = $("#landscape").val();
     currentLandscapeImg = 0;
     updateLandscape();
@@ -74,7 +74,7 @@ $(document).ready(() => {
 }
 
 /**
- * Click event on drug
+ * Click event on substance
  * @param {*} name 
  * @returns 
  */
@@ -120,7 +120,7 @@ function onClickWalk() {
  */
 function onKeyupSearch() {
     let search = $("#search-input").val();
-    $(".drug").each(function() {
+    $(".substance").each(function() {
         let name = $(this).attr('data-name');
         if(name) {
             if(!name.toLowerCase().includes(search.toLowerCase())) {
@@ -138,46 +138,47 @@ function onKeyupSearch() {
 
 
 /**
- * Render equipaments in list
+ * Render consumption forms in list
  */
-function renderEquipaments() {
-    $('#equipament-list').empty();
-    equipaments.forEach((equipament) => {
+function renderMethods() {
+    $('#method-list').empty();
+    for(key in methods) {
+        methodConfig = methods[key];
         let img = $('<img/>');
-        img.attr('src', './images/' + equipament.img)
-        img.attr('data-info', equipament.info)
-        img.attr('class', 'equipament')
-        img.attr('onclick', `onClickEquipament('${equipament.name}')`)
-        $('#equipament-list').append(img);
-    });
+        img.attr('src', './images/' + methodConfig.img)
+        img.attr('data-info', methodConfig.info)
+        img.attr('class', 'method')
+        img.attr('onclick', `onClickMethod('${methodConfig.type}')`)
+        $('#method-list').append(img);
+    }
 }
 
 /**
- * Render drug in list
+ * Render substance in list
  */
  function renderDrugs() {
-    $('#drugs').empty();
-    for(key in drugs) {
-        let drug = drugs[key];
+    $('#substances').empty();
+    for(key in substances) {
+        let substance = substances[key];
         let div = $('<div></div>');
-        div.attr('data-info', drug.info);
+        div.attr('data-info', substance.info);
         div.attr('data-name', key);
-        div.attr('class', 'drug');
+        div.attr('class', 'substance');
         div.attr('onclick', `onClickDrug('${key}')`)
         let img = $('<img/>');
-        img.attr('src', './images/' + drug.img);
+        img.attr('src', './images/' + substance.img);
         img.attr('width', 50);
         img.attr('height', 50);
         let p = $('<p></p>');
         p.html(key);
         div.append(img)
         div.append(p)
-        $('#drugs').append(div);
+        $('#substances').append(div);
     }
 }
 
 /**
- * Render stats for selected drugs
+ * Render stats for selected substances
  */
 function renderStats() {
     let stimulant = 0;
@@ -186,11 +187,13 @@ function renderStats() {
     let delirant = 0;
     let dissociative = 0;
     let depressant = 0;
-    for(drug in selectedDrugs) {
-        let drugAmount = selectedDrugs[drug];
+    for(substance in selectedDrugs) {
+        let drugAmount = selectedDrugs[substance];
         power = Math.floor(drugAmount / 2);
-        let drugConfig = drugs[drug];
-        if(power > 5) {
+        let drugConfig = substances[substance];
+        if(!power) {
+            power = 1;
+        } else if(power > 5) {
             power = 5;
         }
         stimulant += drugConfig.stats.stimulant * power;
@@ -234,14 +237,14 @@ function renderStat(statName, value, name, className) {
 }
 
 /**
- * Render drug power
+ * Render substance power
  */
 function renderDrugPower() {
     powerSum = 0;
-    for(drug in selectedDrugs) {
-        let drugAmount = selectedDrugs[drug];
+    for(substance in selectedDrugs) {
+        let drugAmount = selectedDrugs[substance];
         power = Math.floor(drugAmount / 2);
-        let drugConfig = drugs[drug];
+        let drugConfig = substances[substance];
         drugPower = drugConfig.drugPower;
         powerSum += drugPower * power;
     }
@@ -260,7 +263,7 @@ function renderDrugPower() {
         powerConfig = powerLevels[5];
     }
     $("#power-progress").css('width', (powerSum * 100 / maxDrugPower) + '%');
-    $("#drug-power-name").html("(" + powerConfig.name + ")");
+    $("#substance-power-name").html("(" + powerConfig.name + ")");
     $("#power-progress").attr("class", "progress " + powerConfig.class);
 }
 
@@ -287,7 +290,7 @@ function reset() {
     renderStat('dissociative', 0, 'None', 'l0');
     renderStat('depressant', 0, 'None', 'l0');
     $("#power-progress").css('width', '0%');
-    $("#drug-power-name").html("(None)");
+    $("#substance-power-name").html("(None)");
     $("#simulation-screen").removeClass('fadeOut');
     $("#simulation-screen").removeClass('fadeIn');
     currentDeepDreamPower = null;
@@ -309,7 +312,7 @@ function reset() {
 /**
  * Start simulation
  */
-function startSimulation() {
+function startSimulation(method) {
     let generalDeepDreamEffectLevel = 0;
     let generalMirrorEffect = false;
     let cssEffectsFrom = '';
@@ -326,8 +329,14 @@ function startSimulation() {
         } else if (power > 5) {
             power = 5;
         }
-        drugConfig = drugs[key];
+        drugConfig = substances[key];
 
+        // method
+        if(method != 'all' && !drugConfig.worksOnMethod.includes(method)) {
+            continue;
+        }
+
+        // Add CSS effects
         cssEffectsFrom += drugConfig.cssEffects.from[power] + ' ';
         cssEffectsTo += drugConfig.cssEffects.to[power] + ' ';
         cssFilterEffectsFrom += drugConfig.cssFilterEffects.from[power] + ' ';
@@ -379,7 +388,7 @@ function createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, 
         animationFrom += 'filter: ' + cssFilterEffectsFrom + ';';
         animationTo += 'filter: ' + cssFilterEffectsTo + ';';
     }
-    return `@keyFrames drugAnimation { from {${animationFrom}} to {${animationTo}} }`
+    return `@keyFrames cssAnimation { from {${animationFrom}} to {${animationTo}} }`
 }
 
 /**
@@ -392,8 +401,8 @@ function startDrugEffects(animation, deepDreamEffectLevel, mirrorEffect) {
     console.log('Animation: ' + animation);
     console.log('Deep dream effect: ' + deepDreamEffectLevel);
     console.log('Mirror effect: ' + mirrorEffect);
-    $('#drugAnimation').empty();
-    $('#drugAnimation').html(animation);
+    $('#cssAnimation').empty();
+    $('#cssAnimation').html(animation);
     if(deepDreamEffectLevel) {
         $('#deep-dream').show();
         currentDeepDreamPower = deepDreamEffectLevel;
