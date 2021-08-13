@@ -201,6 +201,10 @@ a:hover {
     height: 20px;
 }
 
+.progress-addiction {
+    height: 20px;
+}
+
 table {
     background-color: black;
     width: 100%;
@@ -407,7 +411,7 @@ background: rgb(0, 75, 0);
         filter: blur(10px);
     }
     20% { 
-        opacity: .3;
+        opacity: .4;
         filter: blur(1px);
     }
     25% { 
@@ -425,4 +429,101 @@ background: rgb(0, 75, 0);
     animation-direction: alternate;
     animation-delay: 6s;
     filter: contrast(70%);
+}
+
+.deep-dream-1 {
+    animation: deep-dream-1-anim 9s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 32s;
+}
+.deep-dream-2 {
+    animation: deep-dream-2-anim 11s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 32s;
+}
+.deep-dream-3 {
+    animation: deep-dream-3-anim 15s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 32s;
+}
+.deep-dream-4 {
+    animation: deep-dream-4-anim 18s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 32s;
+}
+.deep-dream-5 {
+    animation: deep-dream-5-anim 30s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 32s;
+}
+@keyframes deep-dream-1-anim {
+    from { opacity: 0; } to { opacity: 0.15; }
+}
+@keyframes deep-dream-2-anim {
+    from { opacity: 0; } to { opacity: 0.2; }
+}
+@keyframes deep-dream-3-anim {
+    from { opacity: 0; } to { opacity: 0.4; }
+}
+@keyframes deep-dream-4-anim {
+    from { opacity: 0; } to { opacity: 0.5; }
+}
+@keyframes deep-dream-5-anim {
+    from { opacity: 0; } to { opacity: 0.7; }
+}
+
+.stars-effect {
+    animation: stars-effect-animation 180s ease-in-out;
+    animation-iteration-count: 1;
+    animation-delay: 10s;
+}
+@keyframes stars-effect-animation {
+    from { opacity: 0; } to { opacity: 0.7; }
+}
+
+.dmt {
+    animation: dmt-effect-animation 180s ease-in-out;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    animation-delay: 10s;
+}
+@keyframes dmt-effect-animation {
+    from { opacity: 0; } to { opacity: 0.7; }
+}
+.dmt2 {
+    animation: dmt2-effect-animation 180s ease-in-out;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    animation-delay: 50s;
+}
+@keyframes dmt2-effect-animation {
+    from { opacity: 0; } to { opacity: 1.0; }
+}
+.dmt3 {
+    animation: dmt3-effect-animation 180s ease-in-out;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    animation-delay: 150s;
+}
+@keyframes dmt3-effect-animation {
+    from { opacity: 0; } to { opacity: 1.0; }
+}
+
+.addicted {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    text-align: center;
+    padding: 20px;
+}
+
+.hospital-img {
+    border: 1px solid white;
 }

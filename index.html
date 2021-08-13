@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Tripmix is a game that encourages the use of imagination and innovation, enabling the mixing of substances and simulating their effects">
+    <meta name="description"
+        content="Tripmix is a game that encourages the use of imagination and innovation, enabling the mixing of substances and simulating their effects">
     <meta name="keywords" content="trip, substance, drug, dose, mix, recreational, substance, game, simulation, web">
     <meta name="author" content="vinibiavatti1">
     <title>Tripmix Game</title>
@@ -11,23 +13,26 @@
     <script src="./jquery.js"></script>
     <style id="cssAnimation"></style>
 </head>
+
 <body>
     <div class="screen">
 
         <!-- Intro -->
-        <div id="intro" class="content">
-            <h1>Tripmix</h1>
+        <div id="intro" class="content" style="padding-top: 25px;">
+            <h1 style="margin-top: 5px;">Tripmix</h1>
             <hr>
             <p>A Playground Where You Can Imagine And Discover - (TM v0.0.1) Alpha</p>
-            <br>
             <br>
             <h3>Instructions</h3>
             <p>1. Select the substances you want to mix;</p>
             <p>2. Try the new substance you created;</p>
             <p>3. Do not kill yourself!</p>
             <br>
+            <p><span style="color: orange">WARNING: </span>The game features high frequency color scenes. If you have
+                <b>epilepsy</b>, avoid the game.</p>
             <p style="color: red"><span style="font-size: 20px">☠</span><br><b>Do not use drugs!</b></p>
-            <p>The purpose of this game is to provide information and entertainment content. The game does not encourage the use of drugs in any way. Do not use drugs!</p>
+            <p>The purpose of this game is to provide information and entertainment content. The game does not encourage
+                the use of drugs in any way. Do not use drugs!</p>
             <br>
             Are you of legal age?
             <br>
@@ -42,7 +47,8 @@
         <!-- Game -->
         <div id="game" style="display: none;">
             <div class="search">
-                <input type="text" placeholder="Search" id="search-input" class="search-input" onkeyup="onKeyupSearch()">
+                <input type="text" placeholder="Search" id="search-input" class="search-input"
+                    onkeyup="onKeyupSearch()">
             </div>
             <div id="substances" class="substances">
             </div>
@@ -50,12 +56,13 @@
                 ...
             </div>
             <div id="points" class="points">
-                0/500 points<br>
-                <a href="#!" class="a-reset" onclick="onClickResetAmount()">(Reset Game)</a>
+                <span id="points-label"></span>/500 points<br>
+                <a href="#!" class="a-reset" onclick="onClickResetGame()">(Reset Game)</a>
             </div>
             <div class="game-content">
                 <h1 style="margin-top: 0px;">Tripmix</h1>
-                <h3>Amount (<span id="amount-val">0</span>/20) <a href="#!" class="a-reset" onclick="onClickResetAmount()">(Reset)</a></h3>
+                <h3>Amount (<span id="amount-val">0</span>/20) <a href="#!" class="a-reset"
+                        onclick="onClickResetAmount()">(Reset)</a></h3>
                 <div class="progress-bar">
                     <div id="amount-progress" class="progress" style="width: 0%;"></div>
                 </div>
@@ -70,7 +77,8 @@
                     <tbody>
                         <tr>
                             <td>Stimulant</td>
-                            <td><span id="stimulant-level">0</span> <span id="stimulant-name" class="">(Threshold)</span></td>
+                            <td><span id="stimulant-level">0</span> <span id="stimulant-name"
+                                    class="">(Threshold)</span></td>
                         </tr>
                         <tr>
                             <td>Sedative</td>
@@ -78,7 +86,8 @@
                         </tr>
                         <tr>
                             <td>Hallucinogic</td>
-                            <td><span id="hallucinogic-level">0</span> <span id="hallucinogic-name" class="">(Strong)</span></td>
+                            <td><span id="hallucinogic-level">0</span> <span id="hallucinogic-name"
+                                    class="">(Strong)</span></td>
                         </tr>
                         <tr>
                             <td>Delirant</td>
@@ -86,11 +95,13 @@
                         </tr>
                         <tr>
                             <td>Dissociative</td>
-                            <td><span id="dissociative-level">0</span> <span id="dissociative-name" class="">(None)</span></td>
+                            <td><span id="dissociative-level">0</span> <span id="dissociative-name"
+                                    class="">(None)</span></td>
                         </tr>
                         <tr>
                             <td>Depressant</td>
-                            <td><span id="depressant-level">0</span> <span id="depressant-name" class="">(None)</span></td>
+                            <td><span id="depressant-level">0</span> <span id="depressant-name" class="">(None)</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -100,7 +111,7 @@
                 </div>
                 <h4>Addicted level</h4>
                 <div class="progress-bar">
-                    <div class="progress l5b" style="width: 30%;"></div>
+                    <div id="progress-addiction" class="progress-addiction l5b" style="width: 0%;"></div>
                 </div>
                 <h4>Place</h4>
                 <select id="landscape">
@@ -115,28 +126,71 @@
         <!-- Simulation -->
         <div id="simulation" class="simulation" style="display: none;">
             <div class="actions" style="text-align: left;">
-                <button onclick="changeScreen('game'); reset()">&#60; Back</button>
+                <button onclick="onClickBack()">&#60; Back</button>
                 <button id="walk-btn" onclick="onClickWalk()">Walk</button>
             </div>
             <div id="simulation-screen" class="simulation-screen">
+                <!-- Main image -->
                 <img id="simulation-img" class="simulation-img" src="./images/forest_1.png">
-                <img id="simulation-img-2" style="opacity: .5; " class="simulation-anim simulation-img" src="./images/forest_1.png">
-                <img id="simulation-img-3" style="opacity: .5; " class="simulation-anim2 simulation-img" src="./images/forest_1.png">
-                
-                <img id="white-noise" style="opacity: 0.0; display: none;" class="simulation-img white-noise" src="./images/white-noise.gif">
 
-                <img id="deep-dream" style="opacity: 0.0; display: none;" class="hallucinogic simulation-img" src="./images/deep.jpg">
-                <img id="mirror-effect" style="opacity: 0.0; display: none;" class="hallucinogic2 inverse-img simulation-img" src="./images/forest_1.png">
-                
-                <img id="delirant-ants" style="opacity: 0.0; display: none;" class="simulation-img delirant-ants" src="./images/delirant/ants.gif">
-                <img id="delirant-spider" style="opacity: 0.0; display: none;" class="simulation-img delirant-spider" src="./images/delirant/spider.gif">
-                <img id="delirant-eyes" style="opacity: 0.0; display: none;" class="simulation-img delirant-eyes" src="./images/delirant/eyes.gif">
-                <img id="delirant-horror" style="opacity: 0.0; display: none;" class="simulation-img delirant-horror" src="./images/delirant/horror.png">
-                
-               
+                <!-- Margin images -->
+                <img id="simulation-img-2" style="opacity: .5; " class="simulation-anim simulation-img"
+                    src="./images/forest_1.png">
+                <img id="simulation-img-3" style="opacity: .5; " class="simulation-anim2 simulation-img"
+                    src="./images/forest_1.png">
+
+                <!-- White noise -->
+                <img id="white-noise" style="opacity: 0.0; display: none;" class="simulation-img white-noise"
+                    src="./images/white-noise.gif">
+
+                <!-- Deep dream -->
+                <img id="deep-dream" style="opacity: 0.0; display: none;" class="deep-dream simulation-img"
+                    src="./images/deep.jpg">
+
+                <!-- Mirror -->
+                <img id="mirror-effect" style="opacity: 0.0; display: none;"
+                    class="hallucinogic2 inverse-img simulation-img" src="./images/forest_1.png">
+
+                <!-- Stars -->
+                <img id="stars-effect" style="opacity: 0.0;" class="simulation-img stars-effect"
+                    src="./images/stars.gif">
+
+                <!-- DMT -->
+                <img id="dmt" style="opacity: 0.0; display: none;" class="simulation-img dmt"
+                    src="./images/dmt/dmt_effect.gif">
+                <img id="dmt2" style="opacity: 0.0; display: none;" class="simulation-img dmt2"
+                    src="./images/dmt/dmt2_effect.gif">
+                <img id="dmt3" style="opacity: 0.0; display: none;" class="simulation-img dmt3"
+                    src="./images/dmt/dmt3_effect.gif">
+
+                <!-- Delirant -->
+                <img id="delirant-ants" style="opacity: 0.0; display: none;" class="simulation-img delirant-ants"
+                    src="./images/delirant/ants.gif">
+                <img id="delirant-spider" style="opacity: 0.0; display: none;" class="simulation-img delirant-spider"
+                    src="./images/delirant/spider.gif">
+                <img id="delirant-eyes" style="opacity: 0.0; display: none;" class="simulation-img delirant-eyes"
+                    src="./images/delirant/eyes.gif">
+                <img id="delirant-horror" style="opacity: 0.0; display: none;" class="simulation-img delirant-horror"
+                    src="./images/delirant/horror.png">
             </div>
         </div>
+
+        <!-- Addicted -->
+        <div id="addicted" class="addicted" style="display: none;">
+            <br>
+            <h1 style="color: orange">Game over!</h1>
+            <br>
+            <img class="hospital-img" src="./images/hospital.png" style="width: 300px;">
+            <br>
+            <p style="color: red"><span style="font-size: 20px">☠</span><br><b>Addicted!</b></p>
+            <p>Due to current circumstances, you have been referred to the addiction treatment center for recovery.
+                Unfortunately, all substances will be suspended. Take more responsibility next time.</p>
+            <br>
+            <br>
+            <button id="start-btn" onclick="onClickStartAgainBtn()">I swer I will be responsible. Let me try again!</button>
+        </div>
     </div>
+
     <footer>
         <a href="https://github.com/vinibiavatti1/drugmix" target="_blank">Github Repository</a>
     </footer>
@@ -151,5 +205,8 @@
 <script src="./substances/psilocybin_mushrooms.js"></script>
 <script src="./substances/lsd.js"></script>
 <script src="./substances/datura.js"></script>
+<script src="./substances/dmt.js"></script>
+<script src="./substances/ketamine.js"></script>
 <script src="./game.js"></script>
+
 </html>

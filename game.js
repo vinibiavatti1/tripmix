@@ -20,9 +20,9 @@ let maxAmount = 20;
 let maxSubstancePower = 50;
 let selectedAmount = 0;
 let currentLandscape = 0;
-let currentDeepDreamPower = 0;
 let randomWalk = false;
 let walkDelay = 0;
+let addiction = 0;
 
 /**
  * Init
@@ -44,9 +44,22 @@ $(document).ready(() => {
 /**
  * On click in start button
  */
- function onClickStartBtn() {
-    $('#intro').hide()
-    $('#game').show()
+function onClickStartBtn() {
+    savedPoints = null;
+    try {
+        savedPoints = parseInt(window.localStorage.getItem('points'));
+    } catch(err) {
+        console.error(err);
+        alert('An error ocurred to get save data. A new game will be created!');
+        window.localStorage.removeItem('points');
+    }
+    if(savedPoints) {
+        points = savedPoints;
+    } else {
+        points = 0;
+    }
+    reset();
+    changeScreen('game');
 }
 
 /**
@@ -125,8 +138,6 @@ function onClickWalk() {
     }
 }
 
-
-
 /**
  * On key up search event
  */
@@ -143,6 +154,36 @@ function onKeyupSearch() {
         }
     });
 }
+
+/**
+ * On click in back event
+ */
+function onClickBack() {
+    changeScreen('game'); 
+    reset();
+    if(addiction >= 100) {
+        changeScreen('addicted');
+    }
+}
+
+/**
+ * Start again event
+ */
+function onClickStartAgainBtn() {
+    resetGame();
+    changeScreen('intro');
+}
+
+/**
+ * Reset game event
+ */
+function onClickResetGame() {
+    if(confirm('Are you sure you want to restart the game (all saved data will be erased)?')) {
+        resetGame();
+        changeScreen('intro');
+    }
+}
+
 
 ////////////////////////////////////////////////////////////////////////
 // Renders
@@ -282,6 +323,35 @@ function renderSubstancePower() {
     $("#power-progress").attr("class", "progress " + powerConfig.class);
 }
 
+/**
+ * Show addiction in progress bar
+ */
+function renderAddiction() {
+    $("#progress-addiction").css('width', addiction + '%');
+    let className = '';
+    if(addiction == 0) {
+        className = 'l0b';
+    } else if (addiction <= 20) {
+        className = 'l1b';
+    } else if (addiction <= 40) {
+        className = 'l2b';
+    } else if (addiction <= 60) {
+        className = 'l3b';
+    } else if (addiction <= 80) {
+        className = 'l4b';
+    } else if (addiction <= 100) {
+        className = 'l5b';
+    }
+    $("#progress-addiction").attr('class', className + ' progress-addiction');
+}
+
+/**
+ * Render points
+ */
+function renderPoints() {
+    $("#points-label").html(points);
+}
+
 
 ////////////////////////////////////////////////////////////////////////
 // Logic
@@ -297,6 +367,9 @@ function reset() {
     $("#amount-progress").css('width', '0%');
     $("#amount-val").html('0');
     $('#deep-dream').hide();
+    for(let i = 1; i <= 5; i++) {
+        $('#deep-dream').removeClass('deep-dream-' + i);
+    }
     $('#mirror-effect').hide();
     renderStat('stimulant', 0, 'None', 'l0');
     renderStat('sedative', 0, 'None', 'l0');
@@ -313,9 +386,13 @@ function reset() {
     $('#delirant-eyes').hide();
     $('#delirant-horror').hide();
     $('#white-noise').hide();
-    currentDeepDreamPower = null;
+    $("#dmt").hide();
+    $("#dmt2").hide();
+    $("#dmt3").hide();
     randomWalk = false;
     walkDelay = false;
+    renderAddiction();
+    renderPoints();
 }
 
 /**
@@ -326,6 +403,7 @@ function reset() {
     $('#intro').hide();
     $('#game').hide();
     $('#simulation').hide();
+    $('#addicted').hide();
     $('#' + id).show();
 }
 
@@ -342,6 +420,8 @@ function startSimulation(method) {
     let highDelirantEffects = false;
     let lowDelirantEffects = false;
     let whiteNoise = false;
+    let deepDreamImg = null;
+    let dmtEffect = false;
 
     // CSS Effects
     for(let key in selectedSubstances) {
@@ -354,9 +434,20 @@ function startSimulation(method) {
         }
         substanceConfig = substances[key];
 
-        // method
+        // Method
         if(method != 'all' && !substanceConfig.worksOnMethod.includes(method)) {
             continue;
+        }
+
+        // Addiction
+        addiction += substanceConfig.addictionLevel * power;
+
+        // Points
+        points += power;
+        console.log(power);
+        window.localStorage.setItem('points', points); 
+        if(points > 500) {
+            points = 500;
         }
 
         // Add CSS effects
@@ -367,6 +458,10 @@ function startSimulation(method) {
 
         // DeepDream
         if(substanceConfig.deepDreamEffect) {
+            if(!deepDreamImg) {
+                let randDeep = randomInt(0, 10) + 1;
+                deepDreamImg = deepDreams[randDeep]
+            }
             let deepDreamEffectLevel = substanceConfig.deepDreamEffectConfig[power];
             if(deepDreamEffectLevel > generalDeepDreamEffectLevel) {
                 generalDeepDreamEffectLevel = deepDreamEffectLevel;
@@ -379,7 +474,7 @@ function startSimulation(method) {
         }
 
         // Delirant
-        if(substanceConfig.stats.delirant) {
+        if(substanceConfig.delirant) {
             randomWalk = true;
             lowDelirantEffects = true;
             if(power >= substanceConfig.highDelirantEffectActiveInPower) {
@@ -396,9 +491,14 @@ function startSimulation(method) {
         if(substanceConfig.walkDelay) {
             walkDelay = true;
         }
+
+        if(substanceConfig.dmtEffect && power >= substanceConfig.dmtEffectActiveInPower) {
+            dmtEffect = true;
+        }
     }
+
     let animationCss = createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, cssFilterEffectsTo);
-    startSubstanceEffects(animationCss, generalDeepDreamEffectLevel, generalMirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise);
+    startSubstanceEffects(animationCss, deepDreamImg, generalDeepDreamEffectLevel, generalMirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect);
 }
 
 /**
@@ -429,15 +529,17 @@ function createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, 
  * @param {*} deepDreamEffectLevel 
  * @param {*} mirrorEffect 
  */
-function startSubstanceEffects(animation, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise) {
+function startSubstanceEffects(animation, deepDreamImg, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect) {
     console.log('Animation: ' + animation);
+    console.log('Deep dream img: ' + deepDreamImg);
     console.log('Deep dream effect: ' + deepDreamEffectLevel);
     console.log('Mirror effect: ' + mirrorEffect);
     $('#cssAnimation').empty();
     $('#cssAnimation').html(animation);
-    if(deepDreamEffectLevel) {
+    if(deepDreamEffectLevel && deepDreamImg) {
+        $('#deep-dream').attr('src', 'images/deep_dreams/' + deepDreamImg);
+        $('#deep-dream').addClass('deep-dream-' + deepDreamEffectLevel);
         $('#deep-dream').show();
-        currentDeepDreamPower = deepDreamEffectLevel;
     }
     if(mirrorEffect) {
         $('#mirror-effect').show();
@@ -452,6 +554,11 @@ function startSubstanceEffects(animation, deepDreamEffectLevel, mirrorEffect, lo
     }
     if(whiteNoise) {
         $('#white-noise').show();
+    }
+    if(dmtEffect) {
+        $('#dmt').show();
+        $('#dmt2').show();
+        $('#dmt3').show();
     }
 }
 
@@ -482,19 +589,19 @@ function updateLandscape() {
     let landscapeConfig = landscapes[currentLandscape];
     console.log(landscapeConfig, currentLandscape);
     let img = './images/' + landscapeConfig.imgs[currentLandscapeImg];
-    let deepImg = '';
-    if(currentDeepDreamPower == deepDreamPower.low) {
-        deepImg = './images/' + landscapeConfig.deepDreamImgLow;
-    } else if(currentDeepDreamPower == deepDreamPower.high) {
-        deepImg = './images/' + landscapeConfig.deepDreamImgHigh;
-    }
     $("#simulation-img").attr('src', img);
     $("#simulation-img-2").attr('src', img);
     $("#simulation-img-3").attr('src', img);
-    $("#deep-dream").attr('src', deepImg);
     $("#mirror-effect").attr('src', img);
 }
 
+/**
+ * Reset game
+ */
+function resetGame() {
+    points = 0;
+    window.localStorage.removeItem('points'); 
+}
 
 ////////////////////////////////////////////////////////////////////////
 // Utils

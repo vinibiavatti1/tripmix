@@ -19,6 +19,18 @@ let deepDreamPower = {
     low: 1,
     high: 2,
 }
+let deepDreams = {
+    1: 'deep1.png',
+    2: 'deep2.png',
+    3: 'deep3.png',
+    4: 'deep4.png',
+    5: 'deep5.png',
+    6: 'deep6.png',
+    7: 'deep7.png',
+    8: 'deep8.png',
+    9: 'deep9.png',
+    10: 'deep10.png',
+}
 let methods = {
     'Plate': {
         img: 'plate.png',
@@ -73,10 +85,6 @@ let landscapes = {
     'Lake (Açores - PT)': {
         number: 1,
         imgs: ['lake/lake1.png', 'lake/lake2.png', 'lake/lake3.png', 'lake/lake4.png', 'lake/lake5.png', 'lake/lake6.png', 'lake/lake7.png', 'lake/lake8.png', 'lake/lake9.png', 'lake/lake10.png', 'lake/lake11.png', 'lake/lake12.png', 'lake/lake13.png', 'lake/lake14.png'],
-        deepDreamImgLow: 'lake/lake_deep1.jpg',
-        deepDreamImgHigh: 'lake/lake_deep2.jpg',
-        dissociativeImgLow: '',
-        dissociativeImgHigh: '',
     },
 }
 let substances = {}

@@ -1,0 +1,67 @@
+substances['Ketamine'] = {
+    img: 'ketamine.png',
+    info: 'Ketamine is a classical dissociative substance. It is the most well-known and widely-used among the dissociatives.',
+    addictionLevel: 1,
+    power: 4,
+    unlockPoints: 0,
+    walkDelay: false,
+    worksOnMethod: ['eat', 'drink', 'smoke'],
+    stats: {
+        stimulant: false,
+        sedative: false,
+        hallucinogic: true,
+        delirant: false,
+        dissociative: true,
+        depressant: true,
+    },
+    cssEffects: {
+        from: {
+            1: '',
+            2: '',
+            3: '',
+            4: '',
+            5: '',
+        },
+        to: {
+            1: '',
+            2: '',
+            3: '',
+            4: '',
+            5: '',
+        }
+    },
+    cssFilterEffects: {
+        from: {
+            1: 'brightness(100%)',
+            2: 'brightness(100%)',
+            3: 'brightness(100%)',
+            4: 'brightness(100%)',
+            5: 'brightness(100%)',
+        },
+        to: {
+            1: 'brightness(50%)',
+            2: 'brightness(40%)',
+            3: 'brightness(30%)',
+            4: 'brightness(10%)',
+            5: 'brightness(0%)',
+        }
+    },
+    deepDreamEffect: true,
+    deepDreamEffectConfig: {
+        1: 0,
+        2: 0,
+        3: 1,
+        4: 2,
+        5: 2,
+    },
+    mirrorEffect: true,
+    mirrorEffectActiveInPower: 4,
+    delirant: false,
+    highDelirantEffectActiveInPower: 0, 
+    whiteNoise: true,
+    whiteNoiseEffectActiveInPower: 2,
+    starsEffect: false,
+    starsEffectActiveInPower: 0,
+    dmtEffect: false,
+    dmtEffectActiveInPower: 0,
+}
