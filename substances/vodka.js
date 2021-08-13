@@ -2,6 +2,7 @@ substances['Vodka'] = {
     img: 'vodka.png',
     info: 'Vodka is composed mainly of water and ethanol. Usually, vodkas contain 40% alcohol.',
     addictionLevel: 2,
+    special: false,
     power: 4,
     unlockPoints: 0,
     walkDelay: false,

@@ -2,6 +2,7 @@ substances['Ketamine'] = {
     img: 'ketamine.png',
     info: 'Ketamine is a classical dissociative substance. It is the most well-known and widely-used among the dissociatives.',
     addictionLevel: 1,
+    special: false,
     power: 4,
     unlockPoints: 0,
     walkDelay: false,

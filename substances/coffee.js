@@ -2,6 +2,7 @@ substances['Coffee'] = {
     img: 'coffee.png',
     info: 'Coffee contains caffeine that is a stimulant substance. Notable effects include stimulation, wakefulness, enhanced focus and motivation.',
     addictionLevel: 2,
+    special: false,
     power: 1,
     unlockPoints: 0,
     walkDelay: false,

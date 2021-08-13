@@ -2,6 +2,7 @@ substances['DMT'] = {
     img: 'dmt.png',
     info: 'DMT is known for its unique ability to produce short-lived but intense visionary states and complete hallucinations.',
     addictionLevel: 0,
+    special: true,
     power: 1,
     unlockPoints: 0,
     walkDelay: false,

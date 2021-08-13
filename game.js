@@ -23,6 +23,7 @@ let currentLandscape = 0;
 let randomWalk = false;
 let walkDelay = 0;
 let addiction = 0;
+let maxPoints = 99999;
 
 /**
  * Init
@@ -59,6 +60,7 @@ function onClickStartBtn() {
         points = 0;
     }
     reset();
+    $("#max-points").html(maxPoints);
     changeScreen('game');
 }
 
@@ -214,9 +216,11 @@ function renderMethods() {
     for(key in substances) {
         let substance = substances[key];
         let div = $('<div></div>');
-        div.attr('data-info', substance.info);
+        let specialInfo = substance.special ? '(special) ' : '';
+        div.attr('data-info', specialInfo + substance.info);
         div.attr('data-name', key);
-        div.attr('class', 'substance');
+        let special = substance.special ? ' special-substance' : '';
+        div.attr('class', 'substance' + special);
         div.attr('onclick', `onClickSubstance('${key}')`)
         let img = $('<img/>');
         img.attr('src', './images/' + substance.img);
@@ -446,8 +450,8 @@ function startSimulation(method) {
         points += power;
         console.log(power);
         window.localStorage.setItem('points', points); 
-        if(points > 500) {
-            points = 500;
+        if(points > maxPoints) {
+            points = maxPoints;
         }
 
         // Add CSS effects

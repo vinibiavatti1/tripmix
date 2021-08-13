@@ -2,6 +2,7 @@ substances['Datura'] = {
     img: 'datura.png',
     info: 'Datura is known as powerful and dangerous deliriant, used for shamanic and medical purposes, as well as poisons.',
     addictionLevel: 0,
+    special: false,
     power: 7,
     unlockPoints: 0,
     walkDelay: false,

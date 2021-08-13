@@ -2,6 +2,7 @@ substances['LSD'] = {
     img: 'lsd.png',
     info: 'LSD is considered to be the best known, most researched, and culturally influential psychedelic substance.',
     addictionLevel: 1,
+    special: false,
     power: 2,
     unlockPoints: 0,
     walkDelay: false,

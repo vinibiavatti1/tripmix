@@ -2,6 +2,7 @@ substances['Tobacco'] = {
     img: 'tobacco.png',
     info: 'Tobacco contains nicotine that is a stimulant substance. It is highly addictive. Subjective effects include stimulation and mild euphoria.',
     addictionLevel: 4,
+    special: false,
     power: 1,
     unlockPoints: 0,
     walkDelay: false,

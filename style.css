@@ -527,3 +527,22 @@ background: rgb(0, 75, 0);
 .hospital-img {
     border: 1px solid white;
 }
+
+.special-substance {
+    animation: colorfull-border 3s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes colorfull-border {
+    0% { border-color: red; }
+    10% {border-color: orange;}
+    20% {border-color: gold;}
+    30% {border-color: green;}
+    40% {border-color: cyan;}
+    50% {border-color: blue;}
+    60% {border-color: darkblue;}
+    70% {border-color: purple;}
+    80% {border-color: magenta;}
+    90% {border-color: indigo;}
+    100% {border-color: brown;}
+}

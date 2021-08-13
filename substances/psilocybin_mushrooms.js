@@ -2,6 +2,7 @@ substances['Psilocybin Mushrooms'] = {
     img: 'psilocybin_mushrooms.png',
     info: 'Psilocybin Mushrooms are a family of psychoactive mushrooms that contain psilocybin, a psychedelic substance.',
     addictionLevel: 0,
+    special: false,
     power: 1,
     unlockPoints: 0,
     walkDelay: false,

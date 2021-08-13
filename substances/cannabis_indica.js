@@ -2,6 +2,7 @@ substances['Cannabis Indica'] = {
     img: 'cannabis_indica.png',
     info: 'Cannabis produces psychoactive effects when consumed. Cannabis indica has higher levels of THC compared to CBD.',
     addictionLevel: 1,
+    special: false,
     power: 1,
     unlockPoints: 0,
     walkDelay: true,
