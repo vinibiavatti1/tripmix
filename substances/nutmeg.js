@@ -1,0 +1,68 @@
+substances['Nutmeg'] = {
+    img: 'nutmeg.png',
+    info: 'Nutmeg has a delirant substance called by myristicin. It is reported to induce hallucinogenic effects, such as visual distortions and paranoid ideation.',
+    addictionLevel: 0,
+    special: false,
+    power: 1,
+    unlockPoints: 0,
+    walkDelay: false,
+    worksOnMethod: ['eat', 'drink'],
+    stats: {
+        stimulant: false,
+        sedative: false,
+        hallucinogic: true,
+        delirant: true,
+        dissociative: false,
+        depressant: true,
+    },
+    cssEffects: {
+        from: {
+            1: 'margin-left: -1px;',
+            2: 'margin-left: -2px;',
+            3: 'margin-left: -4px;',
+            4: 'margin-left: -8px;',
+            5: 'margin-left: -10px;',
+        },
+        to: {
+            1: 'margin-left: 1px;',
+            2: 'margin-left: 2px;',
+            3: 'margin-left: 4px;',
+            4: 'margin-left: 8px;',
+            5: 'margin-left: 10px;',
+        }
+    },
+    cssFilterEffects: {
+        from: {
+            1: 'grayscale(0%)',
+            2: 'grayscale(0%)',
+            3: 'grayscale(0%) brightness(100%)',
+            4: 'grayscale(0%) blur(0px) brightness(100%)',
+            5: 'grayscale(0%) blur(0px) brightness(100%)',
+        },
+        to: {
+            1: 'grayscale(10%)',
+            2: 'grayscale(20%)',
+            3: 'grayscale(40%) brightness(80%)',
+            4: 'grayscale(50%) blur(2px) brightness(60%)',
+            5: 'grayscale(70%) blur(3px) brightness(50%)',
+        }
+    },
+    deepDreamEffect: false,
+    deepDreamEffectConfig: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+    },
+    mirrorEffect: true,
+    mirrorEffectActiveInPower: 5,
+    delirant: true,
+    highDelirantEffectActiveInPower: 5,
+    whiteNoise: true,
+    whiteNoiseEffectActiveInPower: 5,
+    starsEffect: false,
+    starsEffectActiveInPower: 0,
+    dmtEffect: false,
+    dmtEffectActiveInPower: 0,
+}

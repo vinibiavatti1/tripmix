@@ -1,16 +1,4 @@
-/*
-Effects
-    blur(5px)
-    brightness(200%)
-    contrast(200%)
-    grayscale(100%)
-    hue-rotate(90deg)
-    invert(100%)
-    opacity(30%)
-    saturate(8)
-    sepia(100%)
-
-*/
+const DEBUG = false;
 
 /* Player Data */
 let initialPoints = 0;
@@ -33,7 +21,7 @@ $(document).ready(() => {
     renderSubstances();
     addInfoHandle('.substance')
     addInfoHandle('.method')
-    
+
 });
 
 
@@ -78,7 +66,7 @@ function onClickStartBtn() {
 
 /**
  * Select the method to usage
- * @param {*} method 
+ * @param {*} method
  */
  function onClickMethod(type) {
     startSimulation(type);
@@ -90,8 +78,8 @@ function onClickStartBtn() {
 
 /**
  * Click event on substance
- * @param {*} name 
- * @returns 
+ * @param {*} name
+ * @returns
  */
  function onClickSubstance(name) {
     if(selectedAmount >= maxAmount) {
@@ -161,7 +149,7 @@ function onKeyupSearch() {
  * On click in back event
  */
 function onClickBack() {
-    changeScreen('game'); 
+    changeScreen('game');
     reset();
     if(addiction >= 100) {
         changeScreen('addicted');
@@ -282,13 +270,13 @@ function renderStats() {
 
 /**
  * Render stat
- * @param {*} statName 
- * @param {*} value 
- * @param {*} name 
- * @param {*} className 
+ * @param {*} statName
+ * @param {*} value
+ * @param {*} name
+ * @param {*} className
  */
 function renderStat(statName, value, name, className) {
-    $('#' + statName + '-level').html(value); 
+    $('#' + statName + '-level').html(value);
     $('#' + statName + '-name').html('(' + name + ')');
     $('#' + statName + '-name').attr('class', className);
 }
@@ -393,6 +381,7 @@ function reset() {
     $("#dmt").hide();
     $("#dmt2").hide();
     $("#dmt3").hide();
+    $('#stars-effect').hide();
     randomWalk = false;
     walkDelay = false;
     renderAddiction();
@@ -401,7 +390,7 @@ function reset() {
 
 /**
  * Change the screen by id
- * @param {*} id 
+ * @param {*} id
  */
  function changeScreen(id) {
     $('#intro').hide();
@@ -426,6 +415,7 @@ function startSimulation(method) {
     let whiteNoise = false;
     let deepDreamImg = null;
     let dmtEffect = false;
+    let starsEffect = false;
 
     // CSS Effects
     for(let key in selectedSubstances) {
@@ -449,7 +439,7 @@ function startSimulation(method) {
         // Points
         points += power;
         console.log(power);
-        window.localStorage.setItem('points', points); 
+        window.localStorage.setItem('points', points);
         if(points > maxPoints) {
             points = maxPoints;
         }
@@ -496,22 +486,27 @@ function startSimulation(method) {
             walkDelay = true;
         }
 
+        // StarsEffect
+        if(substanceConfig.starsEffect) {
+            starsEffect = true;
+        }
+
         if(substanceConfig.dmtEffect && power >= substanceConfig.dmtEffectActiveInPower) {
             dmtEffect = true;
         }
     }
 
     let animationCss = createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, cssFilterEffectsTo);
-    startSubstanceEffects(animationCss, deepDreamImg, generalDeepDreamEffectLevel, generalMirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect);
+    startSubstanceEffects(animationCss, deepDreamImg, generalDeepDreamEffectLevel, generalMirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect);
 }
 
 /**
  * Create CSS animation configuration and render it
- * @param {*} cssEffectsFrom 
- * @param {*} cssEffectsTo 
- * @param {*} cssFilterEffectsFrom 
- * @param {*} cssFilterEffectsTo 
- * @returns 
+ * @param {*} cssEffectsFrom
+ * @param {*} cssEffectsTo
+ * @param {*} cssFilterEffectsFrom
+ * @param {*} cssFilterEffectsTo
+ * @returns
  */
 function createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, cssFilterEffectsTo) {
     let animationFrom = '';
@@ -529,11 +524,11 @@ function createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, 
 
 /**
  * Render animation and set images
- * @param {*} animation 
- * @param {*} deepDreamEffectLevel 
- * @param {*} mirrorEffect 
+ * @param {*} animation
+ * @param {*} deepDreamEffectLevel
+ * @param {*} mirrorEffect
  */
-function startSubstanceEffects(animation, deepDreamImg, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect) {
+function startSubstanceEffects(animation, deepDreamImg, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect) {
     console.log('Animation: ' + animation);
     console.log('Deep dream img: ' + deepDreamImg);
     console.log('Deep dream effect: ' + deepDreamEffectLevel);
@@ -563,6 +558,9 @@ function startSubstanceEffects(animation, deepDreamImg, deepDreamEffectLevel, mi
         $('#dmt').show();
         $('#dmt2').show();
         $('#dmt3').show();
+    }
+    if(starsEffect) {
+        $('#stars-effect').show();
     }
 }
 
@@ -604,7 +602,7 @@ function updateLandscape() {
  */
 function resetGame() {
     points = 0;
-    window.localStorage.removeItem('points'); 
+    window.localStorage.removeItem('points');
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -614,7 +612,7 @@ function resetGame() {
 
 /**
  * Add info handler to element by selector
- * @param {*} selector 
+ * @param {*} selector
  */
  function addInfoHandle(selector) {
     $(selector).hover(function() {
@@ -629,9 +627,9 @@ function resetGame() {
 
 /**
  * Random int
- * @param {*} min 
- * @param {*} max 
- * @returns 
+ * @param {*} min
+ * @param {*} max
+ * @returns
  */
 function randomInt(min, max) {
     min = Math.ceil(min);

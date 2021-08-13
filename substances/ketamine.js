@@ -42,9 +42,9 @@ substances['Ketamine'] = {
         to: {
             1: 'brightness(50%)',
             2: 'brightness(40%)',
-            3: 'brightness(30%)',
-            4: 'brightness(10%)',
-            5: 'brightness(0%)',
+            3: 'brightness(-10%)',
+            4: 'brightness(-50%)',
+            5: 'brightness(-100%)',
         }
     },
     deepDreamEffect: true,
@@ -58,7 +58,7 @@ substances['Ketamine'] = {
     mirrorEffect: true,
     mirrorEffectActiveInPower: 4,
     delirant: false,
-    highDelirantEffectActiveInPower: 0, 
+    highDelirantEffectActiveInPower: 0,
     whiteNoise: true,
     whiteNoiseEffectActiveInPower: 2,
     starsEffect: false,
