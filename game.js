@@ -11,6 +11,7 @@ let currentLandscape = 0;
 let randomWalk = false;
 let walkDelay = 0;
 let addiction = 0;
+let maxAddiction = 200;
 let maxPoints = 99999;
 
 /**
@@ -151,7 +152,7 @@ function onKeyupSearch() {
 function onClickBack() {
     changeScreen('game');
     reset();
-    if(addiction >= 100) {
+    if(addiction >= maxAddiction) {
         changeScreen('addicted');
     }
 }
@@ -319,19 +320,19 @@ function renderSubstancePower() {
  * Show addiction in progress bar
  */
 function renderAddiction() {
-    $("#progress-addiction").css('width', addiction + '%');
+    $("#progress-addiction").css('width', parseInt(addiction * 100 / maxAddiction) + '%');
     let className = '';
     if(addiction == 0) {
         className = 'l0b';
-    } else if (addiction <= 20) {
-        className = 'l1b';
     } else if (addiction <= 40) {
-        className = 'l2b';
-    } else if (addiction <= 60) {
-        className = 'l3b';
+        className = 'l1b';
     } else if (addiction <= 80) {
+        className = 'l2b';
+    } else if (addiction <= 120) {
+        className = 'l3b';
+    } else if (addiction <= 160) {
         className = 'l4b';
-    } else if (addiction <= 100) {
+    } else if (addiction <= 200) {
         className = 'l5b';
     }
     $("#progress-addiction").attr('class', className + ' progress-addiction');
@@ -435,6 +436,14 @@ function startSimulation(method) {
 
         // Addiction
         addiction += substanceConfig.addictionLevel * power;
+
+        // Water
+        if(key == 'Water') {
+            addiction -= 5 * power;
+        }
+        if(addiction < 0) {
+            addiction = 0;
+        }
 
         // Points
         points += power;
