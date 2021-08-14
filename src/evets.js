@@ -17,7 +17,7 @@
     }
     reset();
     $("#max-points").html(maxPoints);
-    changeScreen('game');
+    changeScreen(SCREENS.GAME);
 }
 
 /**
@@ -41,7 +41,7 @@
     currentLandscape = $("#landscape").val();
     currentLandscapeImg = 0;
     updateLandscape();
-    changeScreen('simulation');
+    changeScreen(SCREENS.SIMULATION);
 }
 
 /**
@@ -117,10 +117,11 @@ function onClickWalk() {
  * On click in back event
  */
 function onClickBack() {
-    changeScreen('game');
-    reset();
+    afterSimulation();
     if(addiction >= maxAddiction) {
-        changeScreen('addicted');
+        changeScreen(SCREENS.GAME_OVER);
+    } else {
+        changeScreen(SCREENS.GAME);
     }
 }
 
@@ -129,7 +130,7 @@ function onClickBack() {
  */
 function onClickStartAgainBtn() {
     resetGame();
-    changeScreen('intro');
+    changeScreen(SCREENS.INTRO);
 }
 
 /**
@@ -138,6 +139,6 @@ function onClickStartAgainBtn() {
 function onClickResetGame() {
     if(confirm('Are you sure you want to restart the game (all saved data will be erased)?')) {
         resetGame();
-        changeScreen('intro');
+        changeScreen(SCREENS.INTRO);
     }
 }

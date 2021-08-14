@@ -7,7 +7,6 @@ registerSubstance('DMT', {
     special: true,
     power: 1,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['eat', 'drink', 'smoke'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('DMT', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.THRESHOLD,
     whiteNoiseEffect: POWER.NONE,
@@ -48,24 +48,6 @@ registerSubstance('DMT', {
         3: POWER.HEAVY,
         4: POWER.HEAVY,
         5: POWER.NONE,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: '',
-        },
-        to: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: '',
-        }
     },
 
     /* CSS Filter Effects */

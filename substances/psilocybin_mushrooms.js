@@ -7,7 +7,6 @@ registerSubstance('Psilocybin Mushrooms', {
     special: false,
     power: 1,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['eat', 'drink', 'smoke'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('Psilocybin Mushrooms', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.MODERATE,
     whiteNoiseEffect: POWER.NONE,
@@ -48,24 +48,6 @@ registerSubstance('Psilocybin Mushrooms', {
         3: POWER.MODERATE,
         4: POWER.STRONG,
         5: POWER.HEAVY,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: 'margin-left: -1px;',
-        },
-        to: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: 'margin-left: 1px;',
-        }
     },
 
     /* CSS Filter Effects */

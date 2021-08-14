@@ -7,7 +7,6 @@ registerSubstance('Coffee', {
     special: false,
     power: 1,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['eat', 'drink'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('Coffee', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.NONE,
     whiteNoiseEffect: POWER.NONE,
@@ -48,24 +48,6 @@ registerSubstance('Coffee', {
         3: POWER.NONE,
         4: POWER.NONE,
         5: POWER.NONE,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: '',
-            2: '',
-            3: '',
-            4: 'margin-top: -1px;',
-            5: 'margin-top: -2px;',
-        },
-        to: {
-            1: '',
-            2: '',
-            3: '',
-            4: 'margin-top: 1px;',
-            5: 'margin-top: 2px;',
-        }
     },
 
     /* CSS Filter Effects */

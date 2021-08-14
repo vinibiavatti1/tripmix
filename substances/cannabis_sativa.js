@@ -7,7 +7,6 @@ registerSubstance('Cannabis Sativa', {
     special: false,
     power: 1,
     unlockPoints: 0,
-    walkDelay: true,
     worksOnMethod: ['eat', 'smoke'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('Cannabis Sativa', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.LIGHT,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.NONE,
     whiteNoiseEffect: POWER.NONE,
@@ -48,24 +48,6 @@ registerSubstance('Cannabis Sativa', {
         3: POWER.NONE,
         4: POWER.THRESHOLD,
         5: POWER.THRESHOLD,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: 'margin-left: -1px;',
-            2: 'margin-left: -1px;',
-            3: 'margin-left: -1px;',
-            4: 'margin-left: -2px;',
-            5: 'margin-left: -2px;',
-        },
-        to: {
-            1: 'margin-left: 1px;',
-            2: 'margin-left: 1px;',
-            3: 'margin-left: 1px;',
-            4: 'margin-left: 2px;',
-            5: 'margin-left: 2px;',
-        }
     },
 
     /* CSS Filter Effects */

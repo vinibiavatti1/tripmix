@@ -29,7 +29,27 @@ function randomInt(min, max) {
  * Return a random deep dream searching into the registered deep dreams
  */
 function getRandomDeepDream() {
-
+    return DEEP_DREAMS[randomInt(0, DEEP_DREAMS.length)];
 }
 
+/**
+ * Change progress bar value
+ * @param {*} selector
+ * @param {*} value
+ */
+function changeProgressValue(selector, value) {
+    $(selector).css('width', value + '%');
+}
 
+/**
+ * Return the number inside the specified range
+ * @param {*} number
+ * @param {*} min
+ * @param {*} max
+ * @returns
+ */
+function limitRange(number, min, max) {
+    if(!number) return min;
+    if(number < min) return min;
+    if(number > max) return max;
+}

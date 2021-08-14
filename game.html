@@ -16,6 +16,7 @@
 
     <!-- Scripts -->
     <script src="./plugins/jquery.js"></script>
+    <script src="./substances.js"></script>
     <script src="./src/config.js"></script>
     <script src="./src/data.js"></script>
     <script src="./src/game.js"></script>
@@ -72,7 +73,7 @@
             </div>
             <div class="game-content">
                 <h1 style="margin-top: 0px;">Tripmix</h1>
-                <h3>Amount (<span id="amount-val">0</span>/20) <a href="#!" class="a-reset"
+                <h3>Amount (<span id="substance-amount-label">0</span>/20) <a href="#!" class="a-reset"
                         onclick="onClickResetAmount()">(Reset)</a></h3>
                 <div class="progress-bar">
                     <div id="amount-progress" class="progress" style="width: 0%;"></div>
@@ -116,7 +117,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <h4>Substance Power <span id="substance-power-name">(None)</span></h4>
+                <h4>Substance Power <span id="substance-power-label">(None)</span></h4>
                 <div class="progress-bar">
                     <div id="power-progress" class="progress l6b" style="width: 0%;"></div>
                 </div>
@@ -206,26 +207,4 @@
         <a href="https://github.com/vinibiavatti1/drugmix" target="_blank">Github Repository</a>
     </footer>
 </body>
-
-<!-- Game main data -->
-<script src="./game_data.js"></script>
-
-<!-- Substancies -->
-<script src="./substances/water.js"></script>
-<script src="./substances/beer.js"></script>
-<script src="./substances/coffee.js"></script>
-<script src="./substances/tobacco.js"></script>
-<script src="./substances/vodka.js"></script>
-<script src="./substances/cannabis_sativa.js"></script>
-<script src="./substances/cannabis_indica.js"></script>
-<script src="./substances/psilocybin_mushrooms.js"></script>
-<script src="./substances/lsd.js"></script>
-<script src="./substances/datura.js"></script>
-<script src="./substances/dmt.js"></script>
-<script src="./substances/ketamine.js"></script>
-<script src="./substances/nutmeg.js"></script>
-<!-- Add more here... -->
-
-<!-- Game logic -->
-<script src="./game.js"></script>
 </html>

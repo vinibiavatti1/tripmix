@@ -7,7 +7,6 @@ registerSubstance('Nutmeg', {
     special: false,
     power: 1,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['eat', 'drink'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('Nutmeg', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.HEAVY,
     mirrorEffect: POWER.HEAVY,
     whiteNoiseEffect: POWER.NONE,
@@ -48,24 +48,6 @@ registerSubstance('Nutmeg', {
         3: POWER.NONE,
         4: POWER.NONE,
         5: POWER.NONE,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: 'margin-left: -1px;',
-            2: 'margin-left: -2px;',
-            3: 'margin-left: -4px;',
-            4: 'margin-left: -8px;',
-            5: 'margin-left: -10px;',
-        },
-        to: {
-            1: 'margin-left: 1px;',
-            2: 'margin-left: 2px;',
-            3: 'margin-left: 4px;',
-            4: 'margin-left: 8px;',
-            5: 'margin-left: 10px;',
-        }
     },
 
     /* CSS Filter Effects */

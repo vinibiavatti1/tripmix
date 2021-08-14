@@ -6,6 +6,12 @@ const POWER = {
     STRONG: 4,
     HEAVY: 5,
 };
+const SCREENS = {
+    INTRO: '#intro',
+    GAME: '#game',
+    SIMULATION: '#simulation',
+    GAME_OVER: '#game_over',
+}
 const STATS_LEVELS = {
     0: { name: 'None', class: 'text-gray' },
     1: { name: 'Threshold', class: 'text-cyan' },
@@ -22,18 +28,25 @@ const POWER_LEVELS = {
     4: { name: 'Heavy', class: 'brown' },
     5: { name: 'Death Risk', class: 'red' },
 };
-const DEEP_DREAMS = {
-    1: 'deep1.png',
-    2: 'deep2.png',
-    3: 'deep3.png',
-    4: 'deep4.png',
-    5: 'deep5.png',
-    6: 'deep6.png',
-    7: 'deep7.png',
-    8: 'deep8.png',
-    9: 'deep9.png',
-    10: 'deep10.png',
+const DRUNK_LEVELS = {
+    1: '2px;',
+    2: '8px;',
+    3: '12px;',
+    4: '20px;',
+    5: '80px;',
 }
+const DEEP_DREAMS = [
+    'deep1.png',
+    'deep2.png',
+    'deep3.png',
+    'deep4.png',
+    'deep5.png',
+    'deep6.png',
+    'deep7.png',
+    'deep8.png',
+    'deep9.png',
+    'deep10.png',
+];
 const METHODS = {
     'Plate': {
         img: 'plate.png',
@@ -89,4 +102,4 @@ const LANDSCAPES = {
         imgs: ['lake/lake1.png', 'lake/lake2.png', 'lake/lake3.png', 'lake/lake4.png', 'lake/lake5.png', 'lake/lake6.png', 'lake/lake7.png', 'lake/lake8.png', 'lake/lake9.png', 'lake/lake10.png', 'lake/lake11.png', 'lake/lake12.png', 'lake/lake13.png', 'lake/lake14.png'],
     },
 }
-let SUBSTANCIES = {};
+let SUBSTANCES = {};

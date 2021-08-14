@@ -7,7 +7,6 @@ registerSubstance('Water', {
     special: false,
     power: 0,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['drink'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('Water', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.NONE,
     whiteNoiseEffect: POWER.NONE,
@@ -48,24 +48,6 @@ registerSubstance('Water', {
         3: POWER.NONE,
         4: POWER.NONE,
         5: POWER.NONE,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: '',
-        },
-        to: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: '',
-        }
     },
 
     /* CSS Filter Effects */

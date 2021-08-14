@@ -7,7 +7,6 @@ registerSubstance('Tobacco', {
     special: false,
     power: 1,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['smoke'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('Tobacco', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.NONE,
     whiteNoiseEffect: POWER.NONE,
@@ -48,24 +48,6 @@ registerSubstance('Tobacco', {
         3: POWER.NONE,
         4: POWER.NONE,
         5: POWER.NONE,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: '',
-            2: '',
-            3: '',
-            4: 'margin-left: -2px;',
-            5: 'margin-left: -2px;',
-        },
-        to: {
-            1: '',
-            2: '',
-            3: '',
-            4: 'margin-left: 2px;',
-            5: 'margin-left: 2px;',
-        }
     },
 
     /* CSS Filter Effects */

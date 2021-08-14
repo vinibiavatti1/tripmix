@@ -7,7 +7,6 @@ registerSubstance('Beer', {
     special: false,
     power: 2,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['drink'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('Beer', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.NONE,
     whiteNoiseEffect: POWER.NONE,
@@ -48,24 +48,6 @@ registerSubstance('Beer', {
         3: POWER.NONE,
         4: POWER.NONE,
         5: POWER.NONE,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: 'margin-left: -2px;',
-            2: 'margin-left: -4px;',
-            3: 'margin-left: -8px;',
-            4: 'margin-left: -12px;',
-            5: 'margin-left: -20px;',
-        },
-        to: {
-            1: 'margin-left: 2px;',
-            2: 'margin-left: 4px;',
-            3: 'margin-left: 8px;',
-            4: 'margin-left: 12px;',
-            5: 'margin-left: 20px;',
-        }
     },
 
     /* CSS Filter Effects */

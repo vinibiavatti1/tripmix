@@ -7,7 +7,6 @@ registerSubstance('Vodka', {
     special: false,
     power: 4,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['drink'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('Vodka', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.NONE,
     whiteNoiseEffect: POWER.NONE,
@@ -48,24 +48,6 @@ registerSubstance('Vodka', {
         3: POWER.NONE,
         4: POWER.NONE,
         5: POWER.NONE,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: 'margin-left: -2px;',
-            2: 'margin-left: -8px;',
-            3: 'margin-left: -12px;',
-            4: 'margin-left: -20px;',
-            5: 'margin-left: -80px;',
-        },
-        to: {
-            1: 'margin-left: 2px;',
-            2: 'margin-left: 8px;',
-            3: 'margin-left: 12px;',
-            4: 'margin-left: 20px;',
-            5: 'margin-left: 80px;',
-        }
     },
 
     /* CSS Filter Effects */

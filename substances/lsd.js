@@ -7,7 +7,6 @@ registerSubstance('LSD', {
     special: false,
     power: 2,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['eat', 'drink'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('LSD', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.STRONG,
     whiteNoiseEffect: POWER.NONE,
@@ -48,24 +48,6 @@ registerSubstance('LSD', {
         3: POWER.THRESHOLD,
         4: POWER.LIGHT,
         5: POWER.MODERATE,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: '',
-            2: '',
-            3: 'margin-left: -2px;',
-            4: 'margin-left: -3px;',
-            5: 'margin-left: -4px;',
-        },
-        to: {
-            1: '',
-            2: '',
-            3: 'margin-left: 2px;',
-            4: 'margin-left: 3px;',
-            5: 'margin-left: 4px;',
-        }
     },
 
     /* CSS Filter Effects */

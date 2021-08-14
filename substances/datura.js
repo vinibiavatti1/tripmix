@@ -7,7 +7,6 @@ registerSubstance('Datura', {
     special: false,
     power: 7,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['eat', 'drink', 'smoke'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('Datura', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.MODERATE,
     mirrorEffect: POWER.LIGHT,
     whiteNoiseEffect: POWER.HEAVY,
@@ -48,24 +48,6 @@ registerSubstance('Datura', {
         3: POWER.NONE,
         4: POWER.NONE,
         5: POWER.NONE,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: '',
-            2: '',
-            3: 'margin-left: -10px;',
-            4: 'margin-left: -30px;',
-            5: 'margin-left: -80px;',
-        },
-        to: {
-            1: '',
-            2: '',
-            3: 'margin-left: 10px;',
-            4: 'margin-left: 30px;',
-            5: 'margin-left: 80px;',
-        }
     },
 
     /* CSS Filter Effects */

@@ -7,7 +7,6 @@ registerSubstance('Ketamine', {
     special: false,
     power: 4,
     unlockPoints: 0,
-    walkDelay: false,
     worksOnMethod: ['eat', 'drink', 'smoke'],
 
     /* Substance Properties */
@@ -26,6 +25,7 @@ registerSubstance('Ketamine', {
     },
 
     /* Effect Properties */
+    walkDelayEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.STRONG,
     whiteNoiseEffect: POWER.LIGHT,
@@ -48,24 +48,6 @@ registerSubstance('Ketamine', {
         3: POWER.THRESHOLD,
         4: POWER.LIGHT,
         5: POWER.LIGHT,
-    },
-
-    /* CSS Effects */
-    cssEffects: {
-        from: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: '',
-        },
-        to: {
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: '',
-        }
     },
 
     /* CSS Filter Effects */
