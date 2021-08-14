@@ -6,7 +6,7 @@ registerSubstance('Datura', {
     addictionLevel: 0,
     special: false,
     power: 7,
-    unlockPoints: 0,
+    unlockPoints: 1000,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */

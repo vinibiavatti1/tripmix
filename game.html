@@ -36,6 +36,9 @@
     <script src="./substances/dmt.js"></script>
     <script src="./substances/ketamine.js"></script>
     <script src="./substances/nutmeg.js"></script>
+    <script src="./substances/adrenochrome.js"></script>
+    <script src="./substances/mdma.js"></script>
+    <script src="./substances/cocaine.js"></script>
     <!-- Register more substances here... -->
 </head>
 
@@ -72,8 +75,7 @@
         <!-- Game -->
         <div id="game" style="display: none;">
             <div class="search">
-                <input type="text" placeholder="Search" id="search-input" class="search-input"
-                    onkeyup="searchSubstance()">
+                <input type="text" placeholder="Search" id="search-input" class="search-input">
             </div>
             <div id="substances" class="substances">
             </div>
@@ -103,29 +105,29 @@
                         <tr>
                             <td>Stimulant</td>
                             <td><span id="stimulant-level">0</span> <span id="stimulant-name"
-                                    class="">(Threshold)</span></td>
+                                    class="text-gray">(None)</span></td>
                         </tr>
                         <tr>
                             <td>Sedative</td>
-                            <td><span id="sedative-level">0</span> <span id="sedative-name" class="">(Light)</span></td>
+                            <td><span id="sedative-level">0</span> <span id="sedative-name" class="text-gray">(None)</span></td>
                         </tr>
                         <tr>
                             <td>Hallucinogic</td>
                             <td><span id="hallucinogic-level">0</span> <span id="hallucinogic-name"
-                                    class="">(Strong)</span></td>
+                                    class="text-gray">(None)</span></td>
                         </tr>
                         <tr>
                             <td>Delirant</td>
-                            <td><span id="delirant-level">0</span> <span id="delirant-name" class="">(Heavy)</span></td>
+                            <td><span id="delirant-level">0</span> <span id="delirant-name" class="text-gray">(None)</span></td>
                         </tr>
                         <tr>
                             <td>Dissociative</td>
                             <td><span id="dissociative-level">0</span> <span id="dissociative-name"
-                                    class="">(None)</span></td>
+                                    class="text-gray">(None)</span></td>
                         </tr>
                         <tr>
                             <td>Depressant</td>
-                            <td><span id="depressant-level">0</span> <span id="depressant-name" class="">(None)</span>
+                            <td><span id="depressant-level">0</span> <span id="depressant-name" class="text-gray">(None)</span>
                             </td>
                         </tr>
                     </tbody>
@@ -139,9 +141,7 @@
                     <div id="progress-addiction" class="progress-addiction l5b" style="width: 0%;"></div>
                 </div>
                 <h4>Place</h4>
-                <select id="landscape">
-                    <option value="Lake (Açores - PT)">Lake (Açores - PT)</option>
-                </select>
+                <select id="landscape"></select>
                 <h4>Method (Choose to start!)</h4>
                 <div id="method-list" class="">
                 </div>

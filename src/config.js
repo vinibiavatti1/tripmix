@@ -34,4 +34,5 @@ const MARQUEE_CONTENT = `
     <span class="marquee-content">Avoid to create <span style="color: red">(Death Risk)</span> substances! It can be <span style="color: rgb(0, 200, 0);">dangerous</span>!</span>
     <span class="marquee-content">Yes, I know I used the obsolete <span style="color: yellow">marquee</span> tag to make it. I'm Sorry :/</span>
     <span class="marquee-content">Curiosity: the game was developed while listening to <span style="color: cyan">Lo-fi</span> sounds. Just relax!</span>
+    <span class="marquee-content">They say that if you play this game for a long time, you may see UFOs, dragons, elves, gnomes,...</span>
 `;

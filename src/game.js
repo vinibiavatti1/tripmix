@@ -12,6 +12,7 @@ let walkDelay = 0;
 let addiction = 0;
 let maxAddiction = 200;
 let maxPoints = 999999;
+let adrenochrome = false;
 
 /**
  * Document init
@@ -26,16 +27,45 @@ $(document).ready(() => {
 function init() {
     if(DEBUG) {
         changeScreen(SCREENS.GAME);
-        points = 99999;
+        points = maxPoints;
+    } else {
+        loadSavedGame();
     }
     renderSeoData();
-    loadSavedGame();
     renderMethods();
     renderSubstances();
-    addInfoHandle('.substance');
-    addInfoHandle('.method');
+    renderLandscapes();
     renderPoints();
+    searchListener();
     $("#max-points").html(maxPoints);
+}
+
+/**
+ * Add search listener
+ */
+function searchListener() {
+    $('#search-input').keyup(function(event) {
+        let search = $(this).val();
+        if(search.startsWith('@')) {
+            if (event.keyCode === 13) {
+                let ok = processCheat(search);
+                if(ok) {
+                    $(this).val('');
+                }
+            }
+        } else {
+            $(".substance").each(function() {
+                let name = $(this).attr('data-name');
+                if(name) {
+                    if(!name.toLowerCase().includes(search.toLowerCase())) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                }
+            });
+        }
+    });
 }
 
 /**
@@ -128,10 +158,14 @@ function resetStats() {
 function resetGame() {
     points = 0;
     addiction = 0;
+    adrenochrome = false;
     window.localStorage.removeItem('points');
     resetData();
     renderPoints();
     renderAddiction();
+    renderSubstances();
+    renderMethods();
+    renderLandscapes();
 }
 
 /**
@@ -262,8 +296,8 @@ function startSimulation(method_type) {
 
         // Deep dream
         let deepDreamPower = substanceConfig.deepDreamEffects[power];
-        if(deepDreamPower && deepDreamPower > generalDeepDreamPower) {
-            generalDeepDreamPower = deepDreamPower;
+        if(deepDreamPower && deepDreamPower > generalDeepDreamEffectLevel) {
+            generalDeepDreamEffectLevel = deepDreamPower;
         }
 
         // Mirror effect
@@ -430,23 +464,6 @@ function updateLandscape() {
 }
 
 /**
- * Search substance by name
- */
- function searchSubstance() {
-    let search = $("#search-input").val();
-    $(".substance").each(function() {
-        let name = $(this).attr('data-name');
-        if(name) {
-            if(!name.toLowerCase().includes(search.toLowerCase())) {
-                $(this).hide();
-            } else {
-                $(this).show();
-            }
-        }
-    });
-}
-
-/**
  * Ask to reset game
  */
 function resetGamePrompt() {
@@ -466,4 +483,44 @@ function resetGamePrompt() {
     } else {
         $("#start-btn").removeAttr('disabled');
     }
+}
+
+/**
+ * Process cheat code
+ * @param {*} cheat
+ */
+function processCheat(cheat) {
+    if(cheat == '@allsubs') {
+        for(sub in SUBSTANCES) {
+            SUBSTANCES[sub].unlockPoints = 0;
+        }
+        renderSubstances();
+        return true;
+    }
+    if(cheat == '@allmethods') {
+        for(met in METHODS) {
+            METHODS[met].unlockPoints = 0;
+        }
+        renderMethods();
+        return true;
+    }
+    if(cheat == '@fullpoints') {
+        points = maxPoints;
+        renderSubstances();
+        renderMethods();
+        return true;
+    }
+    if(cheat == '@adrenochrome') {
+        adrenochrome = true;
+        renderSubstances();
+        return true;
+    }
+    if(cheat == '@alllands') {
+        for(land in LANDSCAPES) {
+            LANDSCAPES[land].unlockPoints = 0;
+        }
+        renderLandscapes();
+        return true;
+    }
+    return false;
 }

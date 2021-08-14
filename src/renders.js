@@ -21,6 +21,9 @@ function renderMethods() {
     $('#method-list').empty();
     for(key in METHODS) {
         methodConfig = METHODS[key];
+        if(points < methodConfig.unlockPoints) {
+            continue;
+        }
         let img = $('<img/>');
         img.attr('src', IMAGES_METHODS_PATH + '/' + methodConfig.img)
         img.attr('data-info', methodConfig.info)
@@ -28,6 +31,7 @@ function renderMethods() {
         img.attr('onclick', `startSimulation('${methodConfig.type}'); changeScreen(SCREENS.SIMULATION);`)
         $('#method-list').append(img);
     }
+    addInfoHandle('.method');
 }
 
 /**
@@ -36,16 +40,22 @@ function renderMethods() {
 function renderSubstances() {
     $('#substances').empty();
     for(key in SUBSTANCES) {
-        let substance = SUBSTANCES[key];
+        let substanceConfig = SUBSTANCES[key];
+        if(!DEBUG && points < substanceConfig.unlockPoints) {
+            continue;
+        }
+        if(key == 'Adrenochrome' && !adrenochrome) {
+            continue;
+        }
         let div = $('<div></div>');
-        let specialInfo = substance.special ? '(special) ' : '';
-        div.attr('data-info', specialInfo + substance.info);
+        let specialInfo = substanceConfig.special ? '(special) ' : '';
+        div.attr('data-info', specialInfo + substanceConfig.info);
         div.attr('data-name', key);
-        let special = substance.special ? ' special-substance' : '';
+        let special = substanceConfig.special ? ' special-substance' : '';
         div.attr('class', 'substance' + special);
         div.attr('onclick', `selectSubstance('${key}')`)
         let img = $('<img/>');
-        img.attr('src', IMAGES_SUBSTANCES_PATH + '/' + substance.img);
+        img.attr('src', IMAGES_SUBSTANCES_PATH + '/' + substanceConfig.img);
         img.attr('width', 50);
         img.attr('height', 50);
         let p = $('<p></p>');
@@ -54,6 +64,7 @@ function renderSubstances() {
         div.append(p)
         $('#substances').append(div);
     }
+    addInfoHandle('.substance');
 }
 
 /**
@@ -145,7 +156,7 @@ function renderSubstancePower() {
         powerConfig = POWER_LEVELS[3];
     } else if(powerSum < 45) {
         powerConfig = POWER_LEVELS[4];
-    } else if(powerSum <= 50) {
+    } else {
         powerConfig = POWER_LEVELS[5];
     }
     if(powerSum > 50) {
@@ -183,4 +194,14 @@ function renderAddiction() {
  */
 function renderPoints() {
     $('#points-label').html(points);
+}
+
+/**
+ * Render landscapes into select
+ */
+function renderLandscapes() {
+    $('#landscape').empty();
+    for(land in LANDSCAPES) {
+        $('#landscape').append(`<option value="${land}">${land}</option>`);
+    }
 }

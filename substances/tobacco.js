@@ -6,7 +6,7 @@ registerSubstance('Tobacco', {
     addictionLevel: 4,
     special: false,
     power: 1,
-    unlockPoints: 0,
+    unlockPoints: 100,
     worksOnMethod: [METHOD_TYPE.SMOKE],
 
     /* Stats */

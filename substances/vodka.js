@@ -6,7 +6,7 @@ registerSubstance('Vodka', {
     addictionLevel: 2,
     special: false,
     power: 4,
-    unlockPoints: 0,
+    unlockPoints: 200,
     worksOnMethod: [METHOD_TYPE.DRINK],
 
     /* Stats */

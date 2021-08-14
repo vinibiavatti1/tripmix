@@ -6,7 +6,7 @@ registerSubstance('LSD', {
     addictionLevel: 1,
     special: false,
     power: 2,
-    unlockPoints: 0,
+    unlockPoints: 600,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */

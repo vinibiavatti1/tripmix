@@ -64,19 +64,19 @@ const METHODS = {
         img: 'cup.png',
         type: METHOD_TYPE.DRINK,
         info: 'Cup (drinking): Mix the substances inside the cup and drink it.',
-        unlockPoints: 0,
+        unlockPoints: 100,
     },
     'Bottle': {
         img: 'bottle.png',
         type: METHOD_TYPE.DRINK,
         info: 'Bottle (drinking): Mix the substances into a bottle and drink it.',
-        unlockPoints: 0,
+        unlockPoints: 300,
     },
     'Pipe': {
         img: 'pipe.png',
         type: METHOD_TYPE.SMOKE,
         info: 'Pipe (smoking): Put the substances into a pipe and smoke it.',
-        unlockPoints: 0,
+        unlockPoints: 200,
     },
     'Joint': {
         img: 'joint.png',
@@ -88,23 +88,24 @@ const METHODS = {
         img: 'hookah.png',
         type: METHOD_TYPE.SMOKE,
         info: 'Hookah (smoking): Put the substances into the Hookah to heating and smoke it with some water as filter.',
-        unlockPoints: 0,
+        unlockPoints: 400,
     },
     'Bong': {
         img: 'bong.png',
         type: METHOD_TYPE.SMOKE,
         info: 'Bong (smoking): Smoke the substances using a bong with water inside to filter the smoke.',
-        unlockPoints: 0,
+        unlockPoints: 500,
     },
     'All': {
         img: 'all.png',
         type: METHOD_TYPE.ALL,
         info: 'All: Use all you methods to use the drug. (Are you anxious?)',
-        unlockPoints: 0,
+        unlockPoints: 1000,
     },
 };
 const LANDSCAPES = {
     'Lake (Açores - PT)': {
+        unlockPoints: 0,
         folder: 'lake',
         imgs: ['lake1.png', 'lake2.png', 'lake3.png', 'lake4.png', 'lake5.png', 'lake6.png', 'lake7.png', 'lake8.png', 'lake9.png', 'lake10.png', 'lake11.png', 'lake12.png', 'lake13.png', 'lake14.png'],
     },

@@ -6,7 +6,7 @@ registerSubstance('Cannabis Sativa', {
     addictionLevel: 1,
     special: false,
     power: 1,
-    unlockPoints: 0,
+    unlockPoints: 300,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.SMOKE],
 
     /* Stats */

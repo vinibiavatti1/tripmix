@@ -6,7 +6,7 @@ registerSubstance('Ketamine', {
     addictionLevel: 1,
     special: false,
     power: 4,
-    unlockPoints: 0,
+    unlockPoints: 800,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */

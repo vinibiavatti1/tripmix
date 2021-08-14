@@ -6,7 +6,7 @@ registerSubstance('Psilocybin Mushrooms', {
     addictionLevel: 0,
     special: false,
     power: 1,
-    unlockPoints: 0,
+    unlockPoints: 700,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
