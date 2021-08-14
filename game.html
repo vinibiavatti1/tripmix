@@ -16,13 +16,12 @@
 
     <!-- Scripts -->
     <script src="./plugins/jquery.js"></script>
+    <script src="./src/data.js"></script>
+    <script src="./src/utils.js"></script>
     <script src="./substances.js"></script>
     <script src="./src/config.js"></script>
-    <script src="./src/data.js"></script>
     <script src="./src/game.js"></script>
-    <script src="./src/events.js"></script>
     <script src="./src/renders.js"></script>
-    <script src="./src/utils.js"></script>
     <template id="substance-scripts"></template>
 </head>
 
@@ -48,19 +47,19 @@
             <br>
             Are you of legal age?
             <br>
-            <select id="age" onchange="onChangeAgeSelect()" style="margin: 10px 0px; width: 250px;">
+            <select id="age" onchange="checkCanPlay()" style="margin: 10px 0px; width: 250px;">
                 <option value="0">No, I'm underage in my country</option>
                 <option value="1">Yes, I'm of legal age in my country</option>
             </select>
             <br>
-            <button id="start-btn" onclick="onClickStartBtn()">Start!</button> <!-- TODO -->
+            <button id="start-btn" onclick="changeScreen(SCREENS.GAME)">Start!</button>
         </div>
 
         <!-- Game -->
         <div id="game" style="display: none;">
             <div class="search">
                 <input type="text" placeholder="Search" id="search-input" class="search-input"
-                    onkeyup="onKeyupSearch()">
+                    onkeyup="searchSubstance()">
             </div>
             <div id="substances" class="substances">
             </div>
@@ -69,12 +68,12 @@
             </div>
             <div id="points" class="points">
                 <span id="points-label"></span>/<span id="max-points"></span> points<br>
-                <a href="#!" class="a-reset" onclick="onClickResetGame()">(Reset Game)</a>
+                <a href="#!" class="a-reset" onclick="resetGamePrompt()">(Reset Game)</a>
             </div>
             <div class="game-content">
                 <h1 style="margin-top: 0px;">Tripmix</h1>
                 <h3>Amount (<span id="substance-amount-label">0</span>/20) <a href="#!" class="a-reset"
-                        onclick="onClickResetAmount()">(Reset)</a></h3>
+                        onclick="resetData()">(Reset)</a></h3>
                 <div class="progress-bar">
                     <div id="amount-progress" class="progress" style="width: 0%;"></div>
                 </div>
@@ -119,7 +118,7 @@
                 </table>
                 <h4>Substance Power <span id="substance-power-label">(None)</span></h4>
                 <div class="progress-bar">
-                    <div id="power-progress" class="progress l6b" style="width: 0%;"></div>
+                    <div id="progress-power" class="progress l6b" style="width: 0%;"></div>
                 </div>
                 <h4>Addicted level</h4>
                 <div class="progress-bar">
@@ -138,8 +137,8 @@
         <!-- Simulation -->
         <div id="simulation" class="simulation" style="display: none;">
             <div class="actions" style="text-align: left;">
-                <button onclick="onClickBack()">&#60; Back</button>
-                <button id="walk-btn" onclick="onClickWalk()">Walk</button>
+                <button onclick="back()">&#60; Back</button>
+                <button id="walk-btn" onclick="walk()">Walk</button>
             </div>
             <div id="simulation-screen" class="simulation-screen">
                 <!-- Main image -->
@@ -199,7 +198,7 @@
                 Unfortunately, all substances will be suspended. Take more responsibility next time.</p>
             <br>
             <br>
-            <button id="start-btn" onclick="onClickStartAgainBtn()">I swer I will be responsible. Let me try again!</button>
+            <button id="start-btn" onclick="changeScreen(SCREENS.INTRO);">I swer I will be responsible. Let me try again!</button>
         </div>
     </div>
 

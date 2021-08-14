@@ -7,12 +7,7 @@ registerSubstance('Ketamine', {
     special: false,
     power: 4,
     unlockPoints: 0,
-    worksOnMethod: ['eat', 'drink', 'smoke'],
-
-    /* Substance Properties */
-    delirant: false,
-    dmt: false,
-    dissociative: true,
+    worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
     stats: {
@@ -26,6 +21,8 @@ registerSubstance('Ketamine', {
 
     /* Effect Properties */
     walkDelayEffect: POWER.NONE,
+    randomWalkEffect: POWER.NONE,
+    lowDelirantEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.STRONG,
     whiteNoiseEffect: POWER.LIGHT,

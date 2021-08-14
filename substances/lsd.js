@@ -7,12 +7,7 @@ registerSubstance('LSD', {
     special: false,
     power: 2,
     unlockPoints: 0,
-    worksOnMethod: ['eat', 'drink'],
-
-    /* Substance Properties */
-    delirant: false,
-    dmt: false,
-    dissociative: false,
+    worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
     stats: {
@@ -26,6 +21,8 @@ registerSubstance('LSD', {
 
     /* Effect Properties */
     walkDelayEffect: POWER.NONE,
+    randomWalkEffect: POWER.NONE,
+    lowDelirantEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.STRONG,
     whiteNoiseEffect: POWER.NONE,

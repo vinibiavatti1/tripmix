@@ -7,12 +7,7 @@ registerSubstance('Cannabis Sativa', {
     special: false,
     power: 1,
     unlockPoints: 0,
-    worksOnMethod: ['eat', 'smoke'],
-
-    /* Substance Properties */
-    delirant: false,
-    dmt: false,
-    dissociative: false,
+    worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.SMOKE],
 
     /* Stats */
     stats: {
@@ -26,6 +21,8 @@ registerSubstance('Cannabis Sativa', {
 
     /* Effect Properties */
     walkDelayEffect: POWER.LIGHT,
+    randomWalkEffect: POWER.NONE,
+    lowDelirantEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.NONE,
     whiteNoiseEffect: POWER.NONE,

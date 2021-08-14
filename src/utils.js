@@ -2,7 +2,7 @@
  * Add info handler to element by selector
  * @param {*} selector
  */
- function addInfoHandle(selector) {
+function addInfoHandle(selector) {
     $(selector).hover(function() {
         let info = $(this).attr('data-info');
         if(info) {

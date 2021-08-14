@@ -7,12 +7,7 @@ registerSubstance('DMT', {
     special: true,
     power: 1,
     unlockPoints: 0,
-    worksOnMethod: ['eat', 'drink', 'smoke'],
-
-    /* Substance Properties */
-    delirant: true,
-    dmt: true,
-    dissociative: false,
+    worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
     stats: {
@@ -26,6 +21,8 @@ registerSubstance('DMT', {
 
     /* Effect Properties */
     walkDelayEffect: POWER.NONE,
+    randomWalkEffect: POWER.NONE,
+    lowDelirantEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.THRESHOLD,
     whiteNoiseEffect: POWER.NONE,

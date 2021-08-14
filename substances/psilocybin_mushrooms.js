@@ -7,12 +7,7 @@ registerSubstance('Psilocybin Mushrooms', {
     special: false,
     power: 1,
     unlockPoints: 0,
-    worksOnMethod: ['eat', 'drink', 'smoke'],
-
-    /* Substance Properties */
-    delirant: false,
-    dmt: false,
-    dissociative: false,
+    worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
     stats: {
@@ -26,6 +21,8 @@ registerSubstance('Psilocybin Mushrooms', {
 
     /* Effect Properties */
     walkDelayEffect: POWER.NONE,
+    randomWalkEffect: POWER.NONE,
+    lowDelirantEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.MODERATE,
     whiteNoiseEffect: POWER.NONE,

@@ -7,12 +7,7 @@ registerSubstance('Datura', {
     special: false,
     power: 7,
     unlockPoints: 0,
-    worksOnMethod: ['eat', 'drink', 'smoke'],
-
-    /* Substance Properties */
-    delirant: true,
-    dmt: false,
-    dissociative: false,
+    worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
     stats: {
@@ -26,6 +21,8 @@ registerSubstance('Datura', {
 
     /* Effect Properties */
     walkDelayEffect: POWER.NONE,
+    randomWalkEffect: POWER.MODERATE,
+    lowDelirantEffect: POWER.THRESHOLD,
     highDelirantEffect: POWER.MODERATE,
     mirrorEffect: POWER.LIGHT,
     whiteNoiseEffect: POWER.HEAVY,

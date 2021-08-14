@@ -7,12 +7,7 @@ registerSubstance('Beer', {
     special: false,
     power: 2,
     unlockPoints: 0,
-    worksOnMethod: ['drink'],
-
-    /* Substance Properties */
-    delirant: false,
-    dmt: false,
-    dissociative: false,
+    worksOnMethod: [METHOD_TYPE.DRINK],
 
     /* Stats */
     stats: {
@@ -26,6 +21,8 @@ registerSubstance('Beer', {
 
     /* Effect Properties */
     walkDelayEffect: POWER.NONE,
+    randomWalkEffect: POWER.NONE,
+    lowDelirantEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.NONE,
     whiteNoiseEffect: POWER.NONE,

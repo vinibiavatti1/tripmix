@@ -8,3 +8,8 @@ const META_DESCRIPTION = 'Tripmix is a game that encourages the use of imaginati
 const META_KEYWORDS = 'trip, substance, drug, dose, mix, recreational, substance, game, simulation, web';
 
 // Resources
+const IMAGES_PATH = './images';
+const IMAGES_EFFECTS_PATH = IMAGES_PATH + '/effects';
+const IMAGES_LANDSCAPES_PATH = IMAGES_PATH + '/landscapes';
+const IMAGES_METHODS_PATH = IMAGES_PATH + '/methods';
+const IMAGES_SUBSTANCES_PATH = IMAGES_PATH + '/substances';

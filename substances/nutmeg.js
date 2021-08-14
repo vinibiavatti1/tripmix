@@ -7,12 +7,7 @@ registerSubstance('Nutmeg', {
     special: false,
     power: 1,
     unlockPoints: 0,
-    worksOnMethod: ['eat', 'drink'],
-
-    /* Substance Properties */
-    delirant: true,
-    dmt: false,
-    dissociative: false,
+    worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK],
 
     /* Stats */
     stats: {
@@ -26,6 +21,8 @@ registerSubstance('Nutmeg', {
 
     /* Effect Properties */
     walkDelayEffect: POWER.NONE,
+    randomWalkEffect: POWER.NONE,
+    lowDelirantEffect: POWER.STRONG,
     highDelirantEffect: POWER.HEAVY,
     mirrorEffect: POWER.HEAVY,
     whiteNoiseEffect: POWER.NONE,

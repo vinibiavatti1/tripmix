@@ -7,12 +7,7 @@ registerSubstance('Water', {
     special: false,
     power: 0,
     unlockPoints: 0,
-    worksOnMethod: ['drink'],
-
-    /* Substance Properties */
-    delirant: false,
-    dmt: false,
-    dissociative: false,
+    worksOnMethod: [METHOD_TYPE.DRINK],
 
     /* Stats */
     stats: {
@@ -26,6 +21,8 @@ registerSubstance('Water', {
 
     /* Effect Properties */
     walkDelayEffect: POWER.NONE,
+    randomWalkEffect: POWER.NONE,
+    lowDelirantEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
     mirrorEffect: POWER.NONE,
     whiteNoiseEffect: POWER.NONE,

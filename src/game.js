@@ -24,12 +24,17 @@ $(document).ready(() => {
  * Init
  */
 function init() {
+    if(DEBUG) {
+        changeScreen(SCREENS.GAME);
+        points = 99999;
+    }
     loadSubstanceFiles();
     loadSavedGame();
     renderMethods();
     renderSubstances();
     addInfoHandle('.substance')
     addInfoHandle('.method')
+    $("#max-points").html(maxPoints);
 }
 
 /**
@@ -76,7 +81,7 @@ function resetData() {
 
     // Reset progress
     changeProgressValue('#amount-progress', 0);
-    changeProgressValue('#power-progress', 0);
+    changeProgressValue('#progress-power', 0);
 
     // Reset stats
     resetStats();
@@ -106,6 +111,7 @@ function resetSimulation() {
     $('#deep-dream').removeClass('deep-dream-3');
     $('#deep-dream').removeClass('deep-dream-4');
     $('#deep-dream').removeClass('deep-dream-5');
+    $('#css-animation').empty();
 
     // Remove fades
     $("#simulation-screen").removeClass('fadeOut');
@@ -125,10 +131,52 @@ function resetStats() {
 }
 
 /**
+ * Reset game
+ */
+function resetGame() {
+    points = 0;
+    window.localStorage.removeItem('points');
+}
+
+/**
+ * Select substance by name
+ * @param {*} name
+ * @returns
+ */
+ function selectSubstance(name) {
+    if(selectedAmount >= maxAmount) {
+        return;
+    }
+    selectedAmount++;
+    if(selectedSubstances[name]) {
+        selectedSubstances[name] += 1
+    } else {
+        selectedSubstances[name] = 1
+    }
+    renderStats();
+    renderSubstancePower();
+    changeProgressValue('#amount-progress', selectedAmount * 100 / maxAmount);
+    $("#amount-val").html(selectedAmount);
+}
+
+/**
  * Save game data into local storage
  */
- function saveGame() {
+function saveGame() {
     localStorage.setItem('points', points);
+}
+
+/**
+ * Process back
+ */
+function back() {
+    afterSimulation();
+    if(addiction >= maxAddiction) {
+        resetGame();
+        changeScreen(SCREENS.GAME_OVER);
+    } else {
+        changeScreen(SCREENS.GAME);
+    }
 }
 
 /**
@@ -140,6 +188,7 @@ function afterSimulation() {
     resetData();
     renderAddiction();
     renderPoints();
+
 }
 
 /**
@@ -155,15 +204,14 @@ function changeScreen(screen) {
 
 /**
  * Start simulation
+ * @param {*} method_type
  */
-function startSimulation(method) {
+function startSimulation(method_type) {
     // Reset variables
     randomWalk = false;
     walkDelay = false;
     let generalDeepDreamEffectLevel = 0;
     let generalMirrorEffect = false;
-    let cssEffectsFrom = '';
-    let cssEffectsTo = '';
     let cssFilterEffectsFrom = '';
     let cssFilterEffectsTo = '';
     let highDelirantEffects = false;
@@ -173,6 +221,11 @@ function startSimulation(method) {
     let starsEffect = false;
     let deepDreamImg = getRandomDeepDream();
 
+    // Set landscape
+    currentLandscape = $("#landscape").val();
+    currentLandscapeImg = 0;
+    updateLandscape();
+
     // CSS Effects
     for(let substance in selectedSubstances) {
         substanceAmount = selectedSubstances[substance];
@@ -180,7 +233,7 @@ function startSimulation(method) {
         power = limitRange(Math.floor(substanceAmount / 2), 1, 5);
 
         // Method
-        if(method != 'all' && !substanceConfig.worksOnMethod.includes(method)) {
+        if(method_type != METHOD_TYPE.ALL && !substanceConfig.worksOnMethod.includes(method_type)) {
             continue;
         }
 
@@ -203,28 +256,29 @@ function startSimulation(method) {
         cssFilterEffectsFrom += substanceConfig.cssFilterEffects.from[power] + ' ';
         cssFilterEffectsTo += substanceConfig.cssFilterEffects.to[power] + ' ';
 
-        // Deep Dream
+        // Deep dream
         let deepDreamPower = substanceConfig.deepDreamEffects[power];
         if(deepDreamPower && deepDreamPower > generalDeepDreamPower) {
             generalDeepDreamPower = deepDreamPower;
         }
 
-        // Mirror Effect
+        // Mirror effect
         let mirrorEffect = substanceConfig.mirrorEffect;
         if(mirrorEffect && power >= substanceConfig.mirrorEffect) {
             generalMirrorEffect = true;
         }
 
-        // Delirant
-        if(substanceConfig.delirant) {
-            randomWalk = true;
+        // Low delirant effect
+        if(substanceConfig.lowDelirantEffect && power >= substanceConfig.lowDelirantEffect) {
             lowDelirantEffects = true;
-            if(power >= substanceConfig.highDelirantEffect) {
-                highDelirantEffects = true;
-            }
         }
 
-        // White Noise
+        // High delirant effect
+        if(substanceConfig.highDelirantEffect && power >= substanceConfig.highDelirantEffect) {
+            highDelirantEffects = true;
+        }
+
+        // White noise
         if(substanceConfig.whiteNoise && power >= substanceConfig.whiteNoise) {
             whiteNoise = true;
         }
@@ -234,40 +288,32 @@ function startSimulation(method) {
             walkDelay = true;
         }
 
-        // StarsEffect
+        // Random walk
+        if(substanceConfig.randomWalk && power >= substanceConfig.randomWalk) {
+            randomWalk = true;
+        }
+
+        // Stars effect
         if(substanceConfig.starsEffect && power >= substanceConfig.starsEffect) {
             starsEffect = true;
         }
 
-        if(substanceConfig.dmtEffect && power >= substanceConfig.dmtEffectActiveInPower) {
+        // DMT effect
+        if(substanceConfig.dmtEffect && power >= substanceConfig.dmtEffect) {
             dmtEffect = true;
         }
     }
-
-    let animationCss = createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, cssFilterEffectsTo);
-    startSubstanceEffects(animationCss, deepDreamImg, generalDeepDreamEffectLevel, generalMirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect);
+    startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDreamImg, generalDeepDreamEffectLevel, generalMirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect);
 }
 
 /**
  * Create CSS animation configuration and render it
- * @param {*} cssEffectsFrom
- * @param {*} cssEffectsTo
  * @param {*} cssFilterEffectsFrom
  * @param {*} cssFilterEffectsTo
  * @returns
  */
-function createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, cssFilterEffectsTo) {
-    let animationFrom = '';
-    let animationTo = '';
-    if(cssEffectsFrom.trim() && cssEffectsTo.trim()) {
-        animationFrom += cssEffectsFrom;
-        animationTo += cssEffectsTo;
-    }
-    if(cssFilterEffectsFrom.trim() && cssFilterEffectsTo.trim()) {
-        animationFrom += 'filter: ' + cssFilterEffectsFrom + ';';
-        animationTo += 'filter: ' + cssFilterEffectsTo + ';';
-    }
-    return `@keyFrames css-animation { from {${animationFrom}} to {${animationTo}} }`
+function createAnimationCss(cssFilterEffectsFrom, cssFilterEffectsTo) {
+    return `@keyFrames css-animation { from {filter: ${cssFilterEffectsFrom};} to {filter: ${cssFilterEffectsTo};} }`
 }
 
 /**
@@ -276,12 +322,16 @@ function createAnimationCss(cssEffectsFrom, cssEffectsTo, cssFilterEffectsFrom, 
  * @param {*} deepDreamEffectLevel
  * @param {*} mirrorEffect
  */
-function startSubstanceEffects(animation, deepDreamImg, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect) {
+function startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDreamImg, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect) {
+    // Create animation
+    let animation = createAnimationCss(cssFilterEffectsFrom, cssFilterEffectsTo);
+
+    // Log
     console.log('Animation: ' + animation);
     console.log('Deep dream img: ' + deepDreamImg);
     console.log('Deep dream effect: ' + deepDreamEffectLevel);
     console.log('Mirror effect: ' + mirrorEffect);
-    $('#css-animation').empty();
+
     $('#css-animation').html(animation);
     if(deepDreamEffectLevel && deepDreamImg) {
         $('#deep-dream').attr('src', 'images/deep_dreams/' + deepDreamImg);
@@ -313,9 +363,28 @@ function startSubstanceEffects(animation, deepDreamImg, deepDreamEffectLevel, mi
 }
 
 /**
- * Walk
+ * Change the current landscape to the next one
  */
 function walk() {
+    if(walkDelay) {
+        $("#walk-btn").attr('disabled', 'true');
+        $("#simulation-screen").addClass('fadeOut');
+        $("#simulation-screen").removeClass('fadeIn');
+        setTimeout(function() {
+            processWalk();
+            $("#walk-btn").removeAttr('disabled');
+            $("#simulation-screen").removeClass('fadeOut');
+            $("#simulation-screen").addClass('fadeIn');
+        }, 1000);
+    } else {
+        processWalk();
+    }
+}
+
+/**
+ * Execute walk process
+ */
+function processWalk() {
     let landscapeConfig = landscapes[currentLandscape];
     if(randomWalk) {
         do {
@@ -338,7 +407,7 @@ function walk() {
 function updateLandscape() {
     let landscapeConfig = landscapes[currentLandscape];
     console.log(landscapeConfig, currentLandscape);
-    let img = './images/' + landscapeConfig.imgs[currentLandscapeImg];
+    let img = IMAGES_LANDSCAPES_PATH + '/' + landscapeConfig.folder + '/' + landscapeConfig.imgs[currentLandscapeImg];
     $("#simulation-img").attr('src', img);
     $("#simulation-img-2").attr('src', img);
     $("#simulation-img-3").attr('src', img);
@@ -346,9 +415,40 @@ function updateLandscape() {
 }
 
 /**
- * Reset game
+ * Search substance by name
  */
-function resetGame() {
-    points = 0;
-    window.localStorage.removeItem('points');
+ function searchSubstance() {
+    let search = $("#search-input").val();
+    $(".substance").each(function() {
+        let name = $(this).attr('data-name');
+        if(name) {
+            if(!name.toLowerCase().includes(search.toLowerCase())) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        }
+    });
+}
+
+/**
+ * Ask to reset game
+ */
+function resetGamePrompt() {
+    if(confirm('Are you sure you want to restart the game (all saved data will be erased)?')) {
+        resetGame();
+        changeScreen(SCREENS.INTRO);
+    }
+}
+
+/**
+ * Check select if user can play
+ */
+ function checkCanPlay() {
+    let value = $("#age").val();
+    if(value == '0') {
+        $("#start-btn").attr('disabled', 'true');
+    } else {
+        $("#start-btn").removeAttr('disabled');
+    }
 }
