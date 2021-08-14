@@ -11,7 +11,7 @@ let randomWalk = false;
 let walkDelay = 0;
 let addiction = 0;
 let maxAddiction = 200;
-let maxPoints = 99999;
+let maxPoints = 999999;
 
 /**
  * Document init
