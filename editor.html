@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles/animations.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+
+    <!-- Scripts -->
+    <script src="./plugins/jquery.js"></script>
+    <script src="./src/config.js"></script>
+    <script src="./src/editor.js"></script>
+</head>
+
+<body>
+    <div class="screen">
+
+        <!-- Intro -->
+        <div id="intro" class="content" style="padding-top: 25px;">
+            <br><br><br><br><br><br>
+            <h1 style="margin-top: 5px;"><span id="title"></span> Editor</h1>
+            <hr>
+            <p>Create Your Own Substances! - <span id="version"></span></p>
+            <br>
+            <h3>Instructions</h3>
+            <p>1. Enter the substance properties;</p>
+            <p>2. Review your substance;</p>
+            <p>3. Import the new substance in the game;</p>
+            <p>4. Test it!</p>
+            <br>
+            <button id="start-btn" onclick="currentStep++; changeStep();">Start!</button>
+        </div>
+
+        <div id="navigation" style="display: none; text-align: center" class="navigation">
+            <button onclick="currentStep--; changeStep();" id="back-btn" class="navigation-btn" style="float: left; border-right: 1px solid rgb(0, 200, 0)" disabled>Back</button>
+            <span id="step-name" style="line-height: 27px;"></span>
+            <button onclick="currentStep++; changeStep();" id="next-btn" class="navigation-btn" style="float: right; border-left: 1px solid rgb(0, 200, 0)" disabled>Next</button>
+        </div>
+
+        <!-- Step 1 -->
+        <div id="step-1" class="" style="display: none;">
+            <div class="p-left">
+                <span style="color: gold">Substance Name:</span>
+                <input class="input" id="sub-name" placeholder="The substance name needs to be unique!" />
+                Image Name:
+                <input class="input" id="image-name" placeholder="Put the image name with the extension. Ex: beer.png" />
+                Addiction Level (0-10):
+                <input type="number" class="input" id="addiction-level" placeholder="Type the number to calculate the addiction." min="0" max="10" />
+                <span class="colorfull-text">Special</span> substance?
+                <select class="sel" id="special">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                Power (0-10):
+                <input type="number" class="input" id="power" placeholder="Enter the power of this substance." min="0" max="10" />
+                Unlock Points:
+                <input type="number" class="input" id="power" placeholder="Enter the points to unlock this substance." min="0" max="10" />
+                Info Text:
+                <textarea style="resize: none;" rows="3" class="input" id="info-text" placeholder="Type the information text of the substance."></textarea>
+            </div>
+            <div class="p-right">
+                Accepts <span style="color: cyan">eat</span> method?
+                <select class="sel" id="special">
+                    <option value="0">No</option>
+                    <option value="1" selected>Yes</option>
+                </select>
+                Accepts <span style="color: cyan">drink</span> method?
+                <select class="sel" id="special">
+                    <option value="0">No</option>
+                    <option value="1" selected>Yes</option>
+                </select>
+                Accepts <span style="color: cyan">smoke</span> method?
+                <select class="sel" id="special">
+                    <option value="0">No</option>
+                    <option value="1" selected>Yes</option>
+                </select>
+                Stimulant?
+                <select class="sel" id="special">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                Sedative?
+                <select class="sel" id="special">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                Hallucinogic?
+                <select class="sel" id="special">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                Delirant?
+                <select class="sel" id="special">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                Dissociative?
+                <select class="sel" id="special">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+                Depresant?
+                <select class="sel" id="special">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step-2" class="panel" style="display: none;">
+            <div class="p-left">
+
+                Activate <span style="color: cyan">Walk delay</span> effect on:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Activate <span style="color: cyan">Random Walk</span> effect on:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Activate <span style="color: cyan">Low Delirant Effects</span> on:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Activate <span style="color: cyan">High Delirant Effects</span> on:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Activate <span style="color: cyan">Mirror Effect</span> on:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Activate <span style="color: cyan">White Noise Effect</span> on:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Activate <span style="color: cyan">Stars Effect</span> on:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Activate <span class="colorfull-text">DMT</span> effect on:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+
+            </div>
+            <div class="p-right">
+                Drunk Effect <span style="color: cyan">(Threshold)</span>:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Drunk Effect <span style="color: orange">(Light)</span>:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Drunk Effect <span style="color: yellow">(Moderate)</span>:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Drunk Effect <span style="color: brown">(Strong)</span>:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Drunk Effect <span style="color: red">(Heavy)</span>:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+
+                Deep Dream Effect <span style="color: cyan">(Threshold)</span>:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Deep Dream Effect <span style="color: orange">(Light)</span>:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Deep Dream Effect <span style="color: yellow">(Moderate)</span>:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Deep Dream Effect <span style="color: brown">(Strong)</span>:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Deep Dream Effect <span style="color: red">(Heavy)</span>:
+                <select class="sel" id="special">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="step-3" class="panel" style="display: none;">
+            <div style="width: 575px;">
+                Filter Effects <span style="color: cyan">(Threshold)</span>:
+                <textarea style="resize: none;" rows="2" class="input from-input" id="info-text" placeholder="Type the FROM CSS filter effects."></textarea>
+                <textarea style="resize: none;" rows="2" class="input to-input" id="info-text" placeholder="Type the TO CSS filter effects."></textarea>
+                Filter Effects <span style="color: orange">(Light)</span>:
+                <textarea style="resize: none;" rows="2" class="input from-input" id="info-text" placeholder="Type the FROM CSS filter effects."></textarea>
+                <textarea style="resize: none;" rows="2" class="input to-input" id="info-text" placeholder="Type the TO CSS filter effects."></textarea>
+                Filter Effects <span style="color: yellow">(Moderate)</span>:
+                <textarea style="resize: none;" rows="2" class="input from-input" id="info-text" placeholder="Type the FROM CSS filter effects."></textarea>
+                <textarea style="resize: none;" rows="2" class="input to-input" id="info-text" placeholder="Type the TO CSS filter effects."></textarea>
+                Filter Effects <span style="color: brown">(Strong)</span>:
+                <textarea style="resize: none;" rows="2" class="input from-input" id="info-text" placeholder="Type the FROM CSS filter effects."></textarea>
+                <textarea style="resize: none;" rows="2" class="input to-input" id="info-text" placeholder="Type the TO CSS filter effects."></textarea>
+                Filter Effects <span style="color: red">(Heavy)</span>:
+                <textarea style="resize: none;" rows="2" class="input from-input" id="info-text" placeholder="Type the FROM CSS filter effects."></textarea>
+                <textarea style="resize: none;" rows="2" class="input to-input" id="info-text" placeholder="Type the TO CSS filter effects."></textarea>
+            </div>
+            <div class="help-panel">
+                <b>CSS Filters Examples:</b>
+                <hr>
+                <div style="font-size: 12px;">
+                    blur(5px)<br>
+                    brightness(0.4)<br>
+                    contrast(200%)<br>
+                    drop-shadow(16px 16px 20px blue)<br>
+                    grayscale(50%)<br>
+                    hue-rotate(90deg)<br>
+                    invert(75%)<br>
+                    opacity(25%)<br>
+                    saturate(30%)<br>
+                    sepia(60%)
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div id="step-4" class="panel" style="display: none;">
+            <textarea style="resize: none;" rows="35" class="input" id="code" placeholder="">
+
+            </textarea>
+        </div>
+
+        <div id="step-5" class="panel" style="display: none; text-align: center;">
+            truta
+        </div>
+    </div>
+
+    <footer>
+        <a id="github" href="#!" target="_blank" style="margin-right: 10px;">Github Repository</a>
+    </footer>
+</body>
+</html>
