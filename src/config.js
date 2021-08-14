@@ -20,7 +20,7 @@ const IMAGES_SUBSTANCES_PATH = IMAGES_PATH + '/substances';
 // Marquee
 const MARQUEE_CONTENT = `
     <span class="marquee-content"><span style="color: red;"><b>Do not use drugs!</b></span> The purpose of this game is to provide information and entertainment content. The game does not encourage the use of drugs in any way.</span>
-    <span class="marquee-content">Why there is no <span style="color: cyan;">syringe</span> in the game? Because the dev wants a more recreational and fun game, rather than something heavy and obscure.</span>
+    <span class="marquee-content">Drink <span style="color: cyan">Water</span> to prevent/reduce the addicted level.</span>
     <span class="marquee-content">The main source of resources that was used during game development was <a href="https://psychonautwiki.org/" class="colorfull-text">psychonautwiki.org</a>. Thanks community!</span>
     <span class="marquee-content">This game is <span style="color: gold">FREE!</span>. Don't worry ;)</span>
     <span class="marquee-content">Are you of legal age? <span style="color: red;"><b>NOT?</b></span> Go away right now!!!</span>
@@ -28,8 +28,10 @@ const MARQUEE_CONTENT = `
     <span class="marquee-content">Did you know you can create your <span class="colorfull-text">OWN SUBSTANCES</span>? Yes! You can! Just <a href="${DOWNLOAD_LINK}" download>DOWNLOAD</a> the game, start the editor and follow the instructions!</span>
     <span class="marquee-content">Maybe, the game might have some secret <span style="color: blueviolet;">cheats</span>... Maybe!</span>
     <span class="marquee-content">Thank you <span style="color: gold">Albert Hofmann</span> for your studies!</span>
+    <span class="marquee-content">Why there is no <span style="color: cyan;">syringe</span> in the game? Because the dev wants a more recreational and fun game, rather than something heavy and obscure.</span>
     <span class="marquee-content"><span style="color: magenta;">if</span> (you == <span style="color: orange">'developer'</span>) { Fork the game repository by clicking <a href="${GITHUB_REPO}">HERE!</a> :D }</span>
     <span class="marquee-content">Why to use real drugs if you can play this game??? WHY?</span>
     <span class="marquee-content">Avoid to create <span style="color: red">(Death Risk)</span> substances! It can be <span style="color: rgb(0, 200, 0);">dangerous</span>!</span>
     <span class="marquee-content">Yes, I know I used the obsolete <span style="color: yellow">marquee</span> tag to make it. I'm Sorry :/</span>
+    <span class="marquee-content">Curiosity: the game was developed while listening to <span style="color: cyan">Lo-fi</span> sounds. Just relax!</span>
 `;
