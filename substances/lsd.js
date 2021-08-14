@@ -1,4 +1,6 @@
-substances['LSD'] = {
+registerSubstance('LSD', {
+
+    /* General */
     img: 'lsd.png',
     info: 'LSD is considered to be the best known, most researched, and culturally influential psychedelic substance.',
     addictionLevel: 1,
@@ -7,6 +9,13 @@ substances['LSD'] = {
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['eat', 'drink'],
+
+    /* Substance Properties */
+    delirant: false,
+    dmt: false,
+    dissociative: false,
+
+    /* Stats */
     stats: {
         stimulant: true,
         sedative: false,
@@ -15,6 +24,33 @@ substances['LSD'] = {
         dissociative: false,
         depressant: false,
     },
+
+    /* Effect Properties */
+    highDelirantEffect: POWER.NONE,
+    mirrorEffect: POWER.STRONG,
+    whiteNoiseEffect: POWER.NONE,
+    starsEffect: POWER.NONE,
+    dmtEffect: POWER.NONE,
+
+    /* Drunk */
+    drunkEffects = {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.THRESHOLD,
+        4: POWER.THRESHOLD,
+        5: POWER.LIGHT,
+    },
+
+    /* Deep dream */
+    deepDreamEffects: {
+        1: POWER.NONE,
+        2: POWER.THRESHOLD,
+        3: POWER.THRESHOLD,
+        4: POWER.LIGHT,
+        5: POWER.MODERATE,
+    },
+
+    /* CSS Effects */
     cssEffects: {
         from: {
             1: '',
@@ -31,6 +67,8 @@ substances['LSD'] = {
             5: 'margin-left: 4px;',
         }
     },
+
+    /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
             1: 'saturate(2) contrast(150%)',
@@ -47,22 +85,4 @@ substances['LSD'] = {
             5: 'saturate(1) hue-rotate(360deg) contrast(100%)',
         }
     },
-    deepDreamEffect: true,
-    deepDreamEffectConfig: {
-        1: 0,
-        2: 1,
-        3: 1,
-        4: 2,
-        5: 3,
-    },
-    mirrorEffect: true,
-    mirrorEffectActiveInPower: 4,
-    delirant: false,
-    highDelirantEffectActiveInPower: 0,
-    whiteNoise: false,
-    whiteNoiseEffectActiveInPower: 0,
-    starsEffect: false,
-    starsEffectActiveInPower: 0,
-    dmtEffect: false,
-    dmtEffectActiveInPower: 0,
-}
+});

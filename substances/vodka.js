@@ -1,4 +1,6 @@
-substances['Vodka'] = {
+registerSubstance('Vodka', {
+
+    /* General */
     img: 'vodka.png',
     info: 'Vodka is composed mainly of water and ethanol. Usually, vodkas contain 40% alcohol.',
     addictionLevel: 2,
@@ -7,6 +9,13 @@ substances['Vodka'] = {
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['drink'],
+
+    /* Substance Properties */
+    delirant: false,
+    dmt: false,
+    dissociative: false,
+
+    /* Stats */
     stats: {
         stimulant: true,
         sedative: false,
@@ -15,6 +24,33 @@ substances['Vodka'] = {
         dissociative: false,
         depressant: true,
     },
+
+    /* Effect Properties */
+    highDelirantEffect: POWER.NONE,
+    mirrorEffect: POWER.NONE,
+    whiteNoiseEffect: POWER.NONE,
+    starsEffect: POWER.NONE,
+    dmtEffect: POWER.NONE,
+
+    /* Drunk */
+    drunkEffects = {
+        1: POWER.THRESHOLD,
+        2: POWER.LIGHT,
+        3: POWER.MODERATE,
+        4: POWER.STRONG,
+        5: POWER.HEAVY,
+    },
+
+    /* Deep dream */
+    deepDreamEffects: {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.NONE,
+        5: POWER.NONE,
+    },
+
+    /* CSS Effects */
     cssEffects: {
         from: {
             1: 'margin-left: -2px;',
@@ -31,6 +67,8 @@ substances['Vodka'] = {
             5: 'margin-left: 80px;',
         }
     },
+
+    /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
             1: '',
@@ -47,22 +85,4 @@ substances['Vodka'] = {
             5: '',
         }
     },
-    deepDreamEffect: false,
-    deepDreamEffectConfig: {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
-    },  
-    mirrorEffect: false,
-    mirrorEffectActiveInPower: 0,
-    delirant: false,
-    highDelirantEffectActiveInPower: 0,
-    whiteNoise: false,
-    whiteNoiseEffectActiveInPower: 0,
-    starsEffect: false,
-    starsEffectActiveInPower: 0,
-    dmtEffect: false,
-    dmtEffectActiveInPower: 0,
-}
+});

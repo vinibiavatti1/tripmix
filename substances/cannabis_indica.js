@@ -1,4 +1,6 @@
-substances['Cannabis Indica'] = {
+registerSubstance('Cannabis Indica', {
+
+    /* General */
     img: 'cannabis_indica.png',
     info: 'Cannabis produces psychoactive effects when consumed. Cannabis indica has higher levels of THC compared to CBD.',
     addictionLevel: 1,
@@ -7,6 +9,13 @@ substances['Cannabis Indica'] = {
     unlockPoints: 0,
     walkDelay: true,
     worksOnMethod: ['eat', 'smoke'],
+
+    /* Substance Properties */
+    delirant: false,
+    dmt: false,
+    dissociative: false,
+
+    /* Stats */
     stats: {
         stimulant: false,
         sedative: true,
@@ -15,6 +24,33 @@ substances['Cannabis Indica'] = {
         dissociative: false,
         depressant: false,
     },
+
+    /* Effect Properties */
+    highDelirantEffect: POWER.NONE,
+    mirrorEffect: POWER.NONE,
+    whiteNoiseEffect: POWER.NONE,
+    starsEffect: POWER.NONE,
+    dmtEffect: POWER.NONE,
+
+    /* Drunk */
+    drunkEffects = {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.THRESHOLD,
+        4: POWER.THRESHOLD,
+        5: POWER.THRESHOLD,
+    },
+
+    /* Deep dream */
+    deepDreamEffects: {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.THRESHOLD,
+        5: POWER.LIGHT,
+    },
+
+    /* CSS Effects */
     cssEffects: {
         from: {
             1: 'margin-left: -1px;',
@@ -31,6 +67,8 @@ substances['Cannabis Indica'] = {
             5: 'margin-left: 3px;',
         }
     },
+
+    /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
             1: 'saturate(3) contrast(150%)',
@@ -47,22 +85,4 @@ substances['Cannabis Indica'] = {
             5: 'saturate(1) contrast(160%)',
         }
     },
-    deepDreamEffect: true,
-    deepDreamEffectConfig: {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 1,
-        5: 2,
-    },
-    mirrorEffect: false,
-    mirrorEffectActiveInPower: 0,
-    delirant: false,
-    highDelirantEffectActiveInPower: 0,
-    whiteNoise: false,
-    whiteNoiseEffectActiveInPower: 0,
-    starsEffect: false,
-    starsEffectActiveInPower: 0,
-    dmtEffect: false,
-    dmtEffectActiveInPower: 0,
-}
+});

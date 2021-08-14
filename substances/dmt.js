@@ -1,4 +1,6 @@
-substances['DMT'] = {
+registerSubstance('DMT', {
+
+    /* General */
     img: 'dmt.png',
     info: 'DMT is known for its unique ability to produce short-lived but intense visionary states and complete hallucinations.',
     addictionLevel: 0,
@@ -7,6 +9,13 @@ substances['DMT'] = {
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['eat', 'drink', 'smoke'],
+
+    /* Substance Properties */
+    delirant: true,
+    dmt: true,
+    dissociative: false,
+
+    /* Stats */
     stats: {
         stimulant: false,
         sedative: true,
@@ -15,6 +24,33 @@ substances['DMT'] = {
         dissociative: false,
         depressant: false,
     },
+
+    /* Effect Properties */
+    highDelirantEffect: POWER.NONE,
+    mirrorEffect: POWER.THRESHOLD,
+    whiteNoiseEffect: POWER.NONE,
+    starsEffect: POWER.MODERATE,
+    dmtEffect: POWER.HEAVY,
+
+    /* Drunk */
+    drunkEffects = {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.NONE,
+        5: POWER.NONE,
+    },
+
+    /* Deep dream */
+    deepDreamEffects: {
+        1: POWER.NONE,
+        2: POWER.MODERATE,
+        3: POWER.HEAVY,
+        4: POWER.HEAVY,
+        5: POWER.NONE,
+    },
+
+    /* CSS Effects */
     cssEffects: {
         from: {
             1: '',
@@ -31,6 +67,8 @@ substances['DMT'] = {
             5: '',
         }
     },
+
+    /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
             1: 'saturate(3) contrast(150%)',
@@ -47,22 +85,4 @@ substances['DMT'] = {
             5: '',
         }
     },
-    deepDreamEffect: true,
-    deepDreamEffectConfig: {
-        1: 0,
-        2: 3,
-        3: 5,
-        4: 5,
-        5: 0,
-    },
-    mirrorEffect: true,
-    mirrorEffectActiveInPower: 1,
-    delirant: false,
-    highDelirantEffectActiveInPower: 0,
-    whiteNoise: false,
-    whiteNoiseEffectActiveInPower: 0,
-    starsEffect: true,
-    starsEffectActiveInPower: 3,
-    dmtEffect: true,
-    dmtEffectActiveInPower: 5,
-}
+});

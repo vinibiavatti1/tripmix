@@ -1,4 +1,6 @@
-substances['Ketamine'] = {
+registerSubstance('Ketamine', {
+
+    /* General */
     img: 'ketamine.png',
     info: 'Ketamine is a classical dissociative substance. It is the most well-known and widely-used among the dissociatives.',
     addictionLevel: 1,
@@ -7,6 +9,13 @@ substances['Ketamine'] = {
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['eat', 'drink', 'smoke'],
+
+    /* Substance Properties */
+    delirant: false,
+    dmt: false,
+    dissociative: true,
+
+    /* Stats */
     stats: {
         stimulant: false,
         sedative: false,
@@ -15,6 +24,33 @@ substances['Ketamine'] = {
         dissociative: true,
         depressant: true,
     },
+
+    /* Effect Properties */
+    highDelirantEffect: POWER.NONE,
+    mirrorEffect: POWER.STRONG,
+    whiteNoiseEffect: POWER.LIGHT,
+    starsEffect: POWER.NONE,
+    dmtEffect: POWER.NONE,
+
+    /* Drunk */
+    drunkEffects = {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.NONE,
+        5: POWER.NONE,
+    },
+
+    /* Deep dream */
+    deepDreamEffects: {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.THRESHOLD,
+        4: POWER.LIGHT,
+        5: POWER.LIGHT,
+    },
+
+    /* CSS Effects */
     cssEffects: {
         from: {
             1: '',
@@ -31,6 +67,8 @@ substances['Ketamine'] = {
             5: '',
         }
     },
+
+    /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
             1: 'brightness(100%)',
@@ -47,22 +85,4 @@ substances['Ketamine'] = {
             5: 'brightness(-100%)',
         }
     },
-    deepDreamEffect: true,
-    deepDreamEffectConfig: {
-        1: 0,
-        2: 0,
-        3: 1,
-        4: 2,
-        5: 2,
-    },
-    mirrorEffect: true,
-    mirrorEffectActiveInPower: 4,
-    delirant: false,
-    highDelirantEffectActiveInPower: 0,
-    whiteNoise: true,
-    whiteNoiseEffectActiveInPower: 2,
-    starsEffect: false,
-    starsEffectActiveInPower: 0,
-    dmtEffect: false,
-    dmtEffectActiveInPower: 0,
-}
+});

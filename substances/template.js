@@ -1,0 +1,68 @@
+registerSubstance('SUBSTANCE_NAME', {
+    img: 'IMG.png',
+    info: 'DESCRIPTION.',
+    addictionLevel: 0,
+    special: false,
+    power: 0,
+    unlockPoints: 0,
+    walkDelay: false,
+    worksOnMethod: ['eat', 'drink', 'smoke'],
+    stats: {
+        stimulant: false,
+        sedative: false,
+        hallucinogic: false,
+        delirant: false,
+        dissociative: false,
+        depressant: false,
+    },
+    cssEffects: {
+        from: {
+            1: '',
+            2: '',
+            3: '',
+            4: '',
+            5: '',
+        },
+        to: {
+            1: '',
+            2: '',
+            3: '',
+            4: '',
+            5: '',
+        }
+    },
+    cssFilterEffects: {
+        from: {
+            1: '',
+            2: '',
+            3: '',
+            4: '',
+            5: '',
+        },
+        to: {
+            1: '',
+            2: '',
+            3: '',
+            4: '',
+            5: '',
+        }
+    },
+    deepDreamEffect: false,
+    deepDreamEffectConfig: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+    },
+    mirrorEffect: false,
+    mirrorEffectActiveInPower: 0,
+    delirant: false,
+    highDelirantEffectActiveInPower: 0,
+    whiteNoise: false,
+    whiteNoiseEffectActiveInPower: 0,
+    starsEffect: false,
+    starsEffectActiveInPower: 0,
+    dmtEffect: false,
+    dmtEffectActiveInPower: 0,
+});

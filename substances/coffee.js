@@ -1,4 +1,6 @@
-substances['Coffee'] = {
+registerSubstance('Coffee', {
+
+    /* General */
     img: 'coffee.png',
     info: 'Coffee contains caffeine that is a stimulant substance. Notable effects include stimulation, wakefulness, enhanced focus and motivation.',
     addictionLevel: 2,
@@ -7,6 +9,13 @@ substances['Coffee'] = {
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['eat', 'drink'],
+
+    /* Substance Properties */
+    delirant: false,
+    dmt: false,
+    dissociative: false,
+
+    /* Stats */
     stats: {
         stimulant: true,
         sedative: false,
@@ -15,6 +24,33 @@ substances['Coffee'] = {
         dissociative: false,
         depressant: false,
     },
+
+    /* Effect Properties */
+    highDelirantEffect: POWER.NONE,
+    mirrorEffect: POWER.NONE,
+    whiteNoiseEffect: POWER.NONE,
+    starsEffect: POWER.NONE,
+    dmtEffect: POWER.NONE,
+
+    /* Drunk */
+    drunkEffects = {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.THRESHOLD,
+        5: POWER.LIGHT,
+    },
+
+    /* Deep dream */
+    deepDreamEffects: {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.NONE,
+        5: POWER.NONE,
+    },
+
+    /* CSS Effects */
     cssEffects: {
         from: {
             1: '',
@@ -31,6 +67,8 @@ substances['Coffee'] = {
             5: 'margin-top: 2px;',
         }
     },
+
+    /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
             1: 'contrast(100%) brightness(100%)',
@@ -47,22 +85,4 @@ substances['Coffee'] = {
             5: 'contrast(150%) brightness(150%)',
         }
     },
-    deepDreamEffect: false,
-    deepDreamEffectConfig: {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
-    },
-    mirrorEffect: false,
-    mirrorEffectActiveInPower: 0,
-    delirant: false,
-    highDelirantEffectActiveInPower: 0,
-    whiteNoise: false,
-    whiteNoiseEffectActiveInPower: 0,
-    starsEffect: false,
-    starsEffectActiveInPower: 0,
-    dmtEffect: false,
-    dmtEffectActiveInPower: 0,
-}
+});

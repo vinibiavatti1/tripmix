@@ -1,4 +1,6 @@
-substances['Tobacco'] = {
+registerSubstance('Tobacco', {
+
+    /* General */
     img: 'tobacco.png',
     info: 'Tobacco contains nicotine that is a stimulant substance. It is highly addictive. Subjective effects include stimulation and mild euphoria.',
     addictionLevel: 4,
@@ -7,6 +9,13 @@ substances['Tobacco'] = {
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['smoke'],
+
+    /* Substance Properties */
+    delirant: false,
+    dmt: false,
+    dissociative: false,
+
+    /* Stats */
     stats: {
         stimulant: true,
         sedative: false,
@@ -15,6 +24,33 @@ substances['Tobacco'] = {
         dissociative: false,
         depressant: false,
     },
+
+    /* Effect Properties */
+    highDelirantEffect: POWER.NONE,
+    mirrorEffect: POWER.NONE,
+    whiteNoiseEffect: POWER.NONE,
+    starsEffect: POWER.NONE,
+    dmtEffect: POWER.NONE,
+
+    /* Drunk */
+    drunkEffects = {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.THRESHOLD,
+        5: POWER.LIGHT,
+    },
+
+    /* Deep dream */
+    deepDreamEffects: {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.NONE,
+        5: POWER.NONE,
+    },
+
+    /* CSS Effects */
     cssEffects: {
         from: {
             1: '',
@@ -31,6 +67,8 @@ substances['Tobacco'] = {
             5: 'margin-left: 2px;',
         }
     },
+
+    /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
             1: 'contrast(100%) sepia(0%)',
@@ -47,22 +85,4 @@ substances['Tobacco'] = {
             5: 'contrast(175%) sepia(80%)',
         }
     },
-    deepDreamEffect: false,
-    deepDreamEffectConfig: {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
-    },
-    mirrorEffect: false,
-    mirrorEffectActiveInPower: 0,
-    delirant: false,
-    highDelirantEffectActiveInPower: 0,
-    whiteNoise: false,
-    whiteNoiseEffectActiveInPower: 0,
-    starsEffect: false,
-    starsEffectActiveInPower: 0,
-    dmtEffect: false,
-    dmtEffectActiveInPower: 0,
-}
+});

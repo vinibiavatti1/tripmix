@@ -1,4 +1,6 @@
-substances['Datura'] = {
+registerSubstance('Datura', {
+
+    /* General */
     img: 'datura.png',
     info: 'Datura is known as powerful and dangerous deliriant, used for shamanic and medical purposes, as well as poisons.',
     addictionLevel: 0,
@@ -7,6 +9,13 @@ substances['Datura'] = {
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['eat', 'drink', 'smoke'],
+
+    /* Substance Properties */
+    delirant: true,
+    dmt: false,
+    dissociative: false,
+
+    /* Stats */
     stats: {
         stimulant: false,
         sedative: false,
@@ -15,6 +24,33 @@ substances['Datura'] = {
         dissociative: false,
         depressant: false,
     },
+
+    /* Effect Properties */
+    highDelirantEffect: POWER.MODERATE,
+    mirrorEffect: POWER.LIGHT,
+    whiteNoiseEffect: POWER.HEAVY,
+    starsEffect: POWER.NONE,
+    dmtEffect: POWER.NONE,
+
+    /* Drunk */
+    drunkEffects = {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.THRESHOLD,
+        4: POWER.MODERATE,
+        5: POWER.STRONG,
+    },
+
+    /* Deep dream */
+    deepDreamEffects: {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.NONE,
+        5: POWER.NONE,
+    },
+
+    /* CSS Effects */
     cssEffects: {
         from: {
             1: '',
@@ -31,6 +67,8 @@ substances['Datura'] = {
             5: 'margin-left: 80px;',
         }
     },
+
+    /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
             1: 'grayscale(0%) blur(0px) brightness(100%)',
@@ -47,22 +85,4 @@ substances['Datura'] = {
             5: 'grayscale(90%) blur(3px) brightness(20%)',
         }
     },
-    deepDreamEffect: false,
-    deepDreamEffectConfig: {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
-    },
-    mirrorEffect: true,
-    mirrorEffectActiveInPower: 2,
-    delirant: true,
-    highDelirantEffectActiveInPower: 3, 
-    whiteNoise: true,
-    whiteNoiseEffectActiveInPower: 5,
-    starsEffect: false,
-    starsEffectActiveInPower: 0,
-    dmtEffect: false,
-    dmtEffectActiveInPower: 0,
-}
+});

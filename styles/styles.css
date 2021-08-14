@@ -1,13 +1,14 @@
+/* General */
 * {
     box-sizing: border-box !important;
 }
-
 html {
     font-family: monospace;
     font-size: 14px;
     color: white;
 }
 
+/* Design */
 h1, h2, h3, h4, h5, h6 {
     color: rgb(0, 200, 0);
     margin-bottom: 5px;
@@ -16,33 +17,13 @@ h1, h2, h3, h4, h5, h6 {
 h3 {
     color: white;
 }
-
 body {
     background-color: black;
 }
-
 hr {
     border: none;
     border-bottom: 1px solid white;
 }
-
-.screen {
-    background-color: rgba(0, 60, 0, .3);
-    width: 800px;
-    height: 600px;
-    margin: auto;
-    margin-top: 25px;
-    border: 2px solid rgb(0, 200, 0);
-    border-radius: 3px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.content {
-    padding: 50px;
-}
-
 button {
     background-color: black;
     border: 1px solid rgb(0, 200, 0);
@@ -64,6 +45,76 @@ button[disabled]:hover {
     background-color: black;
     cursor: default;
 }
+select {
+    margin-bottom: 5px;
+    width: 100%;
+    background-color: black;
+    border: 1px solid rgb(0, 200, 0);
+    padding: 5px 5px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+footer {
+    margin-top: 10px;
+    text-align: center;
+}
+a {
+    color: rgb(220, 220, 220);
+}
+a:hover {
+    color: rgb(255, 255, 255);
+}
+.a-reset {
+    font-size: 13px;
+    text-decoration: none;
+    color: orange;
+    font-weight: 300;
+}
+.a-reset:hover {
+    color:orangered;
+}
+table {
+    background-color: black;
+    width: 100%;
+    padding: 5px;
+}
+
+/* Colors */
+.text-gray { color: gray }
+.text-cyan { color: cyan }
+.text-orange { color: orange }
+.text-yellow { color: yellow }
+.text-brown { color: brown }
+.text-red { color: red }
+.gray { background-color: gray }
+.cyan { background-color: cyan }
+.orange { background-color: orange }
+.yellow { background-color: yellow }
+.brown { background-color: brown }
+.red { background-color: red }
+.green { background-color: rgb(0, 255, 0) }
+
+
+
+.screen {
+    background-color: rgba(0, 60, 0, .3);
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    margin-top: 25px;
+    border: 2px solid rgb(0, 200, 0);
+    border-radius: 3px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.content {
+    padding: 50px;
+}
+
+
 
 .substances {
     position: absolute;
@@ -118,16 +169,7 @@ button[disabled]:hover {
     font-size: 12px;
 }
 
-select {
-    margin-bottom: 5px;
-    width: 100%;
-    background-color: black;
-    border: 1px solid rgb(0, 200, 0);
-    padding: 5px 5px;
-    color: white;
-    border-radius: 3px;
-    cursor: pointer;
-}
+
 
 .substance {
     padding: 5px;
@@ -169,25 +211,7 @@ select {
     text-align: initial;
 }
 
-footer {
-    margin-top: 10px;
-    text-align: center;
-}
-a {
-    color: rgb(220, 220, 220);
-}
-a:hover {
-    color: rgb(255, 255, 255);
-}
-.a-reset {
-    font-size: 13px; 
-    text-decoration: none; 
-    color: orange;
-    font-weight: 300;
-}
-.a-reset:hover {
-    color:orangered;
-}
+
 
 .progress-bar {
     border: 1px solid rgb(0, 50, 0);
@@ -205,11 +229,7 @@ a:hover {
     height: 20px;
 }
 
-table {
-    background-color: black;
-    width: 100%;
-    padding: 5px;
-}
+
 
 .method {
     width: 65px;
@@ -245,12 +265,12 @@ table {
 }
 
 .simulation-anim {
-    animation: cssAnimation 2s ease-in-out;
+    animation: css-animation 2s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 .simulation-anim2 {
-    animation: cssAnimation 5s ease-in-out;
+    animation: css-animation 5s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
 }
@@ -284,49 +304,21 @@ table {
     overflow: hidden;
 }
 
-@keyframes alternateOpacity {
-    from { opacity: 0 }
-    to { opacity: .7 }
-}
-@keyframes alternateOpacityLight {
-    from { opacity: 0 }
-    to { opacity: .6 }
-}
-@keyframes fadeOut {
-    from { opacity: 1 }
-    to { opacity: 0 }
-}
-@keyframes fadeIn {
-    from { opacity: 0 }
-    to { opacity: 1 }
-}
 
-.l0 { color: gray }
-.l1 { color: cyan }
-.l2 { color: orange }
-.l3 { color: yellow }
-.l4 { color: brown }
-.l5 { color: red }
 
-.l0b { background-color: gray }
-.l1b { background-color: cyan }
-.l2b { background-color: orange }
-.l3b { background-color: yellow }
-.l4b { background-color: brown }
-.l5b { background-color: red }
-.l6b { background-color: rgb(0, 255, 0) }
+
 
 ::-webkit-scrollbar {
     width: 10px;
 }
 ::-webkit-scrollbar-track {
-background: rgb(20, 20, 20); 
+background: rgb(20, 20, 20);
 }
 ::-webkit-scrollbar-thumb {
-background: rgb(0, 50, 0); 
+background: rgb(0, 50, 0);
 }
 ::-webkit-scrollbar-thumb:hover {
-background: rgb(0, 75, 0); 
+background: rgb(0, 75, 0);
 }
 
 .delirant-ants {
@@ -358,70 +350,7 @@ background: rgb(0, 75, 0);
     opacity: .4;
     filter: contrast(200%);
 }
-@keyframes delirant-spider-animation {
-    0% {
-        opacity: 0;
-    }
-    5% {
-        opacity: 0.3;
-    }
-    10% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-@keyframes delirant-ants-animation {
-    0% {
-        opacity: 0;
-        filter: blur(3px);
-    }
-    40% {
-        opacity: 0.2;
-        filter: blur(2px);
-    }
-    50% {
-        opacity: 0.0;
-    }
-    100% {
-        opacity: 0.0;
-    }
-}
-@keyframes delirant-eyes-animation {
-    0% {
-        opacity: 0;
-        filter: blur(20px);
-    }
-    20% {
-        opacity: 0.3;
-        filter: blur(3px);
-    }
-    25% {
-        opacity: 0.1;
-        filter: blur(20px);
-    }
-    100% {
-        opacity: 0.0;
-    }
-}
-@keyframes horrorAnimation {
-    0% { 
-        opacity: 0;
-        filter: blur(10px);
-    }
-    20% { 
-        opacity: .4;
-        filter: blur(1px);
-    }
-    25% { 
-        opacity: 0;
-        filter: blur(5px);
-    }
-    100% { 
-        opacity: 0 
-    }
-}
+
 
 .white-noise {
     animation: alternateOpacityLight 20s ease-in-out;
@@ -432,59 +361,43 @@ background: rgb(0, 75, 0);
 }
 
 .deep-dream-1 {
-    animation: deep-dream-1-anim 9s ease-in-out;
+    animation: deep-dream-1-animation 9s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 32s;
 }
 .deep-dream-2 {
-    animation: deep-dream-2-anim 11s ease-in-out;
+    animation: deep-dream-2-animation 11s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 32s;
 }
 .deep-dream-3 {
-    animation: deep-dream-3-anim 15s ease-in-out;
+    animation: deep-dream-3-animation 15s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 32s;
 }
 .deep-dream-4 {
-    animation: deep-dream-4-anim 18s ease-in-out;
+    animation: deep-dream-4-animation 18s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 32s;
 }
 .deep-dream-5 {
-    animation: deep-dream-5-anim 30s ease-in-out;
+    animation: deep-dream-5-animation 30s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 32s;
 }
-@keyframes deep-dream-1-anim {
-    from { opacity: 0; } to { opacity: 0.15; }
-}
-@keyframes deep-dream-2-anim {
-    from { opacity: 0; } to { opacity: 0.2; }
-}
-@keyframes deep-dream-3-anim {
-    from { opacity: 0; } to { opacity: 0.4; }
-}
-@keyframes deep-dream-4-anim {
-    from { opacity: 0; } to { opacity: 0.5; }
-}
-@keyframes deep-dream-5-anim {
-    from { opacity: 0; } to { opacity: 0.7; }
-}
+
 
 .stars-effect {
     animation: stars-effect-animation 180s ease-in-out;
     animation-iteration-count: 1;
     animation-delay: 10s;
 }
-@keyframes stars-effect-animation {
-    from { opacity: 0; } to { opacity: 0.7; }
-}
+
 
 .dmt {
     animation: dmt-effect-animation 180s ease-in-out;
@@ -492,27 +405,21 @@ background: rgb(0, 75, 0);
     animation-direction: alternate;
     animation-delay: 10s;
 }
-@keyframes dmt-effect-animation {
-    from { opacity: 0; } to { opacity: 0.7; }
-}
+
 .dmt2 {
     animation: dmt2-effect-animation 180s ease-in-out;
     animation-iteration-count: 2;
     animation-direction: alternate;
     animation-delay: 50s;
 }
-@keyframes dmt2-effect-animation {
-    from { opacity: 0; } to { opacity: 1.0; }
-}
+
 .dmt3 {
     animation: dmt3-effect-animation 180s ease-in-out;
     animation-iteration-count: 2;
     animation-direction: alternate;
     animation-delay: 150s;
 }
-@keyframes dmt3-effect-animation {
-    from { opacity: 0; } to { opacity: 1.0; }
-}
+
 
 .addicted {
     position: absolute;
@@ -532,17 +439,4 @@ background: rgb(0, 75, 0);
     animation: colorfull-border 3s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-@keyframes colorfull-border {
-    0% { border-color: red; }
-    10% {border-color: orange;}
-    20% {border-color: gold;}
-    30% {border-color: green;}
-    40% {border-color: cyan;}
-    50% {border-color: blue;}
-    60% {border-color: darkblue;}
-    70% {border-color: purple;}
-    80% {border-color: magenta;}
-    90% {border-color: indigo;}
-    100% {border-color: brown;}
 }

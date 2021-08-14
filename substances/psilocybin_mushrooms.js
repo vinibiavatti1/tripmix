@@ -1,4 +1,6 @@
-substances['Psilocybin Mushrooms'] = {
+registerSubstance('Psilocybin Mushrooms', {
+
+    /* General */
     img: 'psilocybin_mushrooms.png',
     info: 'Psilocybin Mushrooms are a family of psychoactive mushrooms that contain psilocybin, a psychedelic substance.',
     addictionLevel: 0,
@@ -7,6 +9,13 @@ substances['Psilocybin Mushrooms'] = {
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['eat', 'drink', 'smoke'],
+
+    /* Substance Properties */
+    delirant: false,
+    dmt: false,
+    dissociative: false,
+
+    /* Stats */
     stats: {
         stimulant: false,
         sedative: true,
@@ -15,6 +24,33 @@ substances['Psilocybin Mushrooms'] = {
         dissociative: false,
         depressant: false,
     },
+
+    /* Effect Properties */
+    highDelirantEffect: POWER.NONE,
+    mirrorEffect: POWER.MODERATE,
+    whiteNoiseEffect: POWER.NONE,
+    starsEffect: POWER.NONE,
+    dmtEffect: POWER.NONE,
+
+    /* Drunk */
+    drunkEffects = {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.NONE,
+        5: POWER.NONE,
+    },
+
+    /* Deep dream */
+    deepDreamEffects: {
+        1: POWER.NONE,
+        2: POWER.THRESHOLD,
+        3: POWER.MODERATE,
+        4: POWER.STRONG,
+        5: POWER.HEAVY,
+    },
+
+    /* CSS Effects */
     cssEffects: {
         from: {
             1: '',
@@ -31,6 +67,8 @@ substances['Psilocybin Mushrooms'] = {
             5: 'margin-left: 1px;',
         }
     },
+
+    /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
             1: 'saturate(2) contrast(120%)',
@@ -47,22 +85,4 @@ substances['Psilocybin Mushrooms'] = {
             5: 'saturate(1) hue-rotate(360deg) contrast(100%)',
         }
     },
-    deepDreamEffect: true,
-    deepDreamEffectConfig: {
-        1: 0,
-        2: 1,
-        3: 3,
-        4: 4,
-        5: 5,
-    },
-    mirrorEffect: true,
-    mirrorEffectActiveInPower: 3,
-    delirant: false,
-    highDelirantEffectActiveInPower: 0,
-    whiteNoise: false,
-    whiteNoiseEffectActiveInPower: 0,
-    starsEffect: false,
-    starsEffectActiveInPower: 0,
-    dmtEffect: false,
-    dmtEffectActiveInPower: 0,
-}
+});

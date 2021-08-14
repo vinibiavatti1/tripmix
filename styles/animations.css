@@ -1,0 +1,100 @@
+/* General */
+@keyframes colorfull-border {
+    0% { border-color: red; }
+    10% {border-color: orange;}
+    20% {border-color: gold;}
+    30% {border-color: green;}
+    40% {border-color: cyan;}
+    50% {border-color: blue;}
+    60% {border-color: darkblue;}
+    70% {border-color: purple;}
+    80% {border-color: magenta;}
+    90% {border-color: indigo;}
+    100% {border-color: brown;}
+}
+
+/* Opacity */
+@keyframes alternateOpacity {
+    from { opacity: 0 }
+    to { opacity: .7 }
+}
+@keyframes alternateOpacityLight {
+    from { opacity: 0 }
+    to { opacity: .6 }
+}
+@keyframes fadeOut {
+    from { opacity: 1 }
+    to { opacity: 0 }
+}
+@keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+/* Delirants */
+@keyframes delirant-spider-animation {
+    0% { opacity: 0; }
+    5% { opacity: 0.3; }
+    10% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@keyframes delirant-ants-animation {
+    0% { opacity: 0; filter: blur(3px); }
+    40% { opacity: 0.2; filter: blur(2px); }
+    50% { opacity: 0.0; }
+    100% { opacity: 0.0; }
+}
+@keyframes delirant-eyes-animation {
+    0% { opacity: 0; filter: blur(20px); }
+    20% { opacity: 0.3; filter: blur(3px); }
+    25% { opacity: 0.1; filter: blur(20px); }
+    100% { opacity: 0.0; }
+}
+@keyframes horrorAnimation {
+    0% { opacity: 0; filter: blur(10px); }
+    20% { opacity: .4; filter: blur(1px); }
+    25% { opacity: 0; filter: blur(5px); }
+    100% { opacity: 0 }
+}
+
+/* Deep dream */
+@keyframes deep-dream-1-animation {
+    from { opacity: 0; }
+    to { opacity: 0.15; }
+}
+@keyframes deep-dream-2-animation {
+    from { opacity: 0; }
+    to { opacity: 0.2; }
+}
+@keyframes deep-dream-3-animation {
+    from { opacity: 0; }
+    to { opacity: 0.4; }
+}
+@keyframes deep-dream-4-animation {
+    from { opacity: 0; }
+    to { opacity: 0.5; }
+}
+@keyframes deep-dream-5-animation {
+    from { opacity: 0; }
+    to { opacity: 0.7; }
+}
+
+/* Stars */
+@keyframes stars-effect-animation {
+    from { opacity: 0; }
+    to { opacity: 0.7; }
+}
+
+/* DMT */
+@keyframes dmt-effect-animation {
+    from { opacity: 0; }
+    to { opacity: 0.7; }
+}
+@keyframes dmt2-effect-animation {
+    from { opacity: 0; }
+    to { opacity: 1.0; }
+}
+@keyframes dmt3-effect-animation {
+    from { opacity: 0; }
+    to { opacity: 1.0; }
+}

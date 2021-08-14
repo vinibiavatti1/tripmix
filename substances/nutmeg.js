@@ -1,4 +1,6 @@
-substances['Nutmeg'] = {
+registerSubstance('Nutmeg', {
+
+    /* General */
     img: 'nutmeg.png',
     info: 'Nutmeg has a delirant substance called by myristicin. It is reported to induce hallucinogenic effects, such as visual distortions and paranoid ideation.',
     addictionLevel: 0,
@@ -7,6 +9,13 @@ substances['Nutmeg'] = {
     unlockPoints: 0,
     walkDelay: false,
     worksOnMethod: ['eat', 'drink'],
+
+    /* Substance Properties */
+    delirant: true,
+    dmt: false,
+    dissociative: false,
+
+    /* Stats */
     stats: {
         stimulant: false,
         sedative: false,
@@ -15,6 +24,33 @@ substances['Nutmeg'] = {
         dissociative: false,
         depressant: true,
     },
+
+    /* Effect Properties */
+    highDelirantEffect: POWER.HEAVY,
+    mirrorEffect: POWER.HEAVY,
+    whiteNoiseEffect: POWER.NONE,
+    starsEffect: POWER.NONE,
+    dmtEffect: POWER.NONE,
+
+    /* Drunk */
+    drunkEffects = {
+        1: POWER.THRESHOLD,
+        2: POWER.LIGHT,
+        3: POWER.LIGHT,
+        4: POWER.MODERATE,
+        5: POWER.MODERATE,
+    },
+
+    /* Deep dream */
+    deepDreamEffects: {
+        1: POWER.NONE,
+        2: POWER.NONE,
+        3: POWER.NONE,
+        4: POWER.NONE,
+        5: POWER.NONE,
+    },
+
+    /* CSS Effects */
     cssEffects: {
         from: {
             1: 'margin-left: -1px;',
@@ -31,6 +67,8 @@ substances['Nutmeg'] = {
             5: 'margin-left: 10px;',
         }
     },
+
+    /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
             1: 'grayscale(0%)',
@@ -47,22 +85,4 @@ substances['Nutmeg'] = {
             5: 'grayscale(70%) blur(3px) brightness(50%)',
         }
     },
-    deepDreamEffect: false,
-    deepDreamEffectConfig: {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
-    },
-    mirrorEffect: true,
-    mirrorEffectActiveInPower: 5,
-    delirant: true,
-    highDelirantEffectActiveInPower: 5,
-    whiteNoise: true,
-    whiteNoiseEffectActiveInPower: 5,
-    starsEffect: false,
-    starsEffectActiveInPower: 0,
-    dmtEffect: false,
-    dmtEffectActiveInPower: 0,
-}
+});
