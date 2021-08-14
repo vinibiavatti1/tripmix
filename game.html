@@ -4,25 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Tripmix is a game that encourages the use of imagination and innovation, enabling the mixing of substances and simulating their effects">
-    <meta name="keywords" content="trip, substance, drug, dose, mix, recreational, substance, game, simulation, web">
-    <meta name="author" content="vinibiavatti1">
-    <title>Tripmix</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title></title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/animations.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
-    <style id="css-animation"></style>
+    <style id="substance-animation"></style>
 
     <!-- Scripts -->
     <script src="./plugins/jquery.js"></script>
     <script src="./src/data.js"></script>
     <script src="./src/utils.js"></script>
-    <script src="./substances.js"></script>
     <script src="./src/config.js"></script>
     <script src="./src/game.js"></script>
     <script src="./src/renders.js"></script>
-    <template id="substance-scripts"></template>
+
+    <!-- Substances -->
+    <script src="./substances/water.js"></script>
+    <script src="./substances/beer.js"></script>
+    <script src="./substances/coffee.js"></script>
+    <script src="./substances/tobacco.js"></script>
+    <script src="./substances/vodka.js"></script>
+    <script src="./substances/cannabis_sativa.js"></script>
+    <script src="./substances/cannabis_indica.js"></script>
+    <script src="./substances/psilocybin_mushrooms.js"></script>
+    <script src="./substances/lsd.js"></script>
+    <script src="./substances/datura.js"></script>
+    <script src="./substances/dmt.js"></script>
+    <script src="./substances/ketamine.js"></script>
+    <script src="./substances/nutmeg.js"></script>
+    <!-- Add more substances here... -->
 </head>
 
 <body>
@@ -142,47 +156,47 @@
             </div>
             <div id="simulation-screen" class="simulation-screen">
                 <!-- Main image -->
-                <img id="simulation-img" class="simulation-img" src="./images/forest_1.png">
+                <img id="simulation-img" class="simulation-img" src="">
 
                 <!-- Margin images -->
                 <img id="simulation-img-2" style="opacity: .5; " class="simulation-anim simulation-img"
-                    src="./images/forest_1.png">
+                    src="">
                 <img id="simulation-img-3" style="opacity: .5; " class="simulation-anim2 simulation-img"
-                    src="./images/forest_1.png">
+                    src="">
 
                 <!-- White noise -->
                 <img id="white-noise" style="opacity: 0.0; display: none;" class="simulation-img white-noise"
-                    src="./images/white-noise.gif">
+                    src="./images/effects/noises/white-noise.gif">
 
                 <!-- Deep dream -->
                 <img id="deep-dream" style="opacity: 0.0; display: none;" class="deep-dream simulation-img"
-                    src="./images/deep.jpg">
+                    src="">
 
                 <!-- Mirror -->
                 <img id="mirror-effect" style="opacity: 0.0; display: none;"
-                    class="hallucinogic2 inverse-img simulation-img" src="./images/forest_1.png">
+                    class="hallucinogic2 inverse-img simulation-img" src="">
 
                 <!-- Stars -->
                 <img id="stars-effect" style="opacity: 0.0; display: none;" class="simulation-img stars-effect"
-                    src="./images/stars.gif">
+                    src="./images/effects/stars/stars.gif">
 
                 <!-- DMT -->
                 <img id="dmt" style="opacity: 0.0; display: none;" class="simulation-img dmt"
-                    src="./images/dmt/dmt_effect.gif">
+                    src="./images/effects/dmt/dmt_effect.gif">
                 <img id="dmt2" style="opacity: 0.0; display: none;" class="simulation-img dmt2"
-                    src="./images/dmt/dmt2_effect.gif">
+                    src="./images/effects/dmt/dmt2_effect.gif">
                 <img id="dmt3" style="opacity: 0.0; display: none;" class="simulation-img dmt3"
-                    src="./images/dmt/dmt3_effect.gif">
+                    src="./images/effects/dmt/dmt3_effect.gif">
 
                 <!-- Delirant -->
                 <img id="delirant-ants" style="opacity: 0.0; display: none;" class="simulation-img delirant-ants"
-                    src="./images/delirant/ants.gif">
+                    src="./images/effects/delirant/ants.gif">
                 <img id="delirant-spider" style="opacity: 0.0; display: none;" class="simulation-img delirant-spider"
-                    src="./images/delirant/spider.gif">
+                    src="./images/effects/delirant/spider.gif">
                 <img id="delirant-eyes" style="opacity: 0.0; display: none;" class="simulation-img delirant-eyes"
-                    src="./images/delirant/eyes.gif">
+                    src="./images/effects/delirant/eyes.gif">
                 <img id="delirant-horror" style="opacity: 0.0; display: none;" class="simulation-img delirant-horror"
-                    src="./images/delirant/horror.png">
+                    src="./images/effects/delirant/horror.png">
             </div>
         </div>
 
@@ -191,7 +205,7 @@
             <br>
             <h1 style="color: orange">Game over!</h1>
             <br>
-            <img class="hospital-img" src="./images/hospital.png" style="width: 300px;">
+            <img class="hospital-img" src="./images/game/hospital.png" style="width: 300px;">
             <br>
             <p style="color: red"><span style="font-size: 20px">☠</span><br><b>Addicted!</b></p>
             <p>Due to current circumstances, you have been referred to the addiction treatment center for recovery.

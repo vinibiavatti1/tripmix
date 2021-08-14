@@ -30,7 +30,7 @@ registerSubstance('Nutmeg', {
     dmtEffect: POWER.NONE,
 
     /* Drunk */
-    drunkEffects = {
+    drunkEffects: {
         1: POWER.THRESHOLD,
         2: POWER.LIGHT,
         3: POWER.LIGHT,

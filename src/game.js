@@ -28,12 +28,13 @@ function init() {
         changeScreen(SCREENS.GAME);
         points = 99999;
     }
-    loadSubstanceFiles();
+    renderSeoData();
     loadSavedGame();
     renderMethods();
     renderSubstances();
-    addInfoHandle('.substance')
-    addInfoHandle('.method')
+    addInfoHandle('.substance');
+    addInfoHandle('.method');
+    renderPoints();
     $("#max-points").html(maxPoints);
 }
 
@@ -49,17 +50,6 @@ function loadSavedGame() {
         console.error(err);
         localStorage.removeItem('points');
     }
-}
-
-/**
- * Load substance files
- */
-function loadSubstanceFiles() {
-    $('#substance-scripts').empty();
-    REGISTERED_SUBSTANCES.forEach(path => {
-        let script = `<script src="${path}"></script>`;
-        $('#substance-scripts').append(script);
-    });
 }
 
 /**
@@ -122,12 +112,12 @@ function resetSimulation() {
  * Reset stats data
  */
 function resetStats() {
-    renderStat('stimulant', 0, 'None', 'gray');
-    renderStat('sedative', 0, 'None', 'gray');
-    renderStat('hallucinogic', 0, 'None', 'gray');
-    renderStat('delirant', 0, 'None', 'gray');
-    renderStat('dissociative', 0, 'None', 'gray');
-    renderStat('depressant', 0, 'None', 'gray');
+    renderStat('stimulant', 0, 'None', 'text-gray');
+    renderStat('sedative', 0, 'None', 'text-gray');
+    renderStat('hallucinogic', 0, 'None', 'text-gray');
+    renderStat('delirant', 0, 'None', 'text-gray');
+    renderStat('dissociative', 0, 'None', 'text-gray');
+    renderStat('depressant', 0, 'None', 'text-gray');
 }
 
 /**
@@ -156,7 +146,7 @@ function resetGame() {
     renderStats();
     renderSubstancePower();
     changeProgressValue('#amount-progress', selectedAmount * 100 / maxAmount);
-    $("#amount-val").html(selectedAmount);
+    $("#substance-amount-label").html(selectedAmount);
 }
 
 /**
@@ -196,9 +186,10 @@ function afterSimulation() {
  * @param {*} screen
  */
 function changeScreen(screen) {
-    SCREENS.forEach(screen => {
-        $(screen).hide();
-    });
+    for(screenName in SCREENS) {
+        let selector = SCREENS[screenName];
+        $(selector).hide();
+    }
     $(screen).show();
 }
 
@@ -212,6 +203,7 @@ function startSimulation(method_type) {
     walkDelay = false;
     let generalDeepDreamEffectLevel = 0;
     let generalMirrorEffect = false;
+    let generalDrunkEffect = false;
     let cssFilterEffectsFrom = '';
     let cssFilterEffectsTo = '';
     let highDelirantEffects = false;
@@ -220,6 +212,7 @@ function startSimulation(method_type) {
     let dmtEffect = false;
     let starsEffect = false;
     let deepDreamImg = getRandomDeepDream();
+    let drunkEffect = null;
 
     // Set landscape
     currentLandscape = $("#landscape").val();
@@ -227,9 +220,9 @@ function startSimulation(method_type) {
     updateLandscape();
 
     // CSS Effects
-    for(let substance in selectedSubstances) {
-        substanceAmount = selectedSubstances[substance];
-        substanceConfig = substances[substance];
+    for(let substanceName in selectedSubstances) {
+        substanceAmount = selectedSubstances[substanceName];
+        substanceConfig = SUBSTANCES[substanceName];
         power = limitRange(Math.floor(substanceAmount / 2), 1, 5);
 
         // Method
@@ -239,7 +232,7 @@ function startSimulation(method_type) {
 
         // Calculate addiction
         addiction += substanceConfig.addictionLevel * power;
-        if(substance == 'Water') {
+        if(substanceName == 'Water') {
             addiction -= 5 * power;
         }
         if(addiction < 0) {
@@ -255,6 +248,12 @@ function startSimulation(method_type) {
         // Add CSS effects
         cssFilterEffectsFrom += substanceConfig.cssFilterEffects.from[power] + ' ';
         cssFilterEffectsTo += substanceConfig.cssFilterEffects.to[power] + ' ';
+
+        // Drunk effect
+        let drunkEffect = substanceConfig.drunkEffects[power];
+        if(drunkEffect && drunkEffect > generalDrunkEffect) {
+            generalDrunkEffect = drunkEffect;
+        }
 
         // Deep dream
         let deepDreamPower = substanceConfig.deepDreamEffects[power];
@@ -303,7 +302,7 @@ function startSimulation(method_type) {
             dmtEffect = true;
         }
     }
-    startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDreamImg, generalDeepDreamEffectLevel, generalMirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect);
+    startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDreamImg, generalDeepDreamEffectLevel, generalMirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect, generalDrunkEffect);
 }
 
 /**
@@ -312,8 +311,15 @@ function startSimulation(method_type) {
  * @param {*} cssFilterEffectsTo
  * @returns
  */
-function createAnimationCss(cssFilterEffectsFrom, cssFilterEffectsTo) {
-    return `@keyFrames css-animation { from {filter: ${cssFilterEffectsFrom};} to {filter: ${cssFilterEffectsTo};} }`
+function createAnimationCss(cssFilterEffectsFrom, cssFilterEffectsTo, drunkEffect) {
+    let marginFrom = '';
+    let marginTo = '';
+    if(drunkEffect) {
+        let px = DRUNK_LEVELS[drunkEffect];
+        marginFrom = `margin-left: ${px};`;
+        marginTo = `margin-left: -${px};`;
+    }
+    return `@keyFrames substance-animation { from {filter: ${cssFilterEffectsFrom}; ${marginFrom}} to {filter: ${cssFilterEffectsTo}; ${marginTo}} }`
 }
 
 /**
@@ -322,17 +328,22 @@ function createAnimationCss(cssFilterEffectsFrom, cssFilterEffectsTo) {
  * @param {*} deepDreamEffectLevel
  * @param {*} mirrorEffect
  */
-function startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDreamImg, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect) {
+function startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDreamImg, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect, drunkEffect) {
     // Create animation
-    let animation = createAnimationCss(cssFilterEffectsFrom, cssFilterEffectsTo);
+    let animation = createAnimationCss(cssFilterEffectsFrom, cssFilterEffectsTo, drunkEffect);
 
     // Log
     console.log('Animation: ' + animation);
     console.log('Deep dream img: ' + deepDreamImg);
     console.log('Deep dream effect: ' + deepDreamEffectLevel);
-    console.log('Mirror effect: ' + mirrorEffect);
+    console.log('Low delirant effects: ' + lowDelirantEffects);
+    console.log('High delirant effects: ' + highDelirantEffects);
+    console.log('White noise: ' + whiteNoise);
+    console.log('DMT effect: ' + dmtEffect);
+    console.log('Stars effect: ' + starsEffect);
+    console.log('Drunk effect: ' + drunkEffect);
 
-    $('#css-animation').html(animation);
+    $('#substance-animation').html(animation);
     if(deepDreamEffectLevel && deepDreamImg) {
         $('#deep-dream').attr('src', 'images/deep_dreams/' + deepDreamImg);
         $('#deep-dream').addClass('deep-dream-' + deepDreamEffectLevel);
@@ -385,7 +396,7 @@ function walk() {
  * Execute walk process
  */
 function processWalk() {
-    let landscapeConfig = landscapes[currentLandscape];
+    let landscapeConfig = LANDSCAPES[currentLandscape];
     if(randomWalk) {
         do {
             img = randomInt(0, landscapeConfig.imgs.length);
@@ -405,8 +416,7 @@ function processWalk() {
  * Set the current landscape and img index
  */
 function updateLandscape() {
-    let landscapeConfig = landscapes[currentLandscape];
-    console.log(landscapeConfig, currentLandscape);
+    let landscapeConfig = LANDSCAPES[currentLandscape];
     let img = IMAGES_LANDSCAPES_PATH + '/' + landscapeConfig.folder + '/' + landscapeConfig.imgs[currentLandscapeImg];
     $("#simulation-img").attr('src', img);
     $("#simulation-img-2").attr('src', img);

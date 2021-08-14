@@ -1,10 +1,20 @@
 /**
+ * Render SEO data
+ */
+function renderSeoData() {
+    $('title').html(TITLE);
+    $('meta[name=keywords]').attr('content', META_KEYWORDS);
+    $('meta[name=description]').attr('content', META_DESCRIPTION);
+    $('meta[name=author]').attr('content', AUTHOR);
+}
+
+/**
  * Render consumption forms in list
  */
 function renderMethods() {
     $('#method-list').empty();
-    for(key in methods) {
-        methodConfig = methods[key];
+    for(key in METHODS) {
+        methodConfig = METHODS[key];
         let img = $('<img/>');
         img.attr('src', IMAGES_METHODS_PATH + '/' + methodConfig.img)
         img.attr('data-info', methodConfig.info)
@@ -19,8 +29,8 @@ function renderMethods() {
  */
 function renderSubstances() {
     $('#substances').empty();
-    for(key in substances) {
-        let substance = substances[key];
+    for(key in SUBSTANCES) {
+        let substance = SUBSTANCES[key];
         let div = $('<div></div>');
         let specialInfo = substance.special ? '(special) ' : '';
         div.attr('data-info', specialInfo + substance.info);
@@ -29,7 +39,7 @@ function renderSubstances() {
         div.attr('class', 'substance' + special);
         div.attr('onclick', `selectSubstance('${key}')`)
         let img = $('<img/>');
-        img.attr('src', IMAGES_EFFECTS_PATH + '/' + substance.img);
+        img.attr('src', IMAGES_SUBSTANCES_PATH + '/' + substance.img);
         img.attr('width', 50);
         img.attr('height', 50);
         let p = $('<p></p>');
@@ -52,6 +62,7 @@ function renderStats() {
     let depressant = 0;
     for(substance in selectedSubstances) {
         let substanceAmount = selectedSubstances[substance];
+        let substanceConfig = SUBSTANCES[substance];
         power = limitRange(Math.floor(substanceAmount / 2), 1, 5);
         if(substanceConfig.stats.stimulant) {
             stimulant += power;
@@ -113,37 +124,37 @@ function renderSubstancePower() {
     let powerSum = 0;
     for(substance in selectedSubstances) {
         let substanceAmount = selectedSubstances[substance];
-        let substanceConfig = substances[substance];
+        let substanceConfig = SUBSTANCES[substance];
         let power = limitRange(Math.floor(substanceAmount / 2), 1, 5);
         powerSum += substanceConfig.power * power;
     }
     let powerConfig = null;
     if(powerSum == 0) {
-        powerConfig = powerLevels[0];
+        powerConfig = POWER_LEVELS[0];
     } else if(powerSum < 10) {
-        powerConfig = powerLevels[1];
+        powerConfig = POWER_LEVELS[1];
     } else if(powerSum < 20) {
-        powerConfig = powerLevels[2];
+        powerConfig = POWER_LEVELS[2];
     } else if(powerSum < 35) {
-        powerConfig = powerLevels[3];
+        powerConfig = POWER_LEVELS[3];
     } else if(powerSum < 45) {
-        powerConfig = powerLevels[4];
+        powerConfig = POWER_LEVELS[4];
     } else if(powerSum <= 50) {
-        powerConfig = powerLevels[5];
+        powerConfig = POWER_LEVELS[5];
     }
     if(powerSum > 50) {
         powerSum = 50;
     }
-    $("#substance-power-label").html("(" + powerConfig.name + ")");
+    $('#substance-power-label').html('(' + powerConfig.name + ')');
     changeProgressValue('#progress-power', parseInt(powerSum * 100 / maxSubstancePower))
-    $("#progress-power").attr("class", "progress " + powerConfig.class);
+    $('#progress-power').attr('class', 'progress ' + powerConfig.class);
 }
 
 /**
  * Show addiction in progress bar
  */
 function renderAddiction() {
-    $("#progress-addiction").css('width', parseInt(addiction * 100 / maxAddiction) + '%');
+    $('#progress-addiction').css('width', parseInt(addiction * 100 / maxAddiction) + '%');
     let className = '';
     if(addiction == 0) {
         className = 'gray';
@@ -158,12 +169,12 @@ function renderAddiction() {
     } else if (addiction <= 200) {
         className = 'red';
     }
-    $("#progress-addiction").attr('class', className + ' progress-addiction');
+    $('#progress-addiction').attr('class', className + ' progress-addiction');
 }
 
 /**
  * Render points
  */
 function renderPoints() {
-    $("#points-label").html(points);
+    $('#points-label').html(points);
 }

@@ -265,12 +265,12 @@ table {
 }
 
 .simulation-anim {
-    animation: css-animation 2s ease-in-out;
+    animation: substance-animation 2s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 .simulation-anim2 {
-    animation: css-animation 5s ease-in-out;
+    animation: substance-animation 5s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
 }
