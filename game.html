@@ -22,7 +22,7 @@
     <script src="./src/game.js"></script>
     <script src="./src/renders.js"></script>
 
-    <!-- Substances -->
+    <!-- Register Substances -->
     <script src="./substances/water.js"></script>
     <script src="./substances/beer.js"></script>
     <script src="./substances/coffee.js"></script>
@@ -36,7 +36,7 @@
     <script src="./substances/dmt.js"></script>
     <script src="./substances/ketamine.js"></script>
     <script src="./substances/nutmeg.js"></script>
-    <!-- Add more substances here... -->
+    <!-- Register more substances here... -->
 </head>
 
 <body>
@@ -44,16 +44,16 @@
 
         <!-- Intro -->
         <div id="intro" class="content" style="padding-top: 25px;">
-            <h1 style="margin-top: 5px;">Tripmix</h1>
+            <h1 style="margin-top: 5px;"><span id="title"></span></h1>
             <hr>
-            <p>A Playground Where You Can Imagine And Discover - (TM v1.0.0) Beta</p>
+            <p><span id="description"></span> - <span id="version"></span></p>
             <br>
             <h3>Instructions</h3>
             <p>1. Select the substances you want to mix;</p>
             <p>2. Try the new substance you created;</p>
             <p>3. Do not kill yourself!</p>
             <br>
-            <p><span style="color: orange">WARNING: </span>The game features high frequency color scenes. If you have
+            <p><span style="color: orange">WARNING: </span>The game has features with high frequency color scenes. If you have
                 <b>epilepsy</b>, avoid the game.</p>
             <p style="color: red"><span style="font-size: 20px">☠</span><br><b>Do not use drugs!</b></p>
             <p>The purpose of this game is to provide information and entertainment content. The game does not encourage
@@ -66,7 +66,7 @@
                 <option value="1">Yes, I'm of legal age in my country</option>
             </select>
             <br>
-            <button id="start-btn" onclick="changeScreen(SCREENS.GAME)">Start!</button>
+            <button id="start-btn" onclick="changeScreen(SCREENS.GAME)" disabled>Start!</button>
         </div>
 
         <!-- Game -->
@@ -146,6 +146,9 @@
                 <div id="method-list" class="">
                 </div>
             </div>
+            <div class="marquee">
+                <marquee id="marquee" style="width: 100%; padding-top: 1px"></marquee>
+            </div>
         </div>
 
         <!-- Simulation -->
@@ -217,7 +220,8 @@
     </div>
 
     <footer>
-        <a href="https://github.com/vinibiavatti1/drugmix" target="_blank">Github Repository</a>
+        <a id="github" href="#!" target="_blank" style="margin-right: 10px;">Github Repository</a>
+        <a id="download" href="#!" target="_blank">Download</a>
     </footer>
 </body>
 </html>

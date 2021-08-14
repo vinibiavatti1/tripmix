@@ -440,3 +440,23 @@ background: rgb(0, 75, 0);
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
+.colorfull-text {
+    animation: colorfull-text 3s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.marquee {
+    background-color: black;
+    border-top: 1px solid rgb(0, 200, 0);
+    position: absolute;
+    bottom: 0px;
+    left: 200px;
+    right: 0px;
+    height: 20px;
+    color: rgb(220, 220, 220);
+    font-style: italic;
+}
+.marquee-content {
+    margin-right: 250px;
+}

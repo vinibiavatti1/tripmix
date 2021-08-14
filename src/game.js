@@ -1,4 +1,4 @@
-const DEBUG = false;
+const DEBUG = true;
 
 /* Player Data */
 let points = 0;
@@ -44,7 +44,9 @@ function init() {
 function loadSavedGame() {
     try {
         let savedPointsStr = localStorage.getItem('points');
-        points = parseInt(savedPointsStr);
+        if(savedPointsStr && !isNaN(savedPointsStr)) {
+            points = parseInt(savedPointsStr);
+        }
     } catch(err) {
         console.error('An error ocurred to load saved data!');
         console.error(err);
@@ -125,7 +127,11 @@ function resetStats() {
  */
 function resetGame() {
     points = 0;
+    addiction = 0;
     window.localStorage.removeItem('points');
+    resetData();
+    renderPoints();
+    renderAddiction();
 }
 
 /**
@@ -178,7 +184,6 @@ function afterSimulation() {
     resetData();
     renderAddiction();
     renderPoints();
-
 }
 
 /**

@@ -6,6 +6,12 @@ function renderSeoData() {
     $('meta[name=keywords]').attr('content', META_KEYWORDS);
     $('meta[name=description]').attr('content', META_DESCRIPTION);
     $('meta[name=author]').attr('content', AUTHOR);
+    $('#title').html(TITLE);
+    $('#description').html(DESCRIPTION);
+    $('#version').html(VERSION);
+    $('#github').attr('href', GITHUB_REPO);
+    $('#download').attr('href', DOWNLOAD_LINK);
+    $('#marquee').html(MARQUEE_CONTENT);
 }
 
 /**

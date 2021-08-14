@@ -12,6 +12,19 @@
     90% {border-color: indigo;}
     100% {border-color: brown;}
 }
+@keyframes colorfull-text {
+    0% {  color: red; }
+    10% { color: orange;}
+    20% { color: gold;}
+    30% { color: green;}
+    40% { color: cyan;}
+    50% { color: blue;}
+    60% { color: darkblue;}
+    70% { color: purple;}
+    80% { color: magenta;}
+    90% { color: indigo;}
+    100% { color: brown;}
+}
 
 /* Opacity */
 @keyframes alternateOpacity {

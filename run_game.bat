@@ -1,1 +1,1 @@
-start chrome ./game.html
+start ./game.html
