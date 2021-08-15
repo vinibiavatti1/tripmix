@@ -10,6 +10,8 @@
   A Playground Where You Can Imagine And Discover
   <br>
   <a href="https://vinibiavatti1.github.io/tripmix/" target="_blank"><strong>-- Play Now (18+) --</strong></a>
+  <br>
+  <a href="https://github.com/vinibiavatti1/drugmix/archive/refs/heads/main.zip" download><strong>-- Download --</strong></a>
 </p>
 
 ### About
@@ -24,10 +26,10 @@ The game contains features unsuitable for minors, such as narcotics references a
 3. Do not kill yourself!
 
 ### Editor
-The game contains an editor area that permits the players to create their own substances and import to the game.
+The game contains an editor area that permits the players to create their own substances and import to the game. To access the editor, you have to download the game and run the `run_editor.bat` script.
 
 ### Developer
-If you are a developer, feel free to fork the project and create your mods!
+If you are a developer, feel free to fork the project and create your mods! The game can be extended with new substances, landscapes, effects, and much more!
 
 ### Images
 
