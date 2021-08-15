@@ -6,7 +6,7 @@ registerSubstance('Cocaine', {
     addictionLevel: 6,
     special: false,
     power: 6,
-    unlockPoints: 800,
+    unlockPoints: 1100,
     worksOnMethod: [METHOD_TYPE.EAT],
 
     /* Stats */

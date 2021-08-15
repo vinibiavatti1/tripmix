@@ -6,7 +6,7 @@ registerSubstance('DMT', {
     addictionLevel: 0,
     special: true,
     power: 10,
-    unlockPoints: 1500,
+    unlockPoints: 1200,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
