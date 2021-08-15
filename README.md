@@ -1,9 +1,17 @@
-# Tripmix
-<!--
-A drug simulation game
+<p align="center">
+  <a href="https://github.com/vinibiavatti1/TuiCss">
+    <img src="https://raw.githubusercontent.com/vinibiavatti1/tripmix/develop/images/game/logo.png" width="256" height="256" />
+  </a>
+</p>
 
-The purpose of this game is to provide information and entertainment content. The game does not encourage the use of drugs in any way. **Do not use drugs!**
+<h3 align="center">Tripmix</h3>
 
-<img width="800" height="600" src="https://raw.githubusercontent.com/vinibiavatti1/drugmix/main/images/game/Screenshot_1.png" alt="Drugmix interface"/>
-<img width="800" height="600" src="https://raw.githubusercontent.com/vinibiavatti1/drugmix/main/images/game/Screenshot_2.png" alt="Drugmix game"/>
--->
+<p align="center">
+  A Playground Where You Can Imagine And Discover
+  <br>
+  <a href="https://vinibiavatti1.github.io/tripmix/" target="_blank"><strong>-- Play Now --</strong></a>
+</p>
+
+### About
+
+Tripmix is...
