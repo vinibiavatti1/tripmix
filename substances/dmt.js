@@ -5,7 +5,7 @@ registerSubstance('DMT', {
     info: 'DMT is known for its unique ability to produce short-lived but intense visionary states and complete hallucinations.',
     addictionLevel: 0,
     special: true,
-    power: 3,
+    power: 10,
     unlockPoints: 1500,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 

@@ -24,14 +24,13 @@ const MARQUEE_CONTENT = `
     <span class="marquee-content">The main source of resources that was used during game development was <a href="https://psychonautwiki.org/" class="colorfull-text">psychonautwiki.org</a>. Thanks community!</span>
     <span class="marquee-content">This game is <span style="color: gold">FREE!</span>. Don't worry ;)</span>
     <span class="marquee-content">Are you of legal age? <span style="color: red;"><b>NOT?</b></span> Go away right now!!!</span>
-    <span class="marquee-content">Sometimes it's good to check your <span style="color: brown">Addicted Level</span>. Don't forget it!</span>
+    <span class="marquee-content">Sometimes it's good to check your <span style="color: orange">Addicted Level</span>. Don't forget it!</span>
     <span class="marquee-content">Did you know you can create your <span class="colorfull-text">OWN SUBSTANCES</span>? Yes! You can! Just <a href="${DOWNLOAD_LINK}" download>DOWNLOAD</a> the game, start the editor and follow the instructions!</span>
     <span class="marquee-content">Maybe, the game might have some secret <span style="color: blueviolet;">cheats</span>... Maybe!</span>
     <span class="marquee-content">Thank you <span style="color: gold">Albert Hofmann</span> for your studies!</span>
     <span class="marquee-content">Why there is no <span style="color: cyan;">syringe</span> in the game? Because the dev wants a more recreational and fun game, rather than something heavy and obscure.</span>
     <span class="marquee-content"><span style="color: magenta;">if</span> (you == <span style="color: orange">'developer'</span>) { Fork the game repository by clicking <a href="${GITHUB_REPO}">HERE!</a> :D }</span>
     <span class="marquee-content">Why to use real drugs if you can play this game??? WHY?</span>
-    <span class="marquee-content">Avoid to create <span style="color: red">(Death Risk)</span> substances! It can be <span style="color: rgb(0, 200, 0);">dangerous</span>!</span>
     <span class="marquee-content">Yes, I know I used the obsolete <span style="color: yellow">marquee</span> tag to make it. I'm Sorry :/</span>
     <span class="marquee-content">Curiosity: the game was developed while listening to <span style="color: cyan">Lo-fi</span> sounds. Just relax!</span>
     <span class="marquee-content">They say that if you play this game for a long time, you may see UFOs, dragons, elves, gnomes,...</span>

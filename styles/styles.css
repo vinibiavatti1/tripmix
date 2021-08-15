@@ -86,16 +86,16 @@ table {
 .text-cyan { color: cyan!important }
 .text-orange { color: orange!important }
 .text-yellow { color: yellow!important }
-.text-brown { color: brown!important }
+.text-green { color: lime!important }
 .text-red { color: red!important }
+
 .gray { background-color: gray!important }
 .cyan { background-color: cyan!important }
 .orange { background-color: orange!important }
 .yellow { background-color: yellow!important }
-.brown { background-color: brown!important }
+.green { background-color: lime!important }
 .red { background-color: red!important }
 .green { background-color: rgb(0, 255, 0)!important }
-
 
 
 .screen {

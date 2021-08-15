@@ -15,18 +15,18 @@ const SCREENS = {
 const STATS_LEVELS = {
     0: { name: 'None', class: 'text-gray' },
     1: { name: 'Threshold', class: 'text-cyan' },
-    2: { name: 'Light', class: 'text-orange' },
+    2: { name: 'Light', class: 'text-green' },
     3: { name: 'Moderate', class: 'text-yellow' },
-    4: { name: 'Strong', class: 'text-brown' },
+    4: { name: 'Strong', class: 'text-orange' },
     5: { name: 'Heavy', class: 'text-red' },
 };
 const POWER_LEVELS = {
     0: { name: 'None', class: 'gray' },
-    1: { name: 'Light', class: 'cyan' },
-    2: { name: 'Moderate', class: 'orange' },
-    3: { name: 'Strong', class: 'yellow' },
-    4: { name: 'Heavy', class: 'brown' },
-    5: { name: 'Death Risk', class: 'red' },
+    1: { name: 'Threshold', class: 'cyan' },
+    2: { name: 'Light', class: 'green' },
+    3: { name: 'Moderate', class: 'yellow' },
+    4: { name: 'Strong', class: 'orange' },
+    5: { name: 'Heavy', class: 'red' },
 };
 const DRUNK_LEVELS = {
     1: '2px;',

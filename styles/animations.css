@@ -1,29 +1,33 @@
 /* General */
 @keyframes colorfull-border {
-    0% { border-color: red; }
-    10% {border-color: orange;}
-    20% {border-color: gold;}
-    30% {border-color: green;}
-    40% {border-color: cyan;}
-    50% {border-color: blue;}
-    60% {border-color: darkblue;}
-    70% {border-color: purple;}
-    80% {border-color: magenta;}
-    90% {border-color: indigo;}
-    100% {border-color: brown;}
+    0% {  border-color: red; }
+    10% { border-color: orange;}
+    20% { border-color: gold;}
+    30% { border-color: yellow;}
+    40% { border-color: yellowgreen;}
+    50% { border-color: green;}
+    60% { border-color: springgreen;}
+    50% { border-color: cyan;}
+    60% { border-color: dodgerblue;}
+    70% { border-color: blue;}
+    80% { border-color: violet;}
+    90% { border-color: magenta;}
+    100% { border-color: orangered;}
 }
 @keyframes colorfull-text {
     0% {  color: red; }
     10% { color: orange;}
     20% { color: gold;}
-    30% { color: green;}
-    40% { color: cyan;}
-    50% { color: blue;}
-    60% { color: darkblue;}
-    70% { color: purple;}
-    80% { color: magenta;}
-    90% { color: indigo;}
-    100% { color: brown;}
+    30% { color: yellow;}
+    40% { color: yellowgreen;}
+    50% { color: green;}
+    60% { color: springgreen;}
+    50% { color: cyan;}
+    60% { color: dodgerblue;}
+    70% { color: blue;}
+    80% { color: violet;}
+    90% { color: magenta;}
+    100% { color: orangered;}
 }
 
 /* Opacity */
