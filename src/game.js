@@ -452,12 +452,22 @@ function startSubstanceEffects(
     console.log('Animation: ' + animation);
     console.log('Deep dream img: ' + deepDreamImg);
     console.log('Deep dream effect: ' + deepDreamEffectLevel);
+    console.log('Mirror effect: ' + mirrorEffect);
     console.log('Low delirant effects: ' + lowDelirantEffects);
     console.log('High delirant effects: ' + highDelirantEffects);
     console.log('White noise: ' + whiteNoise);
     console.log('DMT effect: ' + dmtEffect);
     console.log('Stars effect: ' + starsEffect);
     console.log('Drunk effect: ' + drunkEffect);
+    console.log('Low euphoric effect: ' + lowEuphoricEffect);
+    console.log('High euphoric effect: ' + highEuphoricEffect);
+    console.log('Flash effect: ' + flashEffect);
+    console.log('Shadow people effect: ' + shadowPeopleEffect);
+    console.log('Low dissociative effect: ' + lowDissociativeEffect);
+    console.log('High dissociative effect: ' + highDissociativeEffect);
+    console.log('Dissociative img: ' + dissociativeImg);
+    console.log('Melting effect: ' + meltingEffect);
+    console.log('---')
 
     $('#substance-animation').html(animation);
     if(deepDreamEffectLevel && deepDreamImg) {
