@@ -64,19 +64,19 @@ const METHODS = {
         img: 'cup.png',
         type: METHOD_TYPE.DRINK,
         info: 'Cup (drinking): Mix the substances inside the cup and drink it.',
-        unlockPoints: 100,
+        unlockPoints: 0,
     },
     'Bottle': {
         img: 'bottle.png',
         type: METHOD_TYPE.DRINK,
         info: 'Bottle (drinking): Mix the substances into a bottle and drink it.',
-        unlockPoints: 300,
+        unlockPoints: 200,
     },
     'Pipe': {
         img: 'pipe.png',
         type: METHOD_TYPE.SMOKE,
         info: 'Pipe (smoking): Put the substances into a pipe and smoke it.',
-        unlockPoints: 200,
+        unlockPoints: 400,
     },
     'Joint': {
         img: 'joint.png',
@@ -88,13 +88,13 @@ const METHODS = {
         img: 'hookah.png',
         type: METHOD_TYPE.SMOKE,
         info: 'Hookah (smoking): Put the substances into the Hookah to heating and smoke it with some water as filter.',
-        unlockPoints: 400,
+        unlockPoints: 600,
     },
     'Bong': {
         img: 'bong.png',
         type: METHOD_TYPE.SMOKE,
         info: 'Bong (smoking): Smoke the substances using a bong with water inside to filter the smoke.',
-        unlockPoints: 500,
+        unlockPoints: 800,
     },
     'All': {
         img: 'all.png',

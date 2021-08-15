@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 
 /* Player Data */
 let points = 0;
