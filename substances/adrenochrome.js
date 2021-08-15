@@ -28,6 +28,9 @@ registerSubstance('Adrenochrome', {
     whiteNoiseEffect: POWER.THRESHOLD,
     starsEffect: POWER.THRESHOLD,
     dmtEffect: POWER.NONE,
+    lowEuphoricEffect: POWER.NONE,
+    highEuphoricEffect: POWER.NONE,
+    flashEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

@@ -39,6 +39,10 @@
     from { opacity: 0 }
     to { opacity: .6 }
 }
+@keyframes alternateOpacitySuperLight {
+    from { opacity: 0 }
+    to { opacity: .1 }
+}
 @keyframes fadeOut {
     from { opacity: 1 }
     to { opacity: 0 }
@@ -77,11 +81,11 @@
 /* Deep dream */
 @keyframes deep-dream-1-animation {
     from { opacity: 0; }
-    to { opacity: 0.15; }
+    to { opacity: 0.2; }
 }
 @keyframes deep-dream-2-animation {
     from { opacity: 0; }
-    to { opacity: 0.2; }
+    to { opacity: 0.25; }
 }
 @keyframes deep-dream-3-animation {
     from { opacity: 0; }

@@ -28,6 +28,9 @@ registerSubstance('Beer', {
     whiteNoiseEffect: POWER.NONE,
     starsEffect: POWER.NONE,
     dmtEffect: POWER.NONE,
+    lowEuphoricEffect: POWER.NONE,
+    highEuphoricEffect: POWER.NONE,
+    flashEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

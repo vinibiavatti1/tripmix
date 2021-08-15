@@ -28,6 +28,9 @@ registerSubstance('Datura', {
     whiteNoiseEffect: POWER.HEAVY,
     starsEffect: POWER.NONE,
     dmtEffect: POWER.NONE,
+    lowEuphoricEffect: POWER.NONE,
+    highEuphoricEffect: POWER.NONE,
+    flashEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

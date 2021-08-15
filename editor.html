@@ -24,8 +24,8 @@
     <div class="screen">
 
         <!-- Intro -->
-        <div id="intro" class="content" style="padding-top: 25px;">
-            <br><br><br><br><br><br>
+        <div id="step-0" class="content" style="padding-top: 25px;">
+            <br><br><br><br><br><br><br>
             <h1 style="margin-top: 5px;"><span id="title"></span> Editor</h1>
             <hr>
             <p>Create Your Own Substances! - <span id="version"></span></p>
@@ -119,8 +119,7 @@
         <!-- Step 2 -->
         <div id="step-2" class="panel" style="display: none;">
             <div class="p-left">
-
-                Activate <span style="color: cyan">Walk delay</span> effect on:
+                Activate <span style="color: cyan">Walk Delay Effect</span> on:
                 <select class="sel" id="s-walk-delay-effect">
                     <option value="POWER.NONE" selected>None</option>
                     <option value="POWER.THRESHOLD">Threshold</option>
@@ -129,7 +128,7 @@
                     <option value="POWER.STRONG">Strong</option>
                     <option value="POWER.HEAVY">Heavy</option>
                 </select>
-                Activate <span style="color: cyan">Random Walk</span> effect on:
+                Activate <span style="color: cyan">Random Walk Effect</span> on:
                 <select class="sel" id="s-random-walk-effect">
                     <option value="POWER.NONE" selected>None</option>
                     <option value="POWER.THRESHOLD">Threshold</option>
@@ -183,7 +182,7 @@
                     <option value="POWER.STRONG">Strong</option>
                     <option value="POWER.HEAVY">Heavy</option>
                 </select>
-                Activate <span style="color: cyan">DMT</span> effect on:
+                Activate <span style="color: cyan">DMT Effect</span> on:
                 <select class="sel" id="s-dmt-effect">
                     <option value="POWER.NONE" selected>None</option>
                     <option value="POWER.THRESHOLD">Threshold</option>
@@ -192,9 +191,41 @@
                     <option value="POWER.STRONG">Strong</option>
                     <option value="POWER.HEAVY">Heavy</option>
                 </select>
-
+                Activate <span style="color: cyan">Low Euphoric Effect</span> on:
+                <select class="sel" id="s-low-euphoric-effect">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+                Activate <span style="color: cyan">High Euphoric Effect</span> on:
+                <select class="sel" id="s-high-euphoric-effect">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
             </div>
             <div class="p-right">
+                Activate <span style="color: cyan">Flash Effect</span> on:
+                <select class="sel" id="s-flash-effect">
+                    <option value="POWER.NONE" selected>None</option>
+                    <option value="POWER.THRESHOLD">Threshold</option>
+                    <option value="POWER.LIGHT">Light</option>
+                    <option value="POWER.MODERATE">Moderate</option>
+                    <option value="POWER.STRONG">Strong</option>
+                    <option value="POWER.HEAVY">Heavy</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="step-3" class="panel" style="display: none;">
+            <div class="p-left">
                 Drunk Effect when <span style="color: cyan">Threshold</span>:
                 <select class="sel" id="s-drunk-1">
                     <option value="POWER.NONE" selected>None</option>
@@ -289,8 +320,8 @@
             </div>
         </div>
 
-        <!-- Step 3 -->
-        <div id="step-3" class="panel" style="display: none;">
+        <!-- Step 4 -->
+        <div id="step-4" class="panel" style="display: none;">
             <div style="width: 575px;">
                 Filter Effects <span style="color: cyan">(Threshold)</span>:
                 <textarea style="resize: none;" rows="2" class="input from-input" id="s-effects-from-1" placeholder="Type the BEGIN filter effects."></textarea>
@@ -326,16 +357,17 @@
             </div>
         </div>
 
-        <!-- Step 4 -->
-        <div id="step-4" class="panel" style="display: none;">
+        <!-- Step 5 -->
+        <div id="step-5" class="panel" style="display: none;">
             <textarea readonly style="resize: none;" rows="35" class="input" id="code" placeholder=""></textarea>
         </div>
 
-        <div id="step-5" class="panel" style="display: none; text-align: center;">
+        <!-- Step 6 -->
+        <div id="step-6" class="panel" style="display: none; text-align: center;">
             <br><br><br><br>
             <h2>Well Done!</h2>
             <br>
-            <p>To add you substance to the game, you just need to follow a bit of steps:</p>
+            <p>To add your substance to the game, you just need to follow a bit of steps:</p>
             <br>
             <br>
             <p>1. Copy the result code from previous step;</p>

@@ -28,6 +28,9 @@ const TEMPLATE = `registerSubstance('SUBSTANCE_NAME', {
     whiteNoiseEffect: WHITE_NOISE_EFFECT,
     starsEffect: STARS_EFFECT,
     dmtEffect: DMT_EFFECT,
+    lowEuphoricEffect: LOW_EUPHORIC_EFFECT,
+    highEuphoricEffect: HIGH_EUPHORIC_EFFECT,
+    flashEffect: FLASH_EFFECT,
 
     /* Drunk */
     drunkEffects: {

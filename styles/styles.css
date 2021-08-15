@@ -537,3 +537,32 @@ background: rgb(0, 75, 0);
     border-left: 1px solid rgb(0, 200, 0);
     background-color: black;
 }
+
+.euphoric1 {
+    animation: alternateOpacitySuperLight 10s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 5s;
+    filter: contrast(150%);
+}
+.euphoric2 {
+    animation: alternateOpacitySuperLight .01s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 7s;
+    filter: contrast(150%) saturate(3);
+}
+.euphoric3 {
+    animation: alternateOpacitySuperLight 20s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 9s;
+    filter: contrast(150%) saturate(5);
+}
+.flash-effect {
+    animation: alternateOpacityLight .01s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 0s;
+    filter: brightness(110%) ;
+}

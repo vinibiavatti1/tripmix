@@ -28,6 +28,9 @@ registerSubstance('DMT', {
     whiteNoiseEffect: POWER.NONE,
     starsEffect: POWER.MODERATE,
     dmtEffect: POWER.HEAVY,
+    lowEuphoricEffect: POWER.NONE,
+    highEuphoricEffect: POWER.NONE,
+    flashEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

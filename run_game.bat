@@ -1,2 +1,2 @@
 @echo off
-start ./game.html
+start ./index.html

@@ -1,10 +1,12 @@
 let currentStep = 0;
+let lastStep = 6;
 const stepName = {
     1: 'General Properties',
-    2: 'Effect Properties',
-    3: 'CSS Filter Effects',
-    4: 'Substance Script',
-    5: 'Instructions',
+    2: 'Effect Properties 1',
+    3: 'Effect Properties 2',
+    4: 'CSS Filter Effects',
+    5: 'Substance Script',
+    6: 'Instructions',
 }
 
 /**
@@ -40,22 +42,21 @@ function renderSeoData() {
  */
  function changeStep() {
     $("#intro").hide();
-    $("#step-1").hide();
-    $("#step-2").hide();
-    $("#step-3").hide();
-    $("#step-4").hide();
-    $("#step-5").hide();
+    for(let i = 0; i <= lastStep; i++) {
+        $("#step-" + i).hide();
+    }
     $("#navigation").show();
     $('#next-btn').removeAttr('disabled');
     $('#back-btn').removeAttr('disabled');
     if(currentStep == 4) {
         generateCode();
     }
-    if(currentStep <= 1) {
-        currentStep = 1;
+    if(currentStep <= 0) {
+        currentStep = 0;
+        $("#navigation").hide();
         $('#back-btn').attr('disabled', true);
-    } else if(currentStep >= 5) {
-        currentStep = 5;
+    } else if(currentStep >= lastStep) {
+        currentStep = lastStep;
         $('#next-btn').attr('disabled', true);
     }
     $("#step-" + currentStep).show();
@@ -81,6 +82,7 @@ function generateCode() {
     code = code.replace('DELIRANT', $("#s-delirant").val());
     code = code.replace('DISSOCIATIVE', $("#s-dissociative").val());
     code = code.replace('DEPRESSANT', $("#s-depressant").val());
+
     code = code.replace('WALK_DELAY_EFFECT', $("#s-walk-delay-effect").val());
     code = code.replace('RANDOM_WALK_EFFECT', $("#s-random-walk-effect").val());
     code = code.replace('LOW_DELIRANT_EFFECT', $("#s-low-delirant-effect").val());
@@ -89,6 +91,10 @@ function generateCode() {
     code = code.replace('WHITE_NOISE_EFFECT', $("#s-white-noise-effect").val());
     code = code.replace('STARS_EFFECT', $("#s-stars-effect").val());
     code = code.replace('DMT_EFFECT', $("#s-dmt-effect").val());
+    code = code.replace('LOW_EUPHORIC_EFFECT', $("#s-low-euphoric-effect").val());
+    code = code.replace('HIGH_EUPHORIC_EFFECT', $("#s-high-euphoric-effect").val());
+    code = code.replace('FLASH_EFFECT', $("#s-flash-effect").val());
+
     code = code.replace('DRUNK_1', $("#s-drunk-1").val());
     code = code.replace('DRUNK_2', $("#s-drunk-2").val());
     code = code.replace('DRUNK_3', $("#s-drunk-3").val());

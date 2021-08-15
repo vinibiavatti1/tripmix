@@ -1,4 +1,4 @@
-const DEBUG = false;
+const DEBUG = true;
 
 /* Player Data */
 let points = 0;
@@ -134,6 +134,10 @@ function resetSimulation() {
     $('#deep-dream').removeClass('deep-dream-4');
     $('#deep-dream').removeClass('deep-dream-5');
     $('#css-animation').empty();
+    $('#euphoric-1').hide();
+    $('#flash-effect').hide();
+    $('#euphoric-2').hide();
+    $('#euphoric-3').hide();
 
     // Remove fades
     $("#simulation-screen").removeClass('fadeOut');
@@ -193,7 +197,9 @@ function resetGame() {
  * Save game data into local storage
  */
 function saveGame() {
-    localStorage.setItem('points', points);
+    if(!DEBUG) {
+        localStorage.setItem('points', points);
+    }
 }
 
 /**
@@ -216,6 +222,8 @@ function afterSimulation() {
     saveGame();
     resetSimulation();
     resetData();
+    renderSubstances();
+    renderMethods();
     renderAddiction();
     renderPoints();
 }
@@ -240,6 +248,7 @@ function startSimulation(method_type) {
     // Reset variables
     randomWalk = false;
     walkDelay = false;
+    let deepDreamImg = getRandomDeepDream();
     let generalDeepDreamEffectLevel = 0;
     let generalMirrorEffect = false;
     let generalDrunkEffect = false;
@@ -250,8 +259,9 @@ function startSimulation(method_type) {
     let whiteNoise = false;
     let dmtEffect = false;
     let starsEffect = false;
-    let deepDreamImg = getRandomDeepDream();
-    let drunkEffect = null;
+    let lowEuphoricEffect = false;
+    let highEuphoricEffect = false;
+    let flashEffect = false;
 
     // Set landscape
     currentLandscape = $("#landscape").val();
@@ -340,8 +350,38 @@ function startSimulation(method_type) {
         if(substanceConfig.dmtEffect && power >= substanceConfig.dmtEffect) {
             dmtEffect = true;
         }
+
+        // Low euphoric effect
+        if(substanceConfig.lowEuphoricEffect && power >= substanceConfig.lowEuphoricEffect) {
+            lowEuphoricEffect = true;
+        }
+
+        // High euphoric effect
+        if(substanceConfig.highEuphoricEffect && power >= substanceConfig.highEuphoricEffect) {
+            highEuphoricEffect = true;
+        }
+
+        // Flash effect
+        if(substanceConfig.flashEffect && power >= substanceConfig.flashEffect) {
+            flashEffect = true;
+        }
     }
-    startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDreamImg, generalDeepDreamEffectLevel, generalMirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect, generalDrunkEffect);
+    startSubstanceEffects(
+        cssFilterEffectsFrom,
+        cssFilterEffectsTo,
+        deepDreamImg,
+        generalDeepDreamEffectLevel,
+        generalMirrorEffect,
+        lowDelirantEffects,
+        highDelirantEffects,
+        whiteNoise,
+        dmtEffect,
+        starsEffect,
+        generalDrunkEffect,
+        lowEuphoricEffect,
+        highEuphoricEffect,
+        flashEffect
+    );
 }
 
 /**
@@ -367,7 +407,7 @@ function createAnimationCss(cssFilterEffectsFrom, cssFilterEffectsTo, drunkEffec
  * @param {*} deepDreamEffectLevel
  * @param {*} mirrorEffect
  */
-function startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDreamImg, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect, drunkEffect) {
+function startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDreamImg, deepDreamEffectLevel, mirrorEffect, lowDelirantEffects, highDelirantEffects, whiteNoise, dmtEffect, starsEffect, drunkEffect, lowEuphoricEffect, highEuphoricEffect, flashEffect) {
     // Create animation
     let animation = createAnimationCss(cssFilterEffectsFrom, cssFilterEffectsTo, drunkEffect);
 
@@ -384,7 +424,7 @@ function startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDre
 
     $('#substance-animation').html(animation);
     if(deepDreamEffectLevel && deepDreamImg) {
-        $('#deep-dream').attr('src', 'images/deep_dreams/' + deepDreamImg);
+        $('#deep-dream').attr('src', 'images/effects/deep_dreams/' + deepDreamImg);
         $('#deep-dream').addClass('deep-dream-' + deepDreamEffectLevel);
         $('#deep-dream').show();
     }
@@ -409,6 +449,16 @@ function startSubstanceEffects(cssFilterEffectsFrom, cssFilterEffectsTo, deepDre
     }
     if(starsEffect) {
         $('#stars-effect').show();
+    }
+    if(lowEuphoricEffect) {
+        $('#euphoric-2').show();
+    }
+    if(highEuphoricEffect) {
+        $('#euphoric-1').show();
+        $('#euphoric-3').show();
+    }
+    if(flashEffect) {
+        $('#flash-effect').show();
     }
 }
 
@@ -461,6 +511,7 @@ function updateLandscape() {
     $("#simulation-img-2").attr('src', img);
     $("#simulation-img-3").attr('src', img);
     $("#mirror-effect").attr('src', img);
+    $("#flash-effect").attr('src', img);
 }
 
 /**

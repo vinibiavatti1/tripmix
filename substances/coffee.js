@@ -28,6 +28,9 @@ registerSubstance('Coffee', {
     whiteNoiseEffect: POWER.NONE,
     starsEffect: POWER.NONE,
     dmtEffect: POWER.NONE,
+    lowEuphoricEffect: POWER.NONE,
+    highEuphoricEffect: POWER.NONE,
+    flashEffect: POWER.HEAVY,
 
     /* Drunk */
     drunkEffects: {

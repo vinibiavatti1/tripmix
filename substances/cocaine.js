@@ -28,14 +28,17 @@ registerSubstance('Cocaine', {
     whiteNoiseEffect: POWER.NONE,
     starsEffect: POWER.STRONG,
     dmtEffect: POWER.NONE,
+    lowEuphoricEffect: POWER.THRESHOLD,
+    highEuphoricEffect: POWER.MODERATE,
+    flashEffect: POWER.THRESHOLD,
 
     /* Drunk */
     drunkEffects: {
         1: POWER.THRESHOLD,
         2: POWER.THRESHOLD,
-        3: POWER.LIGHT,
-        4: POWER.LIGHT,
-        5: POWER.LIGHT,
+        3: POWER.THRESHOLD,
+        4: POWER.THRESHOLD,
+        5: POWER.THRESHOLD,
     },
 
     /* Deep dream */
