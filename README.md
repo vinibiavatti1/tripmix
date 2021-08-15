@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/vinibiavatti1/TuiCss">
-    <img src="https://raw.githubusercontent.com/vinibiavatti1/tripmix/develop/images/game/logo.png" width="256" height="256" />
+    <img src="https://raw.githubusercontent.com/vinibiavatti1/tripmix/main/images/game/logo.png" width="180" height="180" />
   </a>
 </p>
 
