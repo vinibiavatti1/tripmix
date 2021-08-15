@@ -31,6 +31,10 @@ registerSubstance('Adrenochrome', {
     lowEuphoricEffect: POWER.NONE,
     highEuphoricEffect: POWER.NONE,
     flashEffect: POWER.NONE,
+    shadowPeopleEffect: POWER.MODERATE,
+    lowDissociativeEffect: POWER.NONE,
+    highDissociativeEffect: POWER.NONE,
+    meltingEffect: POWER.LIGHT,
 
     /* Drunk */
     drunkEffects: {

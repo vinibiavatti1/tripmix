@@ -47,6 +47,13 @@ const DEEP_DREAMS = [
     'deep9.png',
     'deep10.png',
 ];
+const DISSOCIATIVES = [
+    'dark1.jpg',
+    'dark2.png',
+    'dark3.jpg',
+    'dark4.jpg',
+    'dark5.jpg',
+];
 const METHOD_TYPE = {
     ALL: 'all',
     EAT: 'eat',

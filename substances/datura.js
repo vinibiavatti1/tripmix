@@ -31,6 +31,10 @@ registerSubstance('Datura', {
     lowEuphoricEffect: POWER.NONE,
     highEuphoricEffect: POWER.NONE,
     flashEffect: POWER.NONE,
+    shadowPeopleEffect: POWER.MODERATE,
+    lowDissociativeEffect: POWER.NONE,
+    highDissociativeEffect: POWER.NONE,
+    meltingEffect: POWER.HEAVY,
 
     /* Drunk */
     drunkEffects: {
@@ -57,14 +61,14 @@ registerSubstance('Datura', {
             2: 'grayscale(0%) blur(0px) brightness(100%)',
             3: 'grayscale(0%) blur(0px) brightness(100%)',
             4: 'grayscale(0%) blur(0px) brightness(100%)',
-            5: 'grayscale(0%) blur(0px) brightness(100%)',
+            5: 'grayscale(0%) blur(0px) brightness(100%) invert(200%)',
         },
         to: {
             1: 'grayscale(40%) blur(0px) brightness(50%)',
             2: 'grayscale(50%) blur(1px) brightness(40%)',
             3: 'grayscale(60%) blur(1px) brightness(30%)',
             4: 'grayscale(70%) blur(2px) brightness(20%)',
-            5: 'grayscale(90%) blur(3px) brightness(20%)',
+            5: 'grayscale(90%) blur(3px) brightness(20%) invert(200%)',
         }
     },
 });

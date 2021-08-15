@@ -31,6 +31,10 @@ const TEMPLATE = `registerSubstance('SUBSTANCE_NAME', {
     lowEuphoricEffect: LOW_EUPHORIC_EFFECT,
     highEuphoricEffect: HIGH_EUPHORIC_EFFECT,
     flashEffect: FLASH_EFFECT,
+    shadowPeopleEffect: SHADOW_PEOPLE_EFFECT,
+    lowDissociativeEffect: LOW_DISSOCIATIVE_EFFECT,
+    highDissociativeEffect: HIGH_DISSOCIATIVE_EFFECT,
+    meltingEffect: MELTING_EFFECT,
 
     /* Drunk */
     drunkEffects: {

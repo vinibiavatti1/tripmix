@@ -33,6 +33,13 @@ function getRandomDeepDream() {
 }
 
 /**
+ * Return a random dissociative searching into the registered dissociatives
+ */
+ function getRandomDissociative() {
+    return DISSOCIATIVES[randomInt(0, DISSOCIATIVES.length)];
+}
+
+/**
  * Change progress bar value
  * @param {*} selector
  * @param {*} value

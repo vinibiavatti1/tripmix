@@ -31,6 +31,10 @@ registerSubstance('Cocaine', {
     lowEuphoricEffect: POWER.THRESHOLD,
     highEuphoricEffect: POWER.MODERATE,
     flashEffect: POWER.THRESHOLD,
+    shadowPeopleEffect: POWER.NONE,
+    lowDissociativeEffect: POWER.NONE,
+    highDissociativeEffect: POWER.NONE,
+    meltingEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

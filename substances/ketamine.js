@@ -31,6 +31,10 @@ registerSubstance('Ketamine', {
     lowEuphoricEffect: POWER.NONE,
     highEuphoricEffect: POWER.NONE,
     flashEffect: POWER.NONE,
+    shadowPeopleEffect: POWER.HEAVY,
+    lowDissociativeEffect: POWER.MODERATE,
+    highDissociativeEffect: POWER.HEAVY,
+    meltingEffect: POWER.HEAVY,
 
     /* Drunk */
     drunkEffects: {
@@ -38,7 +42,7 @@ registerSubstance('Ketamine', {
         2: POWER.NONE,
         3: POWER.NONE,
         4: POWER.NONE,
-        5: POWER.NONE,
+        5: POWER.THRESHOLD,
     },
 
     /* Deep dream */

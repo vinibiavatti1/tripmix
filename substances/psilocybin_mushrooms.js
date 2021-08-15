@@ -31,6 +31,10 @@ registerSubstance('Psilocybin Mushrooms', {
     lowEuphoricEffect: POWER.NONE,
     highEuphoricEffect: POWER.NONE,
     flashEffect: POWER.NONE,
+    shadowPeopleEffect: POWER.NONE,
+    lowDissociativeEffect: POWER.NONE,
+    highDissociativeEffect: POWER.NONE,
+    meltingEffect: POWER.MODERATE,
 
     /* Drunk */
     drunkEffects: {

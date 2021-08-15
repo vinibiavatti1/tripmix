@@ -178,12 +178,12 @@ function renderAddiction() {
     } else if (addiction <= 40) {
         className = 'cyan';
     } else if (addiction <= 80) {
-        className = 'orange';
+        className = 'green';
     } else if (addiction <= 120) {
         className = 'yellow';
     } else if (addiction <= 160) {
-        className = 'brown';
-    } else if (addiction <= 200) {
+        className = 'orange';
+    } else {
         className = 'red';
     }
     $('#progress-addiction').attr('class', className + ' progress-addiction');

@@ -276,13 +276,13 @@ table {
     animation-direction: alternate-reverse;
 }
 .hallucinogic {
-    animation: alternateOpacity 13s ease-in-out;
+    animation: alternateOpacity7 13s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 32s;
 }
 .hallucinogic2 {
-    animation: alternateOpacityLight 8s ease-in-out;
+    animation: alternateOpacity6 8s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 10s;
@@ -304,10 +304,6 @@ table {
     user-select: none;
     overflow: hidden;
 }
-
-
-
-
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -354,7 +350,7 @@ background: rgb(0, 75, 0);
 
 
 .white-noise {
-    animation: alternateOpacityLight 20s ease-in-out;
+    animation: alternateOpacity6 20s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 6s;
@@ -422,7 +418,7 @@ background: rgb(0, 75, 0);
 }
 
 
-.addicted {
+.game_over {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -539,30 +535,56 @@ background: rgb(0, 75, 0);
 }
 
 .euphoric1 {
-    animation: alternateOpacitySuperLight 10s ease-in-out;
+    animation: alternateOpacity1 10s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 5s;
     filter: contrast(150%);
 }
 .euphoric2 {
-    animation: alternateOpacitySuperLight .01s ease-in-out;
+    animation: alternateOpacity1 .01s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 7s;
     filter: contrast(150%) saturate(3);
 }
 .euphoric3 {
-    animation: alternateOpacitySuperLight 20s ease-in-out;
+    animation: alternateOpacity1 20s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 9s;
     filter: contrast(150%) saturate(5);
 }
 .flash-effect {
-    animation: alternateOpacityLight .01s ease-in-out;
+    animation: alternateOpacity6 .01s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 0s;
     filter: brightness(110%) ;
+}
+.shadow-people {
+    animation: alternateOpacity4 12s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 19s;
+    filter: blur(9px) ;
+}
+.dark-img {
+    animation: dissociativeAlternateOpacity 120s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 30s;
+    filter: blur(3px) ;
+}
+.dissociative-1 {
+    animation: dissociativeAlternateOpacity 120s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 0s;
+}
+.dissociative-2 {
+    animation: dissociativeAlternateOpacity2 30s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 10s;
 }
