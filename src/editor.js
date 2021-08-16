@@ -48,7 +48,7 @@ function renderSeoData() {
     $("#navigation").show();
     $('#next-btn').removeAttr('disabled');
     $('#back-btn').removeAttr('disabled');
-    if(currentStep == 4) {
+    if(currentStep == 5) {
         generateCode();
     }
     if(currentStep <= 0) {
