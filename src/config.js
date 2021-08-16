@@ -20,7 +20,7 @@ const IMAGES_SUBSTANCES_PATH = IMAGES_PATH + '/substances';
 // Marquee
 const MARQUEE_CONTENT = `
     <span class="marquee-content"><span style="color: red;"><b>Do not use drugs!</b></span> The purpose of this game is to provide information and entertainment content. The game does not encourage the use of drugs in any way.</span>
-    <span class="marquee-content">Drink <span style="color: cyan">Water</span> to prevent/reduce the addicted level.</span>
+    <span class="marquee-content">Drink <span style="color: cyan">Water</span> to prevent/reduce the addiction level.</span>
     <span class="marquee-content">Don't be anxious. Wait a time to check all of <span class="colorfull-text">effects</span> of your substance, due some of these have a delay to start!</span>
     <span class="marquee-content">Thanks <span style="color: gold">Gabriel (From Croatia)</span> to test and enjoy the game!</span>
     <span class="marquee-content">This game is <span style="color: gold">FREE!</span>. Don't worry ;)</span>
