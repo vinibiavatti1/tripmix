@@ -108,6 +108,9 @@ function resetData() {
     // Reset stats
     resetStats();
 
+    // Reset methods
+    $(".method").removeClass('disabled-method');
+
     // Reset labels
     $("#substance-amount-label").html('0');
     $("#substance-power-label").html("(None)");
@@ -178,6 +181,18 @@ function resetGame() {
     renderSubstancePower();
     changeProgressValue('#amount-progress', selectedAmount * 100 / maxAmount);
     $("#substance-amount-label").html(selectedAmount);
+
+    // Disable methods
+    let substanceConfig = SUBSTANCES[name];
+    if(!substanceConfig.worksOnMethod.includes(METHOD_TYPE.EAT)) {
+        $(".method[data-type=eat]").addClass('disabled-method');
+    }
+    if(!substanceConfig.worksOnMethod.includes(METHOD_TYPE.DRINK)) {
+        $(".method[data-type=drink]").addClass('disabled-method');
+    }
+    if(!substanceConfig.worksOnMethod.includes(METHOD_TYPE.SMOKE)) {
+        $(".method[data-type=smoke]").addClass('disabled-method');
+    }
 }
 
 /**
@@ -232,6 +247,9 @@ function changeScreen(screen) {
  * @param {*} method_type
  */
 function startSimulation(method_type) {
+    if($(`.method[data-type=${method_type}]`).hasClass('disabled-method')) {
+        return;
+    }
     // Reset variables
     randomWalk = false;
     walkDelay = false;
@@ -399,6 +417,7 @@ function startSimulation(method_type) {
         dissociativeImg,
         meltingEffect
     );
+    changeScreen(SCREENS.SIMULATION);
 }
 
 /**

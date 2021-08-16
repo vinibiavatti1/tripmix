@@ -588,3 +588,10 @@ background: rgb(0, 75, 0);
     animation-direction: alternate;
     animation-delay: 10s;
 }
+.disabled-method {
+    opacity: .5;
+}
+.method.disabled-method:hover {
+    border: 1px solid rgb(100, 100, 100) !important;
+    cursor: default !important;
+}

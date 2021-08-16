@@ -28,7 +28,8 @@ function renderMethods() {
         img.attr('src', IMAGES_METHODS_PATH + '/' + methodConfig.img)
         img.attr('data-info', methodConfig.info)
         img.attr('class', 'method')
-        img.attr('onclick', `startSimulation('${methodConfig.type}'); changeScreen(SCREENS.SIMULATION);`)
+        img.attr('data-type', methodConfig.type);
+        img.attr('onclick', `startSimulation('${methodConfig.type}');`)
         $('#method-list').append(img);
     }
     addInfoHandle('.method');

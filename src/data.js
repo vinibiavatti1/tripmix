@@ -111,7 +111,7 @@ const METHODS = {
     },
 };
 const LANDSCAPES = {
-    'Lake (Açores - PT)': {
+    'Lake (Açores, Portugal)': {
         unlockPoints: 0,
         folder: 'lake',
         imgs: ['lake1.png', 'lake2.png', 'lake3.png', 'lake4.png', 'lake5.png', 'lake6.png', 'lake7.png', 'lake8.png', 'lake9.png', 'lake10.png', 'lake11.png', 'lake12.png', 'lake13.png', 'lake14.png'],
