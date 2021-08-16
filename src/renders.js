@@ -206,3 +206,13 @@ function renderLandscapes() {
         $('#landscape').append(`<option value="${land}">${land}</option>`);
     }
 }
+
+/**
+ * Render clock
+ */
+function renderClock() {
+    seconds = clock[2] > 9 ? clock[2] : '0' + clock[2];
+    minutes = clock[1] > 9 ? clock[1] : '0' + clock[1];
+    hours = clock[0] > 9 ? clock[0] : '0' + clock[0];
+    $('#clock').html(hours + ':' + minutes + ':' + seconds);
+}

@@ -13,6 +13,7 @@ let addiction = 0;
 let maxAddiction = 200;
 let maxPoints = 999999;
 let adrenochrome = false;
+let clock = [0,0,0];
 
 /**
  * Document init
@@ -39,6 +40,7 @@ function init() {
     searchListener();
     $("#max-points").html(maxPoints);
     updateInfos();
+    startClockLoop();
 }
 
 /**
@@ -46,6 +48,35 @@ function init() {
  */
 function updateInfos() {
     addInfoHandle('.info-hint');
+}
+
+/**
+ * Start clock loop
+ */
+function startClockLoop() {
+    setInterval(function() {
+        clock[2]++;
+        if(clock[2] >= 60) {
+            clock[2] = 0;
+            clock[1]++;
+            if(clock[1] >= 60) {
+                clock[1] = 0;
+                clock[0]++;
+                if(clock[0] >= 24) {
+                    clock[0] = 0;
+                }
+            }
+        }
+        renderClock();
+    }, 1000);
+}
+
+/**
+ * Reset the clock to 00:00:00
+ */
+function resetClock() {
+    clock = [0,0,0];
+    renderClock();
 }
 
 /**
@@ -258,6 +289,9 @@ function startSimulation(method_type) {
     if($(`.method[data-type=${method_type}]`).hasClass('disabled-method')) {
         return;
     }
+    // Reset clock
+    resetClock();
+
     // Reset variables
     randomWalk = false;
     walkDelay = false;
