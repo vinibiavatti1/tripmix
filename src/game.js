@@ -38,6 +38,14 @@ function init() {
     renderPoints();
     searchListener();
     $("#max-points").html(maxPoints);
+    updateInfos();
+}
+
+/**
+ * Update all info handlers
+ */
+function updateInfos() {
+    addInfoHandle('.info-hint');
 }
 
 /**

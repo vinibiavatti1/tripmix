@@ -86,12 +86,12 @@
             </div>
             <div id="points" class="points">
                 <span id="points-label"></span>/<span id="max-points"></span> points<br>
-                <a href="#!" class="a-reset" onclick="resetGamePrompt()">(Reset Game)</a>
+                <a href="#!" class="a-reset info-hint" data-info="Reset your game progress to initial point. Be careful to you don't do it by mistake!" onclick="resetGamePrompt()">(Reset Game)</a>
             </div>
             <div class="game-content">
                 <h1 style="margin-top: 0px;">Tripmix</h1>
-                <h3>Amount (<span id="substance-amount-label">0</span>/20) <a href="#!" class="a-reset"
-                        onclick="resetData()">(Reset)</a></h3>
+                <h3>Amount (<span id="substance-amount-label">0</span>/20) <a href="#!" class="a-reset info-hint"
+                        onclick="resetData()" aria-colcount="info-hint" data-info="Remove all selected substances.">(Reset)</a></h3>
                 <div class="progress-bar">
                     <div id="amount-progress" class="progress" style="width: 0%;"></div>
                 </div>
@@ -250,8 +250,8 @@
     </div>
 
     <footer>
-        <a id="github" href="#!" target="_blank" style="margin-right: 10px;">Github Repository</a>
-        <a id="download" href="#!" target="_blank">Download</a>
+        <a id="github" data-info="Fork or visit the Github repository!" class="info-hint" href="#!" target="_blank" style="margin-right: 10px;">Github Repository</a>
+        <a id="download" data-info="Download the game to create your particular substances with the editor!" class="info-hint" href="#!" target="_blank">Download</a>
     </footer>
 </body>
 </html>

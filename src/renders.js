@@ -27,12 +27,12 @@ function renderMethods() {
         let img = $('<img/>');
         img.attr('src', IMAGES_METHODS_PATH + '/' + methodConfig.img)
         img.attr('data-info', methodConfig.info)
-        img.attr('class', 'method')
+        img.attr('class', 'method info-hint')
         img.attr('data-type', methodConfig.type);
         img.attr('onclick', `startSimulation('${methodConfig.type}');`)
         $('#method-list').append(img);
     }
-    addInfoHandle('.method');
+    updateInfos();
 }
 
 /**
@@ -53,7 +53,7 @@ function renderSubstances() {
         div.attr('data-info', specialInfo + substanceConfig.info);
         div.attr('data-name', key);
         let special = substanceConfig.special ? ' special-substance' : '';
-        div.attr('class', 'substance' + special);
+        div.attr('class', 'substance info-hint' + special);
         div.attr('onclick', `selectSubstance('${key}')`)
         let img = $('<img/>');
         img.attr('src', IMAGES_SUBSTANCES_PATH + '/' + substanceConfig.img);
@@ -65,7 +65,7 @@ function renderSubstances() {
         div.append(p)
         $('#substances').append(div);
     }
-    addInfoHandle('.substance');
+    updateInfos();
 }
 
 /**
