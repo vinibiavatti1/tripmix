@@ -33,7 +33,7 @@ const MARQUEE_CONTENT = `
     <span class="marquee-content">Why there is no <span style="color: cyan;">syringe</span> in the game? Because the dev wants a more recreational and fun game, rather than something heavy and obscure.</span>
     <span class="marquee-content"><span style="color: magenta;">if</span> (you == <span style="color: orange">'developer'</span>) { Fork the game repository by clicking <a href="${GITHUB_REPO}">HERE!</a> :D }</span>
     <span class="marquee-content">Why to use real drugs if you can play this game??? WHY?</span>
-    <span class="marquee-content">Thanks <span style="color: magenta">Undefined Group</span> to enjoy! It is so much <span style="color: gold">\"key\"!</span></span>
+    <span class="marquee-content">Thanks <span style="color: magenta">Undefined Group</span> to enjoy! It is <span style="color: gold">\"key\"</span> so much</span>
     <span class="marquee-content">Yes, I know I used the obsolete <span style="color: yellow">marquee</span> tag to make it. I'm Sorry :/</span>
     <span class="marquee-content">Curiosity: the game was developed while listening to <span style="color: cyan">Lo-fi</span> sounds. Just relax!</span>
     <span class="marquee-content">They say that if you play this game for a long time, you may see <span style="color: magenta">UFOs, dragons, elves, gnomes, ...</span></span>
