@@ -3,10 +3,11 @@ registerSubstance('Ketamine', {
     /* General */
     img: 'ketamine.png',
     info: 'Ketamine is a classical dissociative substance. It is the most well-known and widely-used among the dissociatives.',
+    category: CATEGORIES.DISSOCIATIVE,
     addictionLevel: 1,
     special: false,
-    power: 4,
-    unlockPoints: 800,
+    power: 3,
+    unlockPoints: 1000,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
@@ -31,7 +32,7 @@ registerSubstance('Ketamine', {
     lowEuphoricEffect: POWER.NONE,
     highEuphoricEffect: POWER.NONE,
     flashEffect: POWER.NONE,
-    shadowPeopleEffect: POWER.HEAVY,
+    shadowPeopleEffect: POWER.NONE,
     lowDissociativeEffect: POWER.MODERATE,
     highDissociativeEffect: POWER.HEAVY,
     meltingEffect: POWER.HEAVY,
@@ -64,11 +65,11 @@ registerSubstance('Ketamine', {
             5: 'brightness(100%)',
         },
         to: {
-            1: 'brightness(50%)',
-            2: 'brightness(40%)',
-            3: 'brightness(-10%)',
-            4: 'brightness(-50%)',
-            5: 'brightness(-100%)',
+            1: 'brightness(90%)',
+            2: 'brightness(80%)',
+            3: 'brightness(80%)',
+            4: 'brightness(70%)',
+            5: 'brightness(70%)',
         }
     },
 });

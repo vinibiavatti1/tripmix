@@ -28,6 +28,17 @@ const POWER_LEVELS = {
     4: { name: 'Strong', class: 'orange' },
     5: { name: 'Heavy', class: 'red' },
 };
+const CATEGORIES = {
+    HEALTHY: 'healthy',
+    STIMULANT: 'stimulant',
+    SEDATIVE: 'sedative',
+    HALLUCINOGIC: 'hallucinogic',
+    DELIRANT: 'delirant',
+    DISSOCIATIVE: 'dissociative',
+    DEPRESSANT: 'depressant',
+    FICTIONAL: 'fictional',
+    CANNABINOID: 'cannabinoid',
+}
 const DRUNK_LEVELS = {
     1: '2px;',
     2: '8px;',
@@ -46,6 +57,11 @@ const DEEP_DREAMS = [
     'deep8.png',
     'deep9.png',
     'deep10.png',
+    'deep11.png',
+    'deep12.png',
+    'deep13.png',
+    'deep14.png',
+    'deep15.png',
 ];
 const DISSOCIATIVES = [
     'dark1.jpg',
@@ -111,10 +127,19 @@ const METHODS = {
     },
 };
 const LANDSCAPES = {
-    'Lake (Açores, Portugal)': {
+    'Lake': {
+        location: 'Azores, Portugal',
+        coords: '@37.7687264,-25.3345853,16.1z',
         unlockPoints: 0,
         folder: 'lake',
         imgs: ['lake1.png', 'lake2.png', 'lake3.png', 'lake4.png', 'lake5.png', 'lake6.png', 'lake7.png', 'lake8.png', 'lake9.png', 'lake10.png', 'lake11.png', 'lake12.png', 'lake13.png', 'lake14.png'],
+    },
+    'Hills': {
+        location: 'Zermatt, Switzerland',
+        coords: '@46.0089072,7.7064832,16.69z',
+        unlockPoints: 0,
+        folder: 'hills',
+        imgs: ['hills1.png', 'hills2.png', 'hills3.png', 'hills4.png', 'hills5.png', 'hills6.png', 'hills7.png', 'hills8.png', 'hills9.png', 'hills10.png', 'hills11.png', 'hills12.png', 'hills13.png', 'hills14.png', 'hills15.png'],
     },
     // Add more here...
 }

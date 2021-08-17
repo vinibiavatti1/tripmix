@@ -3,6 +3,7 @@ registerSubstance('Water', {
     /* General */
     img: 'water.png',
     info: 'Water is vital for all known forms of life, even though it provides no calories or organic nutrients. It can help you to control you addiction.',
+    category: CATEGORIES.HEALTHY,
     addictionLevel: 0,
     special: false,
     power: 0,

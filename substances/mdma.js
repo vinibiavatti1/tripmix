@@ -3,6 +3,7 @@ registerSubstance('MDMA', {
     /* General */
     img: 'mdma.png',
     info: 'MDMA is classified as an stimulant due to how it facilitates feelings of closeness with one\'s self and others.',
+    category: CATEGORIES.STIMULANT,
     addictionLevel: 3,
     special: false,
     power: 4,

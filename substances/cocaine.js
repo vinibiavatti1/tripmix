@@ -3,10 +3,11 @@ registerSubstance('Cocaine', {
     /* General */
     img: 'cocaine.png',
     info: 'The cocaine high is characterized by a rapid onset and a short duration, which produces a strong euphoric rush.',
+    category: CATEGORIES.STIMULANT,
     addictionLevel: 6,
     special: false,
     power: 6,
-    unlockPoints: 1100,
+    unlockPoints: 1400,
     worksOnMethod: [METHOD_TYPE.EAT],
 
     /* Stats */

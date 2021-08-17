@@ -140,15 +140,15 @@
 }
 @keyframes deep-dream-3-animation {
     from { opacity: 0; }
-    to { opacity: 0.4; }
+    to { opacity: 0.45; }
 }
 @keyframes deep-dream-4-animation {
     from { opacity: 0; }
-    to { opacity: 0.5; }
+    to { opacity: 0.6; }
 }
 @keyframes deep-dream-5-animation {
     from { opacity: 0; }
-    to { opacity: 0.7; }
+    to { opacity: 0.8; }
 }
 
 /* Stars */

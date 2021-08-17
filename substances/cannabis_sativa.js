@@ -3,6 +3,7 @@ registerSubstance('Cannabis Sativa', {
     /* General */
     img: 'cannabis_sativa.png',
     info: 'Cannabis produces psychoactive effects when consumed. Cannabis sativa has lower levels of THC to CBD.',
+    category: CATEGORIES.CANNABINOID,
     addictionLevel: 1,
     special: false,
     power: 1,

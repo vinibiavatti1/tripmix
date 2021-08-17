@@ -3,10 +3,11 @@ registerSubstance('Datura', {
     /* General */
     img: 'datura.png',
     info: 'Datura is known as powerful and dangerous deliriant, used for shamanic and medical purposes, as well as poisons.',
+    category: CATEGORIES.DELIRANT,
     addictionLevel: 0,
     special: false,
-    power: 7,
-    unlockPoints: 1000,
+    power: 10,
+    unlockPoints: 1300,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */

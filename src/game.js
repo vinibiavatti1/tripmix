@@ -1,4 +1,4 @@
-const DEBUG = false;
+const DEBUG = true;
 
 /* Player Data */
 let points = 0;
@@ -14,6 +14,7 @@ let maxAddiction = 200;
 let maxPoints = 999999;
 let adrenochrome = false;
 let clock = [0,0,0];
+let landscape = null;
 
 /**
  * Document init
@@ -192,6 +193,7 @@ function resetGame() {
     points = 0;
     addiction = 0;
     adrenochrome = false;
+    currentLandscape = null;
     window.localStorage.removeItem('points');
     resetData();
     renderPoints();
@@ -266,6 +268,7 @@ function afterSimulation() {
     renderSubstances();
     renderMethods();
     renderAddiction();
+    renderLandscapes();
     renderPoints();
 }
 
@@ -291,6 +294,7 @@ function startSimulation(method_type) {
     }
     // Reset clock
     resetClock();
+    renderLocation();
 
     // Reset variables
     randomWalk = false;
@@ -511,6 +515,7 @@ function startSubstanceEffects(
 
     // Log
     console.log('Animation: ' + animation);
+    console.log('Landscape: ' + currentLandscape);
     console.log('Deep dream img: ' + deepDreamImg);
     console.log('Deep dream effect: ' + deepDreamEffectLevel);
     console.log('Mirror effect: ' + mirrorEffect);

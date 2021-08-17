@@ -3,11 +3,12 @@ registerSubstance('LSD', {
     /* General */
     img: 'lsd.png',
     info: 'LSD is considered to be the best known, most researched, and culturally influential psychedelic substance.',
+    category: CATEGORIES.HALLUCINOGIC,
     addictionLevel: 1,
     special: false,
     power: 2,
-    unlockPoints: 600,
-    worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
+    unlockPoints: 700,
+    worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK],
 
     /* Stats */
     stats: {
@@ -40,18 +41,18 @@ registerSubstance('LSD', {
     drunkEffects: {
         1: POWER.NONE,
         2: POWER.NONE,
-        3: POWER.THRESHOLD,
+        3: POWER.NONE,
         4: POWER.THRESHOLD,
-        5: POWER.LIGHT,
+        5: POWER.THRESHOLD,
     },
 
     /* Deep dream */
     deepDreamEffects: {
         1: POWER.NONE,
         2: POWER.THRESHOLD,
-        3: POWER.THRESHOLD,
-        4: POWER.LIGHT,
-        5: POWER.MODERATE,
+        3: POWER.LIGHT,
+        4: POWER.MODERATE,
+        5: POWER.STRONG,
     },
 
     /* CSS Filter Effects */

@@ -3,10 +3,11 @@ registerSubstance('Nutmeg', {
     /* General */
     img: 'nutmeg.png',
     info: 'Nutmeg has a delirant substance called by myristicin. It is reported to induce hallucinogenic and paranoid effects.',
+    category: CATEGORIES.DELIRANT,
     addictionLevel: 0,
     special: false,
     power: 1,
-    unlockPoints: 900,
+    unlockPoints: 1200,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK],
 
     /* Stats */

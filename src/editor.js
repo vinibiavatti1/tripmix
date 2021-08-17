@@ -119,6 +119,7 @@ function generateCode() {
     code = code.replace('EFFECTS_TO_3', $("#s-effects-to-3").val());
     code = code.replace('EFFECTS_TO_4', $("#s-effects-to-4").val());
     code = code.replace('EFFECTS_TO_5', $("#s-effects-to-5").val());
+    code = code.replace('CATEGORY', $("#s-category").val());
 
     let methods = '';
     let comma = '';

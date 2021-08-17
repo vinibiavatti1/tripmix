@@ -3,6 +3,7 @@ registerSubstance('Cannabis Indica', {
     /* General */
     img: 'cannabis_indica.png',
     info: 'Cannabis produces psychoactive effects when consumed. Cannabis indica has higher levels of THC compared to CBD.',
+    category: CATEGORIES.CANNABINOID,
     addictionLevel: 1,
     special: false,
     power: 1,

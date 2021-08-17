@@ -32,9 +32,12 @@
     <script src="./substances/cannabis_sativa.js"></script>
     <script src="./substances/cannabis_indica.js"></script>
     <script src="./substances/mdma.js"></script>
+    <script src="./substances/nbome.js"></script>
     <script src="./substances/lsd.js"></script>
     <script src="./substances/psilocybin_mushrooms.js"></script>
+    <script src="./substances/peyote.js"></script>
     <script src="./substances/ketamine.js"></script>
+    <script src="./substances/pcp.js"></script>
     <script src="./substances/nutmeg.js"></script>
     <script src="./substances/datura.js"></script>
     <script src="./substances/cocaine.js"></script>
@@ -142,7 +145,7 @@
                 <div class="progress-bar">
                     <div id="progress-addiction" class="progress-addiction l5b" style="width: 0%;"></div>
                 </div>
-                <h4>Place</h4>
+                <h4>Landscape</h4>
                 <select id="landscape"></select>
                 <h4>Method (Choose to start!)</h4>
                 <div id="method-list" class="">
@@ -155,11 +158,14 @@
 
         <!-- Simulation -->
         <div id="simulation" class="simulation" style="display: none;">
-            <div class="actions" style="text-align: left;">
+            <div class="actions" style="text-align: left; position: relative">
                 <button onclick="back()">&#60; Back</button>
                 <button id="walk-btn" onclick="walk()">Walk</button>
-                <span id="clock" style="float: right; margin: 5px 5px 0px 0px">
+                <span id="clock" class="clock">
                     00:00:00
+                </span>
+                <span id="location-map" class="location-map">
+                    <a id="location-map-info" target="_blank" href="#!"></a>
                 </span>
             </div>
             <div id="simulation-screen" class="simulation-screen">

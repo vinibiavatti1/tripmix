@@ -3,6 +3,7 @@ registerSubstance('Tobacco', {
     /* General */
     img: 'tobacco.png',
     info: 'Tobacco contains nicotine that is a stimulant substance. It is highly addictive. Subjective effects include stimulation and mild euphoria.',
+    category: CATEGORIES.STIMULANT,
     addictionLevel: 4,
     special: false,
     power: 1,

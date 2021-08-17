@@ -3,6 +3,7 @@ registerSubstance('Beer', {
     /* General */
     img: 'beer.png',
     info: 'Beer is one of the oldest and most widely consumed alcoholic drinks in the world.',
+    category: CATEGORIES.DEPRESSANT,
     addictionLevel: 2,
     special: false,
     power: 2,

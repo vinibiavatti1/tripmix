@@ -3,6 +3,7 @@ const TEMPLATE = `registerSubstance('SUBSTANCE_NAME', {
     /* General */
     img: 'IMG.png',
     info: 'INFO',
+    category: CATEGORY,
     addictionLevel: ADDICTION_LEVEL,
     special: SPECIAL,
     power: POWER,

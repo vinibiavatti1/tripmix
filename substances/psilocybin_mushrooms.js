@@ -3,10 +3,11 @@ registerSubstance('Psilocybin Mushrooms', {
     /* General */
     img: 'psilocybin_mushrooms.png',
     info: 'Psilocybin Mushrooms are a family of psychoactive mushrooms that contain psilocybin, a psychedelic substance.',
+    category: CATEGORIES.HALLUCINOGIC,
     addictionLevel: 0,
     special: false,
     power: 1,
-    unlockPoints: 700,
+    unlockPoints: 800,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */

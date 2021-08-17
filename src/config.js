@@ -26,7 +26,7 @@ const MARQUEE_CONTENT = `
     <span class="marquee-content">This game is <span style="color: gold">FREE!</span>. Don't worry ;)</span>
     <span class="marquee-content">The main source of resources that was used during game development was <a href="https://psychonautwiki.org/" class="colorfull-text">psychonautwiki.org</a>. Thanks community!</span>
     <span class="marquee-content">Are you of legal age? <span style="color: red;"><b>NOT?</b></span> Go away right now!!!</span>
-    <span class="marquee-content">Sometimes it's good to check your <span style="color: orange">Addicted Level</span>. Don't forget it!</span>
+    <span class="marquee-content">Sometimes it's good to check your <span style="color: orange">Addiction Level</span>. Don't forget it!</span>
     <span class="marquee-content">Did you know you can create your <span class="colorfull-text">PARTICULAR SUBSTANCES</span>? Yes! You can! Just <a href="${DOWNLOAD_LINK}" download>DOWNLOAD</a> the game, start the editor and follow the instructions!</span>
     <span class="marquee-content">Maybe, the game might have some secret <span style="color: blueviolet;">cheats</span>... Maybe!</span>
     <span class="marquee-content">Thank you <span style="color: gold">Albert Hofmann</span> for your studies!</span>

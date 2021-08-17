@@ -60,7 +60,7 @@ function renderSubstances() {
         img.attr('width', 50);
         img.attr('height', 50);
         let p = $('<p></p>');
-        p.html(key);
+        p.html(key + `<br><span class="category">${substanceConfig.category}</span>`);
         div.append(img)
         div.append(p)
         $('#substances').append(div);
@@ -203,7 +203,12 @@ function renderPoints() {
 function renderLandscapes() {
     $('#landscape').empty();
     for(land in LANDSCAPES) {
-        $('#landscape').append(`<option value="${land}">${land}</option>`);
+        let landscapeConfig = LANDSCAPES[land];
+        let selected = '';
+        if(currentLandscape == land) {
+            selected = 'selected';
+        }
+        $('#landscape').append(`<option value="${land}" ${selected}>${land} (${landscapeConfig.location})</option>`);
     }
 }
 
@@ -215,4 +220,15 @@ function renderClock() {
     minutes = clock[1] > 9 ? clock[1] : '0' + clock[1];
     hours = clock[0] > 9 ? clock[0] : '0' + clock[0];
     $('#clock').html(hours + ':' + minutes + ':' + seconds);
+}
+
+/**
+ * Render location with google maps link
+ */
+function renderLocation() {
+    let key = $('#landscape').val();
+    let landscapeConfig = LANDSCAPES[key];
+    let mapsUrl = 'https://www.google.com/maps/' + landscapeConfig.coords;
+    $('#location-map-info').attr('href', mapsUrl);
+    $('#location-map-info').html(key + ', ' + landscapeConfig.location);
 }

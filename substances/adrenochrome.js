@@ -3,6 +3,7 @@ registerSubstance('Adrenochrome', {
     /* General */
     img: 'adrenochrome.png',
     info: '(fictional) Adrenochrome is a drug of the Hollywood elite, it’s addictive, it’s harvested from tortured children in Satanic rituals. (FaLinLV)',
+    category: CATEGORIES.FICTIONAL,
     addictionLevel: 0,
     special: true,
     power: 20,

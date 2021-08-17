@@ -3,6 +3,7 @@ registerSubstance('SUBSTANCE_NAME', {
     /* General */
     img: 'IMG.png',
     info: 'DESCRIPTION.',
+    category: CATEGORIES.STIMULANT,
     addictionLevel: 0,
     special: false,
     power: 0,

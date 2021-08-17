@@ -3,6 +3,7 @@ registerSubstance('Coffee', {
     /* General */
     img: 'coffee.png',
     info: 'Coffee contains caffeine that is a stimulant substance. Notable effects include stimulation, wakefulness, enhanced focus and motivation.',
+    category: CATEGORIES.STIMULANT,
     addictionLevel: 2,
     special: false,
     power: 1,
