@@ -1,6 +1,6 @@
 // General
 const TITLE = 'Tripmix';
-const VERSION = '1.0.2 Beta';
+const VERSION = '1.1.0 Beta';
 const AUTHOR = 'Vinícius Reif Biavatti';
 const DESCRIPTION = 'A Playground Where You Can Imagine And Discover';
 const GITHUB_REPO = 'https://github.com/vinibiavatti1/drugmix';
