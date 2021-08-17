@@ -6,8 +6,8 @@ registerSubstance('NBOMe', {
     category: CATEGORIES.HALLUCINOGIC,
     addictionLevel: 2,
     special: false,
-    power: 4,
-    unlockPoints: 600,
+    power: 5,
+    unlockPoints: 700,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('NBOMe', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.STRONG,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

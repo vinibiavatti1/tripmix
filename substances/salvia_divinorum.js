@@ -1,22 +1,22 @@
-registerSubstance('Water', {
+registerSubstance('Salvia Divinorum', {
 
     /* General */
-    img: 'water.png',
-    info: 'Water is vital for all known forms of life, even though it provides no calories or organic nutrients. It can help you to control you addiction.',
-    category: CATEGORIES.HEALTHY,
-    addictionLevel: 0,
+    img: 'salvia_divinorum.png',
+    info: 'Salvia Divinorum contains Salvinorin A which is a psychoactive substance. It differs in subjective experience compared to other hallucinogens.',
+    category: CATEGORIES.DISSOCIATIVE,
+    addictionLevel: 1,
     special: false,
-    power: 0,
-    unlockPoints: 0,
-    worksOnMethod: [METHOD_TYPE.DRINK],
+    power: 3,
+    unlockPoints: 1100,
+    worksOnMethod: [METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
     stats: {
         stimulant: false,
         sedative: false,
-        hallucinogic: false,
+        hallucinogic: true,
         delirant: false,
-        dissociative: false,
+        dissociative: true,
         depressant: false,
     },
 
@@ -25,35 +25,35 @@ registerSubstance('Water', {
     randomWalkEffect: POWER.NONE,
     lowDelirantEffect: POWER.NONE,
     highDelirantEffect: POWER.NONE,
-    mirrorEffect: POWER.NONE,
-    whiteNoiseEffect: POWER.NONE,
+    mirrorEffect: POWER.LIGHT,
+    whiteNoiseEffect: POWER.HEAVY,
     starsEffect: POWER.NONE,
     dmtEffect: POWER.NONE,
     lowEuphoricEffect: POWER.NONE,
     highEuphoricEffect: POWER.NONE,
     flashEffect: POWER.NONE,
     shadowPeopleEffect: POWER.NONE,
-    lowDissociativeEffect: POWER.NONE,
+    lowDissociativeEffect: POWER.HEAVY,
     highDissociativeEffect: POWER.NONE,
-    meltingEffect: POWER.NONE,
-    verticalMirrorEffect: POWER.NONE,
+    meltingEffect: POWER.STRONG,
+    verticalMirrorEffect: POWER.MODERATE,
 
     /* Drunk */
     drunkEffects: {
-        1: POWER.NONE,
-        2: POWER.NONE,
-        3: POWER.NONE,
-        4: POWER.NONE,
-        5: POWER.NONE,
+        1: POWER.THRESHOLD,
+        2: POWER.THRESHOLD,
+        3: POWER.THRESHOLD,
+        4: POWER.THRESHOLD,
+        5: POWER.THRESHOLD,
     },
 
     /* Deep dream */
     deepDreamEffects: {
-        1: POWER.NONE,
-        2: POWER.NONE,
-        3: POWER.NONE,
-        4: POWER.NONE,
-        5: POWER.NONE,
+        1: POWER.THRESHOLD,
+        2: POWER.THRESHOLD,
+        3: POWER.THRESHOLD,
+        4: POWER.MODERATE,
+        5: POWER.MODERATE,
     },
 
     /* CSS Filter Effects */

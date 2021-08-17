@@ -7,7 +7,7 @@ registerSubstance('Nutmeg', {
     addictionLevel: 0,
     special: false,
     power: 1,
-    unlockPoints: 1200,
+    unlockPoints: 1400,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('Nutmeg', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.NONE,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

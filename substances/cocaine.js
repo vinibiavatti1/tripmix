@@ -7,7 +7,7 @@ registerSubstance('Cocaine', {
     addictionLevel: 6,
     special: false,
     power: 6,
-    unlockPoints: 1400,
+    unlockPoints: 0,
     worksOnMethod: [METHOD_TYPE.EAT],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('Cocaine', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.NONE,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

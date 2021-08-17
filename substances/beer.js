@@ -36,6 +36,7 @@ registerSubstance('Beer', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.NONE,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

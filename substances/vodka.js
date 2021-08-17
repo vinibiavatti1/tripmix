@@ -3,11 +3,11 @@ registerSubstance('Vodka', {
     /* General */
     img: 'vodka.png',
     info: 'Vodka is composed mainly of water and ethanol. Usually, vodkas contain 40% alcohol.',
-    category: CATEGORIES.STIMULANT,
+    category: CATEGORIES.DEPRESSANT,
     addictionLevel: 2,
     special: false,
     power: 4,
-    unlockPoints: 200,
+    unlockPoints: 300,
     worksOnMethod: [METHOD_TYPE.DRINK],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('Vodka', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.NONE,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

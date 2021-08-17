@@ -1,23 +1,23 @@
-registerSubstance('Tobacco', {
+registerSubstance('Wine', {
 
     /* General */
-    img: 'tobacco.png',
-    info: 'Tobacco contains nicotine that is a stimulant substance. It is highly addictive. Subjective effects include stimulation and mild euphoria.',
-    category: CATEGORIES.STIMULANT,
-    addictionLevel: 4,
+    img: 'wine.png',
+    info: 'Wine is an alcoholic drink typically made from fermented grapes.',
+    category: CATEGORIES.DEPRESSANT,
+    addictionLevel: 2,
     special: false,
-    power: 1,
-    unlockPoints: 200,
-    worksOnMethod: [METHOD_TYPE.SMOKE],
+    power: 3,
+    unlockPoints: 100,
+    worksOnMethod: [METHOD_TYPE.DRINK],
 
     /* Stats */
     stats: {
         stimulant: true,
-        sedative: false,
+        sedative: true,
         hallucinogic: false,
         delirant: false,
         dissociative: false,
-        depressant: false,
+        depressant: true,
     },
 
     /* Effect Properties */
@@ -40,11 +40,11 @@ registerSubstance('Tobacco', {
 
     /* Drunk */
     drunkEffects: {
-        1: POWER.NONE,
-        2: POWER.NONE,
-        3: POWER.NONE,
-        4: POWER.THRESHOLD,
-        5: POWER.LIGHT,
+        1: POWER.THRESHOLD,
+        2: POWER.LIGHT,
+        3: POWER.MODERATE,
+        4: POWER.STRONG,
+        5: POWER.STRONG,
     },
 
     /* Deep dream */
@@ -59,18 +59,18 @@ registerSubstance('Tobacco', {
     /* CSS Filter Effects */
     cssFilterEffects: {
         from: {
-            1: 'contrast(100%) sepia(0%)',
-            2: 'contrast(100%) sepia(0%)',
-            3: 'contrast(100%) sepia(0%)',
-            4: 'contrast(100%) sepia(0%)',
-            5: 'contrast(100%) sepia(0%)',
+            1: '',
+            2: '',
+            3: '',
+            4: '',
+            5: '',
         },
         to: {
-            1: 'contrast(100%) sepia(10%)',
-            2: 'contrast(115%) sepia(20%)',
-            3: 'contrast(125%) sepia(40%)',
-            4: 'contrast(155%) sepia(60%)',
-            5: 'contrast(175%) sepia(80%)',
+            1: '',
+            2: '',
+            3: '',
+            4: '',
+            5: '',
         }
     },
 });

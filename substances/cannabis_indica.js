@@ -7,7 +7,7 @@ registerSubstance('Cannabis Indica', {
     addictionLevel: 1,
     special: false,
     power: 1,
-    unlockPoints: 400,
+    unlockPoints: 500,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.SMOKE],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('Cannabis Indica', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.NONE,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

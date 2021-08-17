@@ -7,7 +7,7 @@ registerSubstance('MDMA', {
     addictionLevel: 3,
     special: false,
     power: 4,
-    unlockPoints: 500,
+    unlockPoints: 600,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('MDMA', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.NONE,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

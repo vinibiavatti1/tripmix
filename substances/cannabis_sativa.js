@@ -7,7 +7,7 @@ registerSubstance('Cannabis Sativa', {
     addictionLevel: 1,
     special: false,
     power: 1,
-    unlockPoints: 300,
+    unlockPoints: 400,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.SMOKE],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('Cannabis Sativa', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.NONE,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

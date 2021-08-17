@@ -36,6 +36,7 @@ const TEMPLATE = `registerSubstance('SUBSTANCE_NAME', {
     lowDissociativeEffect: LOW_DISSOCIATIVE_EFFECT,
     highDissociativeEffect: HIGH_DISSOCIATIVE_EFFECT,
     meltingEffect: MELTING_EFFECT,
+    verticalMirrorEffect: VERTICAL_MIRROR_EFFECT,
 
     /* Drunk */
     drunkEffects: {

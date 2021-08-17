@@ -7,7 +7,7 @@ registerSubstance('Datura', {
     addictionLevel: 0,
     special: false,
     power: 10,
-    unlockPoints: 1300,
+    unlockPoints: 1600,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('Datura', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.HEAVY,
+    verticalMirrorEffect: POWER.HEAVY,
 
     /* Drunk */
     drunkEffects: {

@@ -6,8 +6,8 @@ registerSubstance('LSD', {
     category: CATEGORIES.HALLUCINOGIC,
     addictionLevel: 1,
     special: false,
-    power: 2,
-    unlockPoints: 700,
+    power: 5,
+    unlockPoints: 800,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('LSD', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.STRONG,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

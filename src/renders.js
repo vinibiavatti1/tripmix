@@ -52,6 +52,7 @@ function renderSubstances() {
         let specialInfo = substanceConfig.special ? '(special) ' : '';
         div.attr('data-info', specialInfo + substanceConfig.info);
         div.attr('data-name', key);
+        div.attr('data-category', substanceConfig.category);
         let special = substanceConfig.special ? ' special-substance' : '';
         div.attr('class', 'substance info-hint' + special);
         div.attr('onclick', `selectSubstance('${key}')`)

@@ -7,7 +7,7 @@ registerSubstance('PCP', {
     addictionLevel: 1,
     special: false,
     power: 5,
-    unlockPoints: 1100,
+    unlockPoints: 1300,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('PCP', {
     lowDissociativeEffect: POWER.LIGHT,
     highDissociativeEffect: POWER.HEAVY,
     meltingEffect: POWER.MODERATE,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

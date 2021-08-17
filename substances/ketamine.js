@@ -7,7 +7,7 @@ registerSubstance('Ketamine', {
     addictionLevel: 1,
     special: false,
     power: 3,
-    unlockPoints: 1000,
+    unlockPoints: 1200,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('Ketamine', {
     lowDissociativeEffect: POWER.MODERATE,
     highDissociativeEffect: POWER.HEAVY,
     meltingEffect: POWER.HEAVY,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

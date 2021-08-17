@@ -6,8 +6,8 @@ registerSubstance('Psilocybin Mushrooms', {
     category: CATEGORIES.HALLUCINOGIC,
     addictionLevel: 0,
     special: false,
-    power: 1,
-    unlockPoints: 800,
+    power: 6,
+    unlockPoints: 900,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('Psilocybin Mushrooms', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.MODERATE,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

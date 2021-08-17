@@ -98,6 +98,7 @@ function generateCode() {
     code = code.replace('LOW_DISSOCIATIVE_EFFECT', $("#s-low-dissociative-effect").val());
     code = code.replace('HIGH_DISSOCIATIVE_EFFECT', $("#s-high-dissociative-effect").val());
     code = code.replace('MELTING_EFFECT', $("#s-melting-effect").val());
+    code = code.replace('VERTICAL_MIRROR_EFFECT', $("#s-vertical-mirror-effect").val());
 
     code = code.replace('DRUNK_1', $("#s-drunk-1").val());
     code = code.replace('DRUNK_2', $("#s-drunk-2").val());

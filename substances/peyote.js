@@ -7,7 +7,7 @@ registerSubstance('Peyote', {
     addictionLevel: 0,
     special: false,
     power: 1,
-    unlockPoints: 900,
+    unlockPoints: 1000,
     worksOnMethod: [METHOD_TYPE.EAT, METHOD_TYPE.DRINK, METHOD_TYPE.SMOKE],
 
     /* Stats */
@@ -36,6 +36,7 @@ registerSubstance('Peyote', {
     lowDissociativeEffect: POWER.NONE,
     highDissociativeEffect: POWER.NONE,
     meltingEffect: POWER.MODERATE,
+    verticalMirrorEffect: POWER.NONE,
 
     /* Drunk */
     drunkEffects: {

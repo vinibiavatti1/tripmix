@@ -155,6 +155,9 @@ table {
 .inverse-img {
     transform: rotateY(180deg);
 }
+.vertical-inverse-img {
+    transform: rotateX(180deg);
+}
 
 .info {
     position: absolute;
@@ -281,11 +284,17 @@ table {
     animation-direction: alternate;
     animation-delay: 32s;
 }
-.hallucinogic2 {
+.mirror-effect {
     animation: alternateOpacity6 8s ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-delay: 10s;
+}
+.vertical-mirror-effect {
+    animation: alternateOpacity6 12s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 15s;
 }
 .fadeOut {
     animation: fadeOut 1s ease-in-out;

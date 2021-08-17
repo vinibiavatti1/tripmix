@@ -96,11 +96,12 @@ function searchListener() {
         } else {
             $(".substance").each(function() {
                 let name = $(this).attr('data-name');
-                if(name) {
-                    if(!name.toLowerCase().includes(search.toLowerCase())) {
-                        $(this).hide();
-                    } else {
+                let category = $(this).attr('data-category');
+                if(name || category) {
+                    if(name.toLowerCase().includes(search.toLowerCase()) || category.toLowerCase().includes(search.toLowerCase())) {
                         $(this).show();
+                    } else {
+                        $(this).hide();
                     }
                 }
             });
@@ -302,7 +303,6 @@ function startSimulation(method_type) {
     let deepDreamImg = getRandomDeepDream();
     let dissociativeImg = getRandomDissociative();
     let generalDeepDreamEffectLevel = 0;
-    let generalMirrorEffect = false;
     let generalDrunkEffect = false;
     let cssFilterEffectsFrom = '';
     let cssFilterEffectsTo = '';
@@ -318,6 +318,8 @@ function startSimulation(method_type) {
     let lowDissociativeEffect = false;
     let highDissociativeEffect = false;
     let meltingEffect = false;
+    let mirrorEffect = false;
+    let verticalMirrorEffect = false;
 
     // Set landscape
     currentLandscape = $("#landscape").val();
@@ -367,9 +369,13 @@ function startSimulation(method_type) {
         }
 
         // Mirror effect
-        let mirrorEffect = substanceConfig.mirrorEffect;
-        if(mirrorEffect && power >= substanceConfig.mirrorEffect) {
-            generalMirrorEffect = true;
+        if(substanceConfig.mirrorEffect && power >= substanceConfig.mirrorEffect) {
+            mirrorEffect = true;
+        }
+
+        // Mirror effect
+        if(substanceConfig.verticalMirrorEffect && power >= substanceConfig.verticalMirrorEffect) {
+            verticalMirrorEffect = true;
         }
 
         // Low delirant effect
@@ -447,7 +453,7 @@ function startSimulation(method_type) {
         cssFilterEffectsTo,
         deepDreamImg,
         generalDeepDreamEffectLevel,
-        generalMirrorEffect,
+        mirrorEffect,
         lowDelirantEffects,
         highDelirantEffects,
         whiteNoise,
@@ -461,7 +467,8 @@ function startSimulation(method_type) {
         lowDissociativeEffect,
         highDissociativeEffect,
         dissociativeImg,
-        meltingEffect
+        meltingEffect,
+        verticalMirrorEffect
     );
     changeScreen(SCREENS.SIMULATION);
 }
@@ -508,7 +515,8 @@ function startSubstanceEffects(
     lowDissociativeEffect,
     highDissociativeEffect,
     dissociativeImg,
-    meltingEffect
+    meltingEffect,
+    verticalMirrorEffect
     ) {
     // Create animation
     let animation = createAnimationCss(cssFilterEffectsFrom, cssFilterEffectsTo, drunkEffect);
@@ -519,6 +527,7 @@ function startSubstanceEffects(
     console.log('Deep dream img: ' + deepDreamImg);
     console.log('Deep dream effect: ' + deepDreamEffectLevel);
     console.log('Mirror effect: ' + mirrorEffect);
+    console.log('Vertical Mirror effect: ' + verticalMirrorEffect);
     console.log('Low delirant effects: ' + lowDelirantEffects);
     console.log('High delirant effects: ' + highDelirantEffects);
     console.log('White noise: ' + whiteNoise);
@@ -546,6 +555,9 @@ function startSubstanceEffects(
     }
     if(mirrorEffect) {
         $('#mirror-effect').show();
+    }
+    if(verticalMirrorEffect) {
+        $('#vertical-mirror-effect').show();
     }
     if(lowDelirantEffects) {
         $('#delirant-ants').show();
@@ -640,6 +652,7 @@ function updateLandscape() {
     $("#simulation-img-2").attr('src', img);
     $("#simulation-img-3").attr('src', img);
     $("#mirror-effect").attr('src', img);
+    $("#vertical-mirror-effect").attr('src', img);
     $("#flash-effect").attr('src', img);
 }
 
