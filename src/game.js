@@ -94,6 +94,11 @@ function searchListener() {
                 }
             }
         } else {
+            if(!search) {
+                $(".substance-locked").show();
+            } else {
+                $(".substance-locked").hide();
+            }
             $(".substance").each(function() {
                 let name = $(this).attr('data-name');
                 let category = $(this).attr('data-category');
