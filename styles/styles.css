@@ -175,7 +175,7 @@ table {
 
 
 
-.substance {
+.substance, .substance-locked {
     padding: 5px;
     display: inline-block;
     width: 100%;
@@ -186,18 +186,18 @@ table {
     margin-bottom: 4px;
     user-select: none;
 }
-
-.substance p {
+.substance-locked {
+    opacity: .8;
+}
+.substance p, .substance-locked p {
     margin: 0px;
 }
-
-.substance img {
+.substance img, .substance-locked img {
     width: 50px;
     height: 50px;
     float: left;
     margin-right: 10px;
 }
-
 .substance:hover {
     background-color: rgb(0, 50, 0);
     cursor: pointer;
@@ -626,4 +626,8 @@ background: rgb(0, 75, 0);
     text-align: center;
     padding: 10px 20px;
     border-left: 1px solid rgb(0, 200, 0);
+}
+.locked {
+    filter: blur(4px) grayscale(100%);
+    opacity: .8;
 }

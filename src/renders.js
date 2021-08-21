@@ -42,7 +42,20 @@ function renderSubstances() {
     $('#substances').empty();
     for(key in SUBSTANCES) {
         let substanceConfig = SUBSTANCES[key];
+        let special = substanceConfig.special ? ' special-substance' : '';
         if(!DEBUG && points < substanceConfig.unlockPoints) {
+            let div = $('<div></div>');
+            div.attr('class', 'substance-locked' + special);
+            let img = $('<img/>');
+            img.attr('src', IMAGES_SUBSTANCES_PATH + '/' + substanceConfig.img);
+            img.attr('width', 50);
+            img.attr('height', 50);
+            img.attr('class', 'locked');
+            let p = $('<p></p>');
+            p.html(`???<br><span class="category">Unlock when ${substanceConfig.unlockPoints} points</span>`);
+            div.append(img);
+            div.append(p);
+            $('#substances').append(div);
             continue;
         }
         if(key == 'Adrenochrome' && !adrenochrome) {
@@ -53,7 +66,6 @@ function renderSubstances() {
         div.attr('data-info', specialInfo + substanceConfig.info);
         div.attr('data-name', key);
         div.attr('data-category', substanceConfig.category);
-        let special = substanceConfig.special ? ' special-substance' : '';
         div.attr('class', 'substance info-hint' + special);
         div.attr('onclick', `selectSubstance('${key}')`)
         let img = $('<img/>');
@@ -62,8 +74,8 @@ function renderSubstances() {
         img.attr('height', 50);
         let p = $('<p></p>');
         p.html(key + `<br><span class="category">${substanceConfig.category}</span>`);
-        div.append(img)
-        div.append(p)
+        div.append(img);
+        div.append(p);
         $('#substances').append(div);
     }
     updateInfos();

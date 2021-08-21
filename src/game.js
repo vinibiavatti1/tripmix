@@ -701,6 +701,7 @@ function processCheat(cheat) {
         points = maxPoints;
         renderSubstances();
         renderMethods();
+        renderLandscapes();
         return true;
     }
     if(cheat == '@adrenochrome') {

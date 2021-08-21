@@ -1,6 +1,6 @@
 // General
 const TITLE = 'Tripmix';
-const VERSION = '1.2.0 Beta';
+const VERSION = '1.3.0 Beta';
 const AUTHOR = 'Vinícius Reif Biavatti';
 const DESCRIPTION = 'A Playground Where You Can Imagine And Discover';
 const GITHUB_REPO = 'https://github.com/vinibiavatti1/drugmix';
@@ -22,9 +22,9 @@ const MARQUEE_CONTENT = `
     <span class="marquee-content"><span style="color: red;"><b>Do not use drugs!</b></span> The purpose of this game is to provide information and entertainment content. The game does not encourage the use of drugs in any way.</span>
     <span class="marquee-content">Drink <span style="color: cyan">Water</span> to prevent/reduce the addiction level.</span>
     <span class="marquee-content">Don't be anxious. Wait a time to check all of <span class="colorfull-text">effects</span> of your substance, due some of these have a delay to start!</span>
-    <span class="marquee-content">Thanks <span style="color: gold">Gabriel (From Croatia)</span> to test and enjoy the game!</span>
     <span class="marquee-content">This game is <span style="color: gold">FREE!</span>. Don't worry ;)</span>
     <span class="marquee-content">The main source of resources that was used during game development was <a href="https://psychonautwiki.org/" class="colorfull-text">psychonautwiki.org</a>. Thanks community!</span>
+    <span class="marquee-content">The game does not intend to copy any content and be <span style="color: gold">for-profit</span></span>
     <span class="marquee-content">Are you of legal age? <span style="color: red;"><b>NOT?</b></span> Go away right now!!!</span>
     <span class="marquee-content">Sometimes it's good to check your <span style="color: orange">Addiction Level</span>. Don't forget it!</span>
     <span class="marquee-content">Did you know you can create your <span class="colorfull-text">PARTICULAR SUBSTANCES</span>? Yes! You can! Just <a href="${DOWNLOAD_LINK}" download>DOWNLOAD</a> the game, start the editor and follow the instructions!</span>
